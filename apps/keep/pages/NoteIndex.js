@@ -12,7 +12,7 @@ export default {
   template: `
   <h1>Note Keep</h1>
   <!-- <RouterLink to="/note/add" @addNote="onSaveNote">+</RouterLink> -->
-  <NoteList 
+                <NoteList 
                 :notes="notes" 
                 @remove="removeNote" />
         `,

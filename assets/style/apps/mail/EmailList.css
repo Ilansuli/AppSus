@@ -1,0 +1,35 @@
+.email-list-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-block: 10px;
+    background-color: #fff;
+    margin-block: 8px;
+    border-radius: 16px;
+    margin-inline: 8px;
+    padding-inline: 8px;
+}
+.email-list{
+    border: #ECEFF2 1px solid;
+}
+.email-list ul{
+    display: flex;
+    margin: 0;
+    justify-content: flex-end;
+}
+.email-list article{
+    font-family: "Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 5fr 0.7fr;
+    align-items: center;
+    border: #ECEFF2 1px solid;
+    padding-block: 10px;
+    padding-inline: 16px;
+
+}
+.email-list article div{
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}

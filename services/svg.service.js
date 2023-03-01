@@ -34,6 +34,7 @@ const KeepSvgs = {
 }
 
 const mailSvgs = {
+    trash: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13z"></path><path d="M9 8h2v9H9zm4 0h2v9h-2z"></path></svg>`,
     inbox: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20"><path d="M216 912q-29 0-50.5-21.5T144 840V312q0-29.7 21.5-50.85Q187 240 216 240h528q29.7 0 50.85 21.15Q816 282.3 816 312v528q0 29-21.15 50.5T744 912H216Zm0-72h528V696H632q-23 43-63.5 69.5T480 792q-49 0-89.5-26T328 696H216v144Zm264-120q40 0 68-28t28-68h168V312H216v312h168q0 40 28 68t68 28ZM216 840h528-528Z"/></svg>',
     inboxFill: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20"><path d="M216 912q-29 0-50.5-21.5T144 840V312q0-29.7 21.5-50.85Q187 240 216 240h528q29.7 0 50.85 21.15Q816 282.3 816 312v528q0 29-21.15 50.5T744 912H216Zm264-192q40 0 68-28t28-68h168V312H216v312h168q0 40 28 68t68 28Z"/></svg>',
     star: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20"><path d="m352 811 128-76 129 76-34-144 111-95-147-13-59-137-59 137-147 13 112 95-34 144ZM243 960l63-266L96 515l276-24 108-251 108 252 276 23-210 179 63 266-237-141-237 141Zm237-333Z"/></svg>',
@@ -48,20 +49,20 @@ const mailSvgs = {
     checkBoxFill: `<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20"><path d="m429 706.153 224.922-223.922-37.153-37.153L429 631.847l-85-84L306.847 585 429 706.153ZM228.309 891.999q-27.008 0-45.658-18.65-18.65-18.65-18.65-45.658V324.309q0-27.008 18.65-45.658 18.65-18.65 45.658-18.65h503.382q27.008 0 45.658 18.65 18.65 18.65 18.65 45.658v503.382q0 27.008-18.65 45.658-18.65 18.65-45.658 18.65H228.309Zm0-51.999h503.382q4.616 0 8.463-3.846 3.846-3.847 3.846-8.463V324.309q0-4.616-3.846-8.463-3.847-3.846-8.463-3.846H228.309q-4.616 0-8.463 3.846-3.846 3.847-3.846 8.463v503.382q0 4.616 3.846 8.463 3.847 3.846 8.463 3.846ZM216 312v528-528Z"/></svg>`,
 }
 
-function getKeepSvg(iconName) {
+function getSvg(iconName) {
     return KeepSvgs[iconName]
 }
 
 function getMailSvg(iconName) {
     return mailSvgs[iconName]
 }
-export const svgService = { getKeepSvg, getMailSvg }
+export const svgService = { getSvg, getMailSvg }
 
 // in template
 // <div className="icon" v-html="getSvg('bars')"></div>
 // <img style="width:24px; height:24px" :src="getSvg('add')" alt="" />
 
 // in methodes
-// function getSvg(iconName) {
-//     return svgService.getSvg(iconName)
+//      getSvg(iconName) {
+//     return svgService.getMailSvg(iconName)
 //   }

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "e101",
+    "subject": "Miss you!",
+    "body": "Would love to catch up sometimes",
+    "isRead": false,
+    "sentAt": 167766679594,
+    "removedAt": null,
+    "from": "momo@momo.com",
+    "to": "user@appsus.com"
+  },
+  {
+    "id": "e102",
+    "subject": "Hello",
+    "body": "Your Delivery from AliExpress Arrived",
+    "isRead": false,
+    "sentAt": 1551133931459,
+    "removedAt": null,
+    "from": "ilan@momo.com",
+    "to": "user@appsus.com"
+  },
+  {
+    "id": "e103",
+    "subject": "Hey",
+    "body": "Hey Ilan Sulimanov,We, at the Product Team here at IconScout help design and developer teams uplevel their design game.Whether you have questions, brutally honest feedback, bugs, or feature requests, we got you covered. We want to make your IconScout experience a magical one!",
+  "isRead": false,
+    "sentAt": 155133930594,
+    "removedAt": null,
+    "from": "koko@momo.com",
+    "to": "user@appsus.com"
+  },
+  {
+    "id": "e103",
+    "subject": "Fuck You",
+    "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam temporibus eveniet error perspiciatis eligendi quod iusto veniam nihil praesentium quisquam dolores voluptas consectetur odit perferendisculpanam ut optio dolorem sunt explicabo? Voluptate veritatis perferendis quo eius magnam tempore sequi. Eaque non sint ut ipsam molestias sunt animi accusamus obcaecati ullam provident aliquid perspiciatis asperiores pariatur similique. Recusandae libero saepe veniam culpa quidem est aut nemo iusto dolor doloribus in",
+    "isRead": false,
+    "sentAt": 155133930594,
+    "removedAt": null,
+    "from": "koko@momo.com",
+    "to": "user@appsus.com"
+  }
+]
