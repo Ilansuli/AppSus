@@ -2,7 +2,7 @@ export default {
   name: 'Note Keep', 
   props: [],
   template: `
-  <h1>Note Keep</h1>
+  <h1>EMAIL</h1>
         `,
 components:{},
 created() {},
