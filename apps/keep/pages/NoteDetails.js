@@ -1,12 +1,13 @@
 import { noteService } from '../services/note.service.js'
-
+import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
     name: 'noteDetails',
     props: [],
     template: `
     <div v-if="note">
-    <p :style="styleObject" contenteditable="true" ref="currNote" @input="updateNote()">{{note.info.txt}}</p>
+    <p :style="styleObject" contenteditable="true" ref="currNote" @input="updateNote">{{note.info.txt}}</p>
+    <input type="color" @input="changeNoteColor"  v-model="note.style.backgroundColor">
     </div>
         `,
     components: {},
@@ -37,6 +38,10 @@ export default {
                 .then(note => {
                     this.note = note
                 })
+        },
+        changeNoteColor() {
+            this.$emit('update-note', this.note)
+            noteService.save(this.note)
         }
 
     },

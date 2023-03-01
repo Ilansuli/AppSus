@@ -4,7 +4,7 @@
     "createdAt": 1112222,
     "type": "NoteTxt",
     "isPinned": true,
-    "style": { "backgroundColor": "#00d" },
+    "style": { "backgroundColor": "#ffffff" },
     "info": { "txt": "Fullstack Me Baby!" }
   },
   {
@@ -12,7 +12,7 @@
     "createdAt": 1112244,
     "type": "NoteTxt",
     "isPinned": true,
-    "style": { "backgroundColor": "#00d" },
+    "style": { "backgroundColor": "#ffffff" },
     "info": { "txt": "Coding is Life" }
   },
   {
@@ -20,7 +20,7 @@
     "createdAt": 1112255,
     "type": "NoteTxt",
     "isPinned": true,
-    "style": { "backgroundColor": "#00d" },
+    "style": { "backgroundColor": "#ffffff" },
     "info": { "txt": "I LOVE CSS" }
   }
 ]
