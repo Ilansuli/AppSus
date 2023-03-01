@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
+
 }
 
 html {
@@ -17,7 +19,6 @@ h4,
 h5,
 h6 {
   margin: 0 0 1em;
-  font-family: "Edu VIC WA NT Beginner", cursive;
 }
 
 p {
@@ -47,4 +48,11 @@ button {
 /* Simple and useful CSS Debugging Technique */
 .debug * {
   outline: 1px solid gold;
+}
+
+li{
+  list-style: none;
+}
+ul{
+  padding: 0;
 }
