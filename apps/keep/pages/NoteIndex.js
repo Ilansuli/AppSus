@@ -11,13 +11,15 @@ export default {
   name: 'Note Keep',
   props: [],
   template: `
-  <h1>Note Keep</h1>
+  <section class="note-app">
       <NoteAdd @addNote="addNote"/>
+      
       <RouterView @update-note="updateNote"/>
         <NoteList 
                 :notes="notes" 
                  @remove="removeNote" 
                 /> 
+</section>
         `,
   components: {
     NoteFilter,

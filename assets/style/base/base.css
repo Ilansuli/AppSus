@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
-
+  font-family: "roboto-light";
 }
 
 html {
@@ -49,13 +48,13 @@ nav a {
   outline: 1px solid gold;
 }
 
-li{
+li {
   list-style: none;
 }
-ul{
+ul {
   padding: 0;
 }
-button{
+button {
   border: 0;
   background-color: inherit;
   padding: 0;
