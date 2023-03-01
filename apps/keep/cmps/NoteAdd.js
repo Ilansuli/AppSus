@@ -1,51 +1,29 @@
 import { noteService } from "../services/note.service.js"
-import { googlenoteService } from "../services/googlenote.service.js"
-import { eventBusService } from "../services/event-bus.service.js"
-export default {
-    name: 'noteAdd',
-    template: `
-        <section class="note-add">
 
-<form @submit.prevent="searchnotes()" >
-    <label class="googlenotes-search">Search By Keyword:
-        <input 
-        v-model="keyword"
-        placeholder="Search"
-        type="search" />
-    </label>
-    <button>Search</button>
+export default {
+    name: 'NoteAdd',
+    template: `
+        <section  class="note-add">
+            <form @submit.prevent="addNote"  >
+            <input v-model="note.info.txt" type="text"/>
+            <button>add</button>
 </form>
-<ul>
-    <li v-for="googlenote in googlenotes " :key="googlenote.id">
-        <h1>{{googlenote.id}}</h1>
-        <h1>{{googlenote.title}}</h1>
-        <button @click="addnote(googlenote)">Add</button>
-    </li>
-</ul>
-        </section>
+</section>
     `,
     data() {
         return {
-            googlenotes: [],
-            keyword: ""
+            note: null
         }
-    }
-    ,
+    },
     created() {
+        this.note = noteService.getEmptyNote()
     }
     , methods: {
-        addnote(note) {
-            noteService.addGooglenote(note)
-                .then(savednote => {
-                    eventBusService.emit('show-msg', { txt: 'note added', type: 'success' })
-                    this.$router.push('/note')
-                })
+        addNote() {
+            if (!this.note) return
+            this.note.createdAt = Date.now()
+            this.$emit('addNote', this.note)
         },
-        searchnotes() {
-            console.log(this.keyword);
-            if (!this.keyword.length) return
-            googlenoteService.query(this.keyword)
-                .then(notes => this.googlenotes = notes)
-        }
+
     }
 }

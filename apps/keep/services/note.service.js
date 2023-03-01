@@ -22,7 +22,7 @@ function query(filterBy = {}) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 notes = notes.filter(note => regex.test(note.title))
             }
-            console.log(notes);
+            // console.log(notes);
             return notes
         })
 }
@@ -44,19 +44,19 @@ function save(note) {
 }
 
 
-function getEmptyNote({ createdAt, type, isPinned, style, info }) {
+function getEmptyNote(createdAt, type, isPinned, style, info) {
     return {
         id: '',
         createdAt: createdAt || Date.now(),
         type: type || 'NoteTxt',
         isPinned: isPinned || false,
-        style: style || utilService.getRandomColor(),
-        info: info || { txt: utilService.makeLorem(20) }
+        style: style || { backgroundColor: utilService.getRandomColor() },
+        info: info || { txt: "" }
     }
 }
 
 
-function _createNotes(amount) {
+function _createNotes() {
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
         notes = noteData
@@ -66,9 +66,5 @@ function _createNotes(amount) {
 }
 
 
-function getDemoData() {
-
-}
-const demoData = []
 
 
