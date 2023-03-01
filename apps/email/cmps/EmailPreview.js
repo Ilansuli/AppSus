@@ -5,37 +5,44 @@ export default {
   name: 'Email Preview',
   props: ['email'],
   template: `
-        <article>
+        <article @mouseover="isHover = true" @mouseleave="isHover = false">
           <div>
-            <button><div className="icon" v-html="getSvg('star')"></div></button>
+            <button class ="star-fill" v-if="email.isStarred"><div className="icon" v-html="getSvg('starFill')"></div></button>
+            <button class="star" v-if="!email.isStarred"><div className="icon" v-html="getSvg('star')"></div></button>
             <span>{{email.subject}}</span>
           </div>
           
             <span class="preview-txt">{{email.body}}</span>
 
-            <span>Feb 23</span>
-            <ul v-if="hover">
+            <span v-if="!isHover" class="preview-date">Feb 23</span>
+
+            <ul v-if="isHover">
               <li >
-                <button @click="removeEmail"><div className="icon" v-html="getSvg('trash')"></div></button>
+                <button @click="removeEmail" data-title = "Delete"><div className="icon" v-html="getSvg('trash')"></div></button>
+              </li>
+              <li >
+              <button  v-if="!isRead" @click="isRead = true" data-title = "Mark As Read"><div className="icon" v-html="getSvg('unreadEnvelope')"></div></button>
+              <button  v-if="isRead" @click="isRead = false" data-title = "Mark As Unread" ><div className="icon" v-html="getSvg('envelope')"></div></button>
               </li>
             </ul>
             
         </article>
         `,
   components: {},
-  created() { 
+  created() {
   },
   data() {
     return {
-      hover:false
+      isHover: false,
+      isRead: this.email.isRead
     }
   },
   methods: {
     getSvg(iconName) {
       return svgService.getMailSvg(iconName)
     },
-    removeEmail(){
-      this.$emit('removeEmail',this.email.id)
+    removeEmail() {
+      this.$emit('removeEmail', this.email.id)
     },
     // displayBodyTxt(){
     //   if(this.email.body.length >= 115){
