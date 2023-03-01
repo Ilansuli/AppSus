@@ -10,17 +10,18 @@ export default {
   template: `
   <section class="email-index">
     <section class ="side-nav">
-
+      <!-- <SideNav/> -->
       <button @click="isNewEmail = !isNewEmail">✏ compose</button>
     </section>
     <section class="email-list-wrap"> 
+        
         <EmailList
            @removeEmail ="removeEmail"
            :emails="emails"
-           v-if="emails"
+           v-if="!isDetails" 
         />
     </section>
-      <EmailComp  ose @saveEmail='saveEmail' v-if="isNewEmail" />
+      <EmailCompose @saveEmail='saveEmail' v-if="isNewEmail" />
   </section>
     `,
 created() {
@@ -33,6 +34,7 @@ data() {
   return {
     emails: null,
     isNewEmail: false,
+    isDetails: false
   }
 },
 methods: {

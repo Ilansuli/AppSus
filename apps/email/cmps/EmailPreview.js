@@ -11,13 +11,13 @@ export default {
             <span>{{email.subject}}</span>
           </div>
           
-            <span>{{displayBodyTxt()}}</span>
+            <span class="preview-txt">{{email.body}}</span>
 
-            <ul>
-              <li>
+            <span>Feb 23</span>
+            <ul v-if="hover">
+              <li >
                 <button @click="removeEmail"><div className="icon" v-html="getSvg('trash')"></div></button>
               </li>
-              
             </ul>
             
         </article>
@@ -27,6 +27,7 @@ export default {
   },
   data() {
     return {
+      hover:false
     }
   },
   methods: {
@@ -36,12 +37,12 @@ export default {
     removeEmail(){
       this.$emit('removeEmail',this.email.id)
     },
-    displayBodyTxt(){
-      if(this.email.body.length >= 80){
-        console.log('hey')
-        return this.email.body.slice(0,80) + '...'
-      }
-    }
+    // displayBodyTxt(){
+    //   if(this.email.body.length >= 115){
+    //     console.log('hey')
+    //     return this.email.body.slice(0,115) + '...'
+    //   }
+    // }
   },
   computed: {
     convertTimeStamp() {
