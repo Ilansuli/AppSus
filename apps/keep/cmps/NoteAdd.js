@@ -16,14 +16,18 @@ export default {
         }
     },
     created() {
-        this.note = noteService.getEmptyNote()
+        this.clearNote()
     }
     , methods: {
         addNote() {
             if (!this.note) return
             this.note.createdAt = Date.now()
             this.$emit('addNote', this.note)
+            this.clearNote()
         },
+        clearNote() {
+            this.note = noteService.getEmptyNote()
+        }
 
     }
 }

@@ -6,8 +6,9 @@ export default {
     template: `
         <section class="note-list">
             <ul>
-                <li v-for="note in notes" :key="note.id">
-                    <NotePreview :note="note" />
+                <li v-for="note in notes" :key="note.id" >
+                    <NotePreview :note="note" @click="getDetails(note.id)"
+                    />
                     <button @click="remove(note.id)" class="close-btn">x</button>
                 </li>
             </ul>
@@ -22,9 +23,9 @@ export default {
         remove(noteId) {
             this.$emit('remove', noteId)
         },
-        updateNote(noteId) {
-            this.$emit('show-details', noteId)
-        },
+        getDetails(noteId) {
+            this.$router.push(noteId)
+        }
     },
     created() {
     },

@@ -13,6 +13,7 @@ export default {
   template: `
   <h1>Note Keep</h1>
       <NoteAdd @addNote="addNote"/>
+      <RouterView @update-note="updateNote"/>
         <NoteList 
                 :notes="notes" 
                  @remove="removeNote" 
@@ -38,10 +39,10 @@ export default {
   methods: {
     filteredNotes() { },
     removeNote(noteId) {
-      bookService.remove(noteId)
+      noteService.remove(noteId)
         .then(() => {
           const idx = this.notes.findIndex(note => note.id === noteId)
-          this.books.splice(idx, 1)
+          this.notes.splice(idx, 1)
           showSuccessMsg()
         })
         .catch(err => {
@@ -58,7 +59,21 @@ export default {
         .catch(err => {
           showErrorMsg()
         })
+    },
+    updateNote(updatedNote) {
+      noteService.save(updatedNote)
+        .then(updatedNote => {
+          console.log('Note Updated', updatedNote)
+          showSuccessMsg('note Updated')
+          let currNote = this.notes.find(note => note.id === updatedNote.id)
+          currNote = updatedNote
+        })
+        .catch(err => {
+          showErrorMsg()
+        })
     }
   },
-  computed: {},
+  computed: {
+
+  },
 }
