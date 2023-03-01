@@ -48,14 +48,14 @@ const mailSvgs = {
     checkBoxFill: `<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20"><path d="m429 706.153 224.922-223.922-37.153-37.153L429 631.847l-85-84L306.847 585 429 706.153ZM228.309 891.999q-27.008 0-45.658-18.65-18.65-18.65-18.65-45.658V324.309q0-27.008 18.65-45.658 18.65-18.65 45.658-18.65h503.382q27.008 0 45.658 18.65 18.65 18.65 18.65 45.658v503.382q0 27.008-18.65 45.658-18.65 18.65-45.658 18.65H228.309Zm0-51.999h503.382q4.616 0 8.463-3.846 3.846-3.847 3.846-8.463V324.309q0-4.616-3.846-8.463-3.847-3.846-8.463-3.846H228.309q-4.616 0-8.463 3.846-3.846 3.847-3.846 8.463v503.382q0 4.616 3.846 8.463 3.847 3.846 8.463 3.846ZM216 312v528-528Z"/></svg>`,
 }
 
-function getSvg(iconName) {
+function getKeepSvg(iconName) {
     return KeepSvgs[iconName]
 }
 
 function getMailSvg(iconName) {
     return mailSvgs[iconName]
 }
-export const svgService = { getSvg, getMailSvg }
+export const svgService = { getKeepSvg, getMailSvg }
 
 // in template
 // <div className="icon" v-html="getSvg('bars')"></div>

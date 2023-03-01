@@ -1,0 +1,26 @@
+[
+  {
+    "id": "n101",
+    "createdAt": 1112222,
+    "type": "NoteTxt",
+    "isPinned": true,
+    "style": { "backgroundColor": "#00d" },
+    "info": { "txt": "Fullstack Me Baby!" }
+  },
+  {
+    "id": "n102",
+    "createdAt": 1112244,
+    "type": "NoteTxt",
+    "isPinned": true,
+    "style": { "backgroundColor": "#00d" },
+    "info": { "txt": "Coding is Life" }
+  },
+  {
+    "id": "n103",
+    "createdAt": 1112255,
+    "type": "NoteTxt",
+    "isPinned": true,
+    "style": { "backgroundColor": "#00d" },
+    "info": { "txt": "I LOVE CSS" }
+  }
+]
