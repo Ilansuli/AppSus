@@ -17,6 +17,7 @@
 .email-list article:hover{
     cursor: pointer;
     box-shadow: inset 1px 0 0px #dadce0, inset -1px 0 0 #dadce0, 1px 3px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    fill: rgb(84, 84, 84);
 }
 .email-list article .preview-txt{
     white-space: nowrap;
@@ -47,6 +48,12 @@
     width: max-content;
     left: 12px;
 }
-.star-fill{
+.gold-fill{
     fill: #f3c84c;
+}
+.email-list article .svg-button{
+    fill: lightgray;
+}
+.hovered{
+  fill: rgb(84, 84, 84);
 }

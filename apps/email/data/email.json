@@ -125,6 +125,7 @@
     "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam temporibus eveniet error perspiciatis eligendi quod iusto veniam nihil praesentium quisquam dolores voluptas consectetur odit perferendisculpanam ut optio dolorem sunt explicabo? Voluptate veritatis perferendis quo eius magnam tempore sequi. Eaque non sint ut ipsam molestias sunt animi accusamus obcaecati ullam provident aliquid perspiciatis asperiores pariatur similique. Recusandae libero saepe veniam culpa quidem est aut nemo iusto dolor doloribus in",
     "isRead": false,
     "isStarred": true,
+    "isImportant":true,
     "sentAt": 155133930594,
     "removedAt": null,
     "from": "koko@momo.com",

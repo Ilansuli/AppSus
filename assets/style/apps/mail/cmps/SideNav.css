@@ -1,0 +1,34 @@
+.side-nav {}
+
+.side-nav-item {
+    display: flex;
+    gap: 18px;
+    padding-inline-start: 26px;
+    padding-inline-end: 12px;
+    padding-block: 6px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    cursor: pointer;
+}
+
+.unread-count {
+    -webkit-font-smoothing: auto;
+    font-family: 'roboto-medium';
+    font-size: .75rem;
+    color: #5f6368;
+    opacity: .8;
+}
+
+.side-nav-item .icon {
+    fill: #5f6368;
+}
+
+.side-nav-item:hover {
+    background-color: #e7e7e7;
+}
+
+.side-nav-item.inbox div {
+    display: flex;
+    gap: 98px;
+    align-items: center;
+}

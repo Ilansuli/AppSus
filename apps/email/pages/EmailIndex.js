@@ -1,8 +1,10 @@
 import EmailList from "../cmps/EmailList.js"
 import EmailCompose from "../cmps/EmailCompose.js"
+import SideNav from "../cmps/SideNav.js"
 
 import { eventBusService } from "../../../services/event-bus.service.js"
 import { emailService } from "../services/emailService.js"
+import { svgService } from "../../../services/svg.service.js"
 
 export default {
   name: 'Note Keep', 
@@ -10,18 +12,18 @@ export default {
   template: `
   <section class="email-index">
     <section class ="side-nav">
-      <!-- <SideNav/> -->
-      <button @click="isNewEmail = !isNewEmail">✏ compose</button>
+      <button class="compose-btn" @click="isNewEmail = !isNewEmail"><div className="icon" v-html="getSvg('compose')"></div>Compose</button>
+      <SideNav />
     </section>
     <section class="email-list-wrap"> 
-        
-        <EmailList
-           @removeEmail ="removeEmail"
-           :emails="emails"
-           v-if="!isDetails" 
-        />
+      
+      <EmailList
+      @removeEmail ="removeEmail"
+      :emails="emails"
+      v-if="!isDetails" 
+      />
     </section>
-      <EmailCompose @saveEmail='saveEmail' v-if="isNewEmail" />
+    <EmailCompose @saveEmail='saveEmail' v-if="isNewEmail" />
   </section>
     `,
 created() {
@@ -38,7 +40,9 @@ data() {
   }
 },
 methods: {
-  
+  getSvg(iconName) {
+    return svgService.getMailSvg(iconName)
+  },
   saveEmail(email){
     console.log('hey')
       emailService.save(email)
@@ -61,5 +65,6 @@ computed: {
 components:{
   EmailList,
   EmailCompose,
+  SideNav,
 },
 }

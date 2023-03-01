@@ -18,5 +18,6 @@
 @import 'apps/mail/EmailIndex.css';
 @import 'apps/mail/EmailList.css';
 @import 'apps/mail/cmps/EmailPreview.css';
+@import 'apps/mail/cmps/SideNav.css';
     /* KEEP */
 @import 'apps/note/NoteIndex.css';

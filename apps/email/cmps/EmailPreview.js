@@ -7,15 +7,14 @@ export default {
   template: `
         <article @mouseover="isHover = true" @mouseleave="isHover = false">
           <div>
-            <button class ="star-fill" v-if="email.isStarred"><div className="icon" v-html="getSvg('starFill')"></div></button>
-            <button class="star" v-if="!email.isStarred"><div className="icon" v-html="getSvg('star')"></div></button>
+            <button data-title="Starred" class ="gold-fill" v-if="email.isStarred"><div className="icon" v-html="getSvg('starFill')"></div></button>
+            <button data-title="Not Starred" :class="setClass"  v-if="!email.isStarred"><div className="icon" v-html="getSvg('star')"></div></button>
+            <button data-title="Important" class="gold-fill"  v-if="email.isImportant"><div className="icon" v-html="getSvg('importantFill')"></div></button>
+            <button data-title="Important" :class="setClass"  v-if="!email.isImportant"><div className="icon" v-html="getSvg('important')"></div></button>
             <span>{{email.subject}}</span>
           </div>
-          
             <span class="preview-txt">{{email.body}}</span>
-
             <span v-if="!isHover" class="preview-date">Feb 23</span>
-
             <ul v-if="isHover">
               <li >
                 <button @click="removeEmail" data-title = "Delete"><div className="icon" v-html="getSvg('trash')"></div></button>
@@ -55,11 +54,18 @@ export default {
     convertTimeStamp() {
       const currentDateTS = Date.now()
       const sentTS = this.email.sentAt
-      const sentDate = new Date(sentTS)
       if (currentDateTS - sentTS < 604800) {
         return sentDate.getMonth() + 1 + 'months'
       }
+        const sentDate = new Date(sentTS)
+    },
+    setClass(){
+      return {
+          'hovered': this.isHover,
+          'svg-button': !this.isHover,
+      }
     }
   },
+  
 
 }
