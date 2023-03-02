@@ -17,7 +17,8 @@ export default {
                 
                     />
             <div class="tool-bar">
-                    <button><div className="icon" v-html="getSvg('pin')"></div></button>
+                    <button><div className="icon" v-html="getSvg('pin')"></div>
+            </button>
                     <button @click="toggleColorPicker"><div className="icon" v-html="getSvg('palette')"></div></button>
                     <button @click="remove(note.id)"><div className="icon" v-html="getSvg('trash')"></div></button>
             </div>
@@ -34,7 +35,7 @@ export default {
     `,
     data() {
         return {
-            isSelectColor: true,
+            isSelectColor: false,
             note: null
         }
     },
