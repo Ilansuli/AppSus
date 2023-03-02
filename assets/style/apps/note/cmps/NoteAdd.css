@@ -3,27 +3,26 @@
   margin-top: 2em;
   width: 599px;
   display: grid;
+  grid-template-rows: 44px minmax(46px, 1fr) 33px;
   border-radius: 8px;
   box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
 }
-.note-add form {
-  grid-row: 1;
-  display: grid;
-  grid-template-rows: 44px minmax(46px, 1fr) 33px;
-}
-.note-add form > * {
+
+.note-add > * {
   border: none;
   padding: 10px 15px;
   margin-block-start: 0px;
   margin-block-end: 0px;
 }
-.note-add form .add-title:focus-visible {
+.note-add .add-title:focus-visible {
   outline: none;
 }
-.note-add form .add-text:focus-visible {
+.note-add input:focus-visible {
+  display: flex;
+  justify-self: flex-start;
   outline: none;
 }
-.note-add form .tool-bar {
+.note-add .tool-bar {
   grid-row: 3;
   display: flex;
   justify-content: space-between;

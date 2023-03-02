@@ -4,8 +4,7 @@ import { svgService } from "../../../services/svg.service.js"
 export default {
     name: 'NoteAdd',
     template: `
-        <section  class="note-add" >
-            <form @submit.prevent="addNote">
+        <section  class="note-add" >    
             <input class="add-title" v-model="note.info.title" type="text"/>
             <input 
             class="add-text" 
@@ -13,7 +12,6 @@ export default {
             type="text"
             aria-multiline="true"
             >
-       
             <div class="tool-bar">
                 <nav class="note-type" >
                     <button><div className="icon" v-html="getSvg('palette')"></div></button>
@@ -23,7 +21,6 @@ export default {
                 </nav>
                 <button @click="addNote">Close</button>
             </div>
-            </form>
 </section>
     `,
     data() {

@@ -22,5 +22,40 @@
     "isPinned": true,
     "style": { "backgroundColor": "#ffffff" },
     "info": { "txt": "I LOVE CSS", "title": "Coding" }
+  },
+  {
+    "id": "n104",
+    "type": "NoteImg",
+    "isPinned": false,
+    "info": {
+      "url": "https://images.unsplash.com/photo-1599270606287-331b4f5d0e02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3Vuc2hpbmV8ZW58MHx8MHx8&w=1000&q=80",
+      "title": "Bobi and Me"
+    },
+    "style": { "backgroundColor": "#00d" }
+  },
+  {
+    "id": "n105",
+    "type": "NoteTodos",
+    "isPinned": false,
+    "info": {
+      "title": "Get my stuff together",
+      "todos": [
+        {
+          "txt": "Driving license",
+          "doneAt": null
+        },
+        { "txt": "Coding power", "doneAt": 187111111 }
+      ]
+    }
+  },
+  {
+    "id": "n106",
+    "type": "NoteVideo",
+    "isPinned": false,
+    "info": {
+      "url": "https://www.youtube.com/watch?v=UAnnKuFoq3Y",
+      "title": "Danielush"
+    },
+    "style": { "backgroundColor": "#00d" }
   }
 ]

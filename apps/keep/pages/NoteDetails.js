@@ -57,7 +57,7 @@ export default {
         changeNoteColor(color) {
             console.log(color);
             this.note.style.backgroundColor = color
-            this.$emit('update-note', this.note)
+            this.$emit('update', this.note)
             noteService.save(this.note)
 
         },

@@ -1,16 +1,38 @@
-
-
 export default {
-    name: 'Note Keep',
-    props: [],
     template: `
-    <h1>Note Keep</h1>
-          `,
-    components: {},
-    created() { },
+        <section class="note-filter">
+            <input 
+                v-model="filterBy.search"
+                placeholder="Search"
+                type="text" />
+            	<select v-model="filterBy.type" >
+			<option value="NoteTxt">Texts</option>
+			<option value="NoteVideo">Videos</option>
+			<option value="NoteTodos">Todos</option>
+			<option value="NoteImg">Images</option>
+			<option value="">All</option>
+		</select>
+          
+        </section>
+    `,
     data() {
-        return {}
+        return {
+            filterBy: { search: '', type: '' },
+        }
     },
-    methods: {},
-    computed: {},
+    methods: {
+        filter() {
+            this.$emit('filter', this.filterBy)
+        }
+    },
+    watch: {
+        filterBy: {
+            handler() {
+                // console.log('filterBy changed', this.filterBy)
+                this.$emit('filter', this.filterBy)
+            },
+            deep: true
+        },
+    }
+
 }

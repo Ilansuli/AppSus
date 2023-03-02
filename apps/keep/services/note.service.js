@@ -65,6 +65,13 @@ function _createNotes() {
     }
 }
 
+'use strict'
 
+export const surveyService = {
+    getSurvey
+}
 
+function getSurvey() {
+    return Promise.resolve(survey)
+}
 

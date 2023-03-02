@@ -14,14 +14,17 @@ export default {
   <!-- <section class="note-app"> -->
     <section class="note-main">
       <div class="main-screen" :class="isModalOpen"></div>
+      <NoteFilter @filter="setFilterBy"/>
       <NoteAdd @addNote="addNote"/>
       
       <RouterView 
-    @update-note="updateNote"
+    @update="updateNote"
     @is-load-note="isLoadNote"/>
         <NoteList 
-                :notes="notes" 
-                 @remove="removeNote" 
+                :notes="filteredNotes" 
+                 @remove="removeNote"
+                 @update="updateNote"
+                 @change-bcg='changeBcg' 
                 /> 
                 </section>
 <!-- </section> -->
@@ -30,7 +33,6 @@ export default {
     NoteFilter,
     NoteList,
     NoteAdd,
-
 
   },
   created() {
@@ -42,10 +44,10 @@ export default {
   data() {
     return {
       notes: [],
+      filterBy: {}
     }
   },
   methods: {
-    filteredNotes() { },
     removeNote(noteId) {
       noteService.remove(noteId)
         .then(() => {
@@ -57,6 +59,7 @@ export default {
           showErrorMsg
         })
     },
+
     addNote(note) {
       noteService.save(note)
         .then(savedNote => {
@@ -68,20 +71,37 @@ export default {
           showErrorMsg()
         })
     },
+
     updateNote(updatedNote) {
       noteService.save(updatedNote)
         .then(updatedNote => {
           console.log('Note Updated', updatedNote)
           showSuccessMsg('note Updated')
-          let currNote = this.notes.find(note => note.id === updatedNote.id)
-          currNote = updatedNote
+          this.notes.find(note => note.id === updatedNote.id) = updatedNote
         })
         .catch(err => {
           showErrorMsg()
         })
     },
+
     isLoadNote(isLoad) {
       return isLoad
+    },
+
+    changeBcg(color, noteId) {
+      noteService.get(noteId)
+        .then(updatedNote => {
+          updatedNote.style.backgroundColor = color
+          noteService.save(updatedNote)
+          const currNote = this.notes.find(note => noteId === note.id)
+          currNote.style.backgroundColor = color
+
+        })
+
+    },
+
+    setFilterBy(filterBy) {
+      this.filterBy = filterBy
     }
   },
   watch: {
@@ -91,8 +111,10 @@ export default {
     }
   },
   computed: {
-    isNoteId() {
-
+    filteredNotes() {
+      const titleRegex = new RegExp(this.filterBy.search, 'i')
+      const typeRegex = new RegExp(this.filterBy.type, 'i')
+      return this.notes.filter(note => titleRegex.test(note.info.title) && typeRegex.test(note.type))
     },
     isModalOpen() {
       return {
