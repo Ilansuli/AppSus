@@ -1,0 +1,20 @@
+.new-email-form{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px 8px 0 0;
+    position: fixed;
+    background: lightgray;
+    bottom: 3px;
+    right: 211px;
+    width: 450px;
+    height: 465px;
+}
+.new-email-form > *{
+    border: 0;
+}
+.new-email-form input{
+   box-shadow: inset 0px -1px 0 #f1f1f1;
+}
+.new-email-form textarea{
+    resize: none;
+}

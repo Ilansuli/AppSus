@@ -1,0 +1,42 @@
+.email-details{
+    display: grid;
+    /* gap: 4em; */
+    /* padding-block-start: 108px; */
+    background-color: #ffff;
+    padding-inline: 20px;
+    grid-template-rows: 80px 1fr;
+    grid-template-columns: 50px 1fr;
+
+}
+
+.email-details h1{
+    font-family: 'roboto-medium';
+    color: #202122;
+    grid-column: 2;
+    align-self: center;
+}
+
+.main-details-container header{
+display: flex;
+justify-content: space-between;
+font-size: 14px;
+}
+.main-details-container header div:first-of-type{
+    display: flex;
+}
+.main-details-container header div:first-of-type p{
+    font-size: 12px;
+}
+.main-details-container header div h4{
+    font-size: 16px;
+}
+.main-details-container header div:last-of-type{
+    display: flex;
+    gap: 3em;
+    fill: gold;
+}
+.details-body{
+    background-color: #0d253f;
+    color: #fff;
+    min-height: 400px;
+}

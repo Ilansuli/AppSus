@@ -1,9 +1,11 @@
 import HomePage from './views/HomePage.js'
 import AboutUs from './views/AboutUs.js'
+
 import NoteIndex from './apps/keep/pages/NoteIndex.js'
 import NoteDetails from './apps/keep/pages/NoteDetails.js'
+
 import EmailIndex from './apps/email/pages/EmailIndex.js'
-import NoteAdd from './apps/keep/cmps/NoteAdd.js'
+import EmailDetails from './apps/email/pages/EmailDetails.js'
 const { createRouter, createWebHashHistory } = VueRouter
 
 const routerOptions = {
@@ -30,6 +32,12 @@ const routerOptions = {
 		{
 			path: '/email',
 			component: EmailIndex,
+			children: [
+				{
+					path: ':emailId',
+					component: EmailDetails
+				},
+			]
 		},
 		// Last fallback if no route was matched:
 		{

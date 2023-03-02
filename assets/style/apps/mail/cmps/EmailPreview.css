@@ -1,30 +1,68 @@
-.email-list ul{
+article ul{
     display: flex;
     margin: 0;
     justify-content: flex-end;
 }
-.email-list article{
+ article{
+    font-size: 14px;
+    height: 40px;
     font-family: roboto;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 1fr 5fr 0.7fr;
+    background-color: #f2f6fc;
+    grid-template-columns: 127px 5fr 121px;
     align-items: center;
-    border: #ECEFF2 1px solid;
     padding-block: 10px;
     padding-inline: 16px;
+    box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
+}
+ article.unread{
+    background-color: #ffffff;
+}
+ article.unread .preview-name {
+    font-family: "roboto-medium";
+        color: #202122;
+}
+ article.unread .subject{
+    font-family: "roboto-medium";
+    color: #202122;
+}
+ article.unread .preview-date{
+    color: #202122;
+}
+.preview-name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #202122;
 
 }
-.email-list article:hover{
+.preview-date{
+    -webkit-font-smoothing: auto;
+    font-family: 'roboto-medium';
+    font-size: .75rem;
+}
+ article:hover{
     cursor: pointer;
     box-shadow: inset 1px 0 0px #dadce0, inset -1px 0 0 #dadce0, 1px 3px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
     fill: rgb(84, 84, 84);
 }
-.email-list article .preview-txt{
+
+ article .preview-txt{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-inline-start: 80px;
+    display: flex;
+    gap: 10px;
+
+
 }
-.email-list article div{
+ article .preview-txt .subject{
+    color: #202122;
+
+}
+ article .static-preview-btns{
     display: flex;
     gap: 10px;
 }
@@ -51,7 +89,7 @@
 .gold-fill{
     fill: #f3c84c;
 }
-.email-list article .svg-button{
+ article .svg-button{
     fill: lightgray;
 }
 .hovered{

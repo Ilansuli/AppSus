@@ -1,27 +1,33 @@
 
 import { svgService } from "../../../services/svg.service.js"
-import { eventBusService } from "../../../services/event-bus.service.js"
 export default {
   name: 'Email Preview',
   props: ['email'],
   template: `
-        <article @mouseover="isHover = true" @mouseleave="isHover = false">
-          <div>
+        <article :class="setReadClass" @mouseover="isHover = true" @mouseleave="isHover = false">
+
+          <div class="static-preview-btns">
             <button data-title="Starred" class ="gold-fill" v-if="email.isStarred"><div className="icon" v-html="getSvg('starFill')"></div></button>
-            <button data-title="Not Starred" :class="setClass"  v-if="!email.isStarred"><div className="icon" v-html="getSvg('star')"></div></button>
+            <button data-title="Not Starred" :class="setHoverClass"  v-if="!email.isStarred"><div className="icon" v-html="getSvg('star')"></div></button>
             <button data-title="Important" class="gold-fill"  v-if="email.isImportant"><div className="icon" v-html="getSvg('importantFill')"></div></button>
-            <button data-title="Important" :class="setClass"  v-if="!email.isImportant"><div className="icon" v-html="getSvg('important')"></div></button>
-            <span>{{email.subject}}</span>
+            <button data-title="Important" :class="setHoverClass"  v-if="!email.isImportant"><div className="icon" v-html="getSvg('important')"></div></button>
+            <span class="preview-name">{{email.from}}</span>
           </div>
-            <span class="preview-txt">{{email.body}}</span>
+
+          <div class="preview-txt">
+            <span class="subject">{{email.subject}} - </span>
+            <span class="txt">{{email.body}}</span>
+          </div>
+
             <span v-if="!isHover" class="preview-date">Feb 23</span>
+
             <ul v-if="isHover">
               <li >
                 <button @click="removeEmail" data-title = "Delete"><div className="icon" v-html="getSvg('trash')"></div></button>
               </li>
               <li >
-              <button  v-if="!isRead" @click="isRead = true" data-title = "Mark As Read"><div className="icon" v-html="getSvg('unreadEnvelope')"></div></button>
-              <button  v-if="isRead" @click="isRead = false" data-title = "Mark As Unread" ><div className="icon" v-html="getSvg('envelope')"></div></button>
+              <button  v-if="!email.isRead" @click="email.isRead = true" data-title = "Mark As Read"><div className="icon" v-html="getSvg('unreadEnvelope')"></div></button>
+              <button  v-if="email.isRead" @click="email.isRead = false" data-title = "Mark As Unread" ><div className="icon" v-html="getSvg('envelope')"></div></button>
               </li>
             </ul>
             
@@ -43,12 +49,7 @@ export default {
     removeEmail() {
       this.$emit('removeEmail', this.email.id)
     },
-    // displayBodyTxt(){
-    //   if(this.email.body.length >= 115){
-    //     console.log('hey')
-    //     return this.email.body.slice(0,115) + '...'
-    //   }
-    // }
+  
   },
   computed: {
     convertTimeStamp() {
@@ -59,10 +60,15 @@ export default {
       }
         const sentDate = new Date(sentTS)
     },
-    setClass(){
+    setHoverClass(){
       return {
           'hovered': this.isHover,
           'svg-button': !this.isHover,
+      }
+    },
+    setReadClass(){
+      return{
+        'unread': !this.email.isRead
       }
     }
   },
