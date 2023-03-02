@@ -1,16 +1,22 @@
 import NotePreview from './NotePreview.js'
+import { svgService } from "../../../services/svg.service.js"
 
 export default {
     name: "note list",
     props: ['notes'],
     template: `  
-            <ul class="notes-list">
-                <li v-for="note in notes" :key="note.id" >
+            <section class="notes-list">
+                <article v-for="note in notes" :key="note.id" class="note" >
                     <NotePreview :note="note" @click="getDetails(note.id)"
+                    @remove='remove' :style="styleObject"
                     />
-                    <button @click="remove(note.id)" class="close-btn">x</button>
-                </li>
-            </ul>
+                    <div class="tool-bar">
+                <button><div className="icon" v-html="getSvg('pin')"></div></button>
+                <button><div className="icon" v-html="getSvg('palette')"></div></button>
+                <button @click="remove(note.id)"><div className="icon" v-html="getSvg('trash')"></div></button>
+            </div>
+</article>
+</section>
   
     `,
     data() {
@@ -24,7 +30,15 @@ export default {
         },
         getDetails(noteId) {
             this.$router.push(noteId)
-        }
+        },
+        getSvg(iconName) {
+            return svgService.getNoteSvg(iconName)
+        },
+        styleObject() {
+            return {
+                backgroundColor: this.note.style.backgroundColor || '#ffffff'
+            }
+        },
     },
     created() {
     },

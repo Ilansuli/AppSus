@@ -10,3 +10,5 @@
 @import "../../setup/typography.css";
 /* cmp */
 @import "cmps/NotePreview.css";
+@import "cmps/NoteList.css";
+@import "cmps/NoteAdd.css";

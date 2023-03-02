@@ -1,3 +1,41 @@
-.note-preview {
-  font-family: "roboto-light";
+.note {
+  width: 272px;
+  box-shadow: inset -1px -1px 0 rgb(0 0 0 / 10%),
+    inset 2px 2px 0 rgb(0 0 0 / 7%);
+  break-inside: avoid-column;
+  display: grid;
+  padding-top: 12px;
+  grid-template-rows: 1fr 33.11px;
+  font-size: 1.125rem;
+  border-radius: 8px;
+  font-weight: 400;
+  margin-block-end: 2em;
+  min-height: 30px;
+}
+.text-box {
+  grid-row: 1;
+  display: grid;
+  grid-template-rows: 38px 63px;
+  position: relative;
+  letter-spacing: 0;
+  line-height: 1.5rem;
+}
+.text-box .note-title {
+  grid-row: 1;
+  font-family: "roboto regular";
+  font-size: 1rem;
+  padding: 12px 16px 0px 16px;
+  font-weight: 500;
+  overflow: hidden;
+}
+.text-box .note-text {
+  grid-row: 2;
+  padding: 4px 16px 12px 16px;
+  overflow: hidden;
+}
+.note .tool-bar {
+  margin: 4px 0px;
+  grid-row: 2;
+  display: flex;
+  gap: 0.25em;
 }

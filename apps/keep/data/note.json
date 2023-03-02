@@ -5,7 +5,7 @@
     "type": "NoteTxt",
     "isPinned": true,
     "style": { "backgroundColor": "#ffffff" },
-    "info": { "txt": "Fullstack Me Baby!" }
+    "info": { "txt": "Fullstack Me Baby!", "title": "FullStack" }
   },
   {
     "id": "n102",
@@ -13,7 +13,7 @@
     "type": "NoteTxt",
     "isPinned": true,
     "style": { "backgroundColor": "#ffffff" },
-    "info": { "txt": "Coding is Life" }
+    "info": { "txt": "Coding is Life", "title": "Coding" }
   },
   {
     "id": "n103",
@@ -21,6 +21,6 @@
     "type": "NoteTxt",
     "isPinned": true,
     "style": { "backgroundColor": "#ffffff" },
-    "info": { "txt": "I LOVE CSS" }
+    "info": { "txt": "I LOVE CSS", "title": "Coding" }
   }
 ]

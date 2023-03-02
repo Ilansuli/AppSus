@@ -12,13 +12,19 @@ export default {
   props: [],
   template: `
   <section class="note-app">
+    <section class="note-main">
+
+    
       <NoteAdd @addNote="addNote"/>
       
-      <RouterView @update-note="updateNote"/>
+      <RouterView 
+      v-if="false"
+    @update-note="updateNote"/>
         <NoteList 
                 :notes="notes" 
                  @remove="removeNote" 
                 /> 
+                </section>
 </section>
         `,
   components: {

@@ -1,16 +1,22 @@
+import { svgService } from "../../../services/svg.service.js"
 export default {
     name: "note preview",
     props: ['note'],
     template: `
-        <article :style="styleObject" class="note-preview" >
-            <h2>{{ note.info.txt }}</h2>
-        </article>
-    `,
+    
+            <div class="text-box">
+                <h1 class="note-title">{{note.info.title}}</h1>
+                <p class="note-text">{{ note.info.txt }}</p>
+            </div>
+            
+    `, methods: {
+        getSvg(iconName) {
+            return svgService.getNoteSvg(iconName)
+        },
+    },
     computed: {
-        styleObject() {
-            return {
-                backgroundColor: this.note.style.backgroundColor || '#ffffff'
-            }
-        }
-    }
+
+    },
+
+
 }

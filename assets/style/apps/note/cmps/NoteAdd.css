@@ -1,0 +1,36 @@
+.note-add {
+  width: 599px;
+  display: grid;
+}
+.note-add form {
+  grid-row: 1;
+  display: grid;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+  grid-template-rows: 44px minmax(46px, 1fr) 33px;
+}
+.note-add form > * {
+  border: none;
+  padding: 10px 15px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+.note-add form input:f {
+  outline: 0;
+  outline-color: transparent;
+  outline-style: none;
+}
+.note-add form .tool-bar {
+  grid-row: 3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.note-add .tool-bar .note-type {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+}
+.note-add button {
+  cursor: pointer;
+}
