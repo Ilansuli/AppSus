@@ -11,26 +11,26 @@ export default {
   name: 'Note Keep',
   props: [],
   template: `
-  <section class="note-app">
+  <!-- <section class="note-app"> -->
     <section class="note-main">
-
-    
+      <div class="main-screen" :class="isModalOpen"></div>
       <NoteAdd @addNote="addNote"/>
       
       <RouterView 
-      v-if="false"
-    @update-note="updateNote"/>
+    @update-note="updateNote"
+    @is-load-note="isLoadNote"/>
         <NoteList 
                 :notes="notes" 
                  @remove="removeNote" 
                 /> 
                 </section>
-</section>
+<!-- </section> -->
         `,
   components: {
     NoteFilter,
     NoteList,
-    NoteAdd
+    NoteAdd,
+
 
   },
   created() {
@@ -79,9 +79,25 @@ export default {
         .catch(err => {
           showErrorMsg()
         })
+    },
+    isLoadNote(isLoad) {
+      return isLoad
+    }
+  },
+  watch: {
+    isNoteId() {
+      console.log(this.$route.params);
+      this.$route.params.noteId
     }
   },
   computed: {
+    isNoteId() {
 
+    },
+    isModalOpen() {
+      return {
+        'modal-open': true
+      }
+    }
   },
 }

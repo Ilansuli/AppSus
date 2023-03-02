@@ -1,11 +1,14 @@
 .note-add {
+  grid-column: 1;
+  margin-top: 2em;
   width: 599px;
   display: grid;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
 }
 .note-add form {
   grid-row: 1;
   display: grid;
-  box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
   grid-template-rows: 44px minmax(46px, 1fr) 33px;
 }
 .note-add form > * {
@@ -14,10 +17,11 @@
   margin-block-start: 0px;
   margin-block-end: 0px;
 }
-.note-add form input:f {
-  outline: 0;
-  outline-color: transparent;
-  outline-style: none;
+.note-add form .add-title:focus-visible {
+  outline: none;
+}
+.note-add form .add-text:focus-visible {
+  outline: none;
 }
 .note-add form .tool-bar {
   grid-row: 3;

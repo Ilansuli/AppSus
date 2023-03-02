@@ -29,7 +29,7 @@ export default {
             this.$emit('remove', noteId)
         },
         getDetails(noteId) {
-            this.$router.push(noteId)
+            this.$router.push('/note/' + noteId)
         },
         getSvg(iconName) {
             return svgService.getNoteSvg(iconName)
