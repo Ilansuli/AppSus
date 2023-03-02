@@ -12,32 +12,3 @@
 .email-list{
     border: #ECEFF2 1px solid;
 }
-.email-list ul{
-    display: flex;
-    margin: 0;
-    justify-content: flex-end;
-}
-.email-list article{
-    font-family: "Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 1fr 5fr 0.7fr;
-    align-items: center;
-    border: #ECEFF2 1px solid;
-    padding-block: 10px;
-    padding-inline: 16px;
-
-}
-.email-list article:hover{
-    cursor: pointer;
-    box-shadow: inset 1px 0 0px #dadce0, inset -1px 0 0 #dadce0, 1px 3px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
-}
-.email-list article .preview-txt{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.email-list article div{
-    display: flex;
-    gap: 10px;
-}

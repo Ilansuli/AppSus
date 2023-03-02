@@ -1,5 +1,22 @@
 .email-index{
     display: grid;
-    grid-template-columns: minmax(20px,1fr) 4fr;
+    grid-template-columns: 256px 1fr;
     background-color: #f6f8fc;
+}
+.compose-btn{
+    display: flex;
+    align-items: center;
+    background-color: #c2e7ff;
+    padding-block: 16px;
+    padding-inline-end: 24px;
+    gap: 16px;
+    color: #001d35;
+    border-radius: 16px;
+    font-family: "Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-size: .875rem;
+    padding-inline-start: 15px;
+    margin-block-start: 8px;
+    margin-inline-start: 8px;
+    margin-block-end: 25px;
+
 }
