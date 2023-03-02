@@ -4,7 +4,7 @@ export default {
   name: 'Email Preview',
   props: ['email'],
   template: `
-        <article :class="setReadClass" @mouseover="isHover = true" @mouseleave="isHover = false">
+        <article class="email-preview" :class="setReadClass" @mouseover="isHover = true" @mouseleave="isHover = false">
 
           <div class="static-preview-btns">
             <button data-title="Starred" class ="gold-fill" v-if="email.isStarred"><div className="icon" v-html="getSvg('starFill')"></div></button>

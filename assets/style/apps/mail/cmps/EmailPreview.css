@@ -1,9 +1,9 @@
-article ul{
+.email-preview ul{
     display: flex;
     margin: 0;
     justify-content: flex-end;
 }
- article{
+ .email-preview{
     font-size: 14px;
     height: 40px;
     font-family: roboto;
@@ -16,18 +16,18 @@ article ul{
     padding-inline: 16px;
     box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
 }
- article.unread{
+ .email-preview.unread{
     background-color: #ffffff;
 }
- article.unread .preview-name {
+ .email-preview.unread .preview-name {
     font-family: "roboto-medium";
         color: #202122;
 }
- article.unread .subject{
+ .email-preview.unread .subject{
     font-family: "roboto-medium";
     color: #202122;
 }
- article.unread .preview-date{
+ .email-preview.unread .preview-date{
     color: #202122;
 }
 .preview-name{
@@ -42,13 +42,13 @@ article ul{
     font-family: 'roboto-medium';
     font-size: .75rem;
 }
- article:hover{
+ .email-preview:hover{
     cursor: pointer;
     box-shadow: inset 1px 0 0px #dadce0, inset -1px 0 0 #dadce0, 1px 3px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
     fill: rgb(84, 84, 84);
 }
 
- article .preview-txt{
+ .email-preview .preview-txt{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -58,11 +58,11 @@ article ul{
 
 
 }
- article .preview-txt .subject{
+ .email-preview .preview-txt .subject{
     color: #202122;
 
 }
- article .static-preview-btns{
+ .email-preview .static-preview-btns{
     display: flex;
     gap: 10px;
 }
@@ -89,7 +89,7 @@ article ul{
 .gold-fill{
     fill: #f3c84c;
 }
- article .svg-button{
+ .email-preview .svg-button{
     fill: lightgray;
 }
 .hovered{
