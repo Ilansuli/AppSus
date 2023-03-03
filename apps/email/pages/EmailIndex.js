@@ -31,8 +31,11 @@ export default {
   </section>
     `,
   created() {
+    if(this.$route.query.subject) createNoteEmail(this.$route.query)
     emailService.query()
       .then(emails => this.emails = emails)
+
+      // this.$router.push('/email')
 
   },
   data() {
@@ -44,6 +47,12 @@ export default {
     }
   },
   methods: {
+    createNoteEmail(query){
+      const emptyEmail = emailService.getEmptyEmail()
+      emptyEmail.subject = query.subject
+      emptyEmail.body = query.body
+      console.log(emptyEmail)
+    },
     getSvg(iconName) {
       return svgService.getMailSvg(iconName)
     },
@@ -123,12 +132,11 @@ export default {
       console.log(filteredEmails)
       return filteredEmails
     },
+    
 
+    watch: {
   },
-  watch: {
-    params() {
-     
-    }
+  
   },
   components: {
     EmailList,
