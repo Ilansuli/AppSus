@@ -58,6 +58,9 @@ export default {
 
   },
   created() {
+    if (this.$route.query.title) {
+      console.log('got Note');
+    }
     this.loadNotes()
     eventBus.on('updated', this.updateNote)
   },
@@ -163,7 +166,7 @@ export default {
       }
     },
     gotEmail() {
-      return this.$route.params.type
+      return this.$route.query
     }
   },
   watch: {
