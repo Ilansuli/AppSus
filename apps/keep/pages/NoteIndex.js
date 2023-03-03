@@ -168,6 +168,7 @@ export default {
   },
   watch: {
     gotEmail() {
+      
       console.log('I got an email');
     }
   }

@@ -57,8 +57,9 @@ function getEmptyEmail() {
     return{
         id: '',
         subject:'',
+        isStarred: false,
+        status: 'sent',
         body:'',
-        isRead: false,
         sentAt: 0,
         removedAt:null,
         from:'',
