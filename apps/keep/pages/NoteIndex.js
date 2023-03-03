@@ -101,7 +101,7 @@ export default {
     },
     sendNote(note) {
       this.$router.push({
-        path: '/e`mail',
+        path: '/email',
         query: {
           subject: note.info.title,
           body: note.info.txt
