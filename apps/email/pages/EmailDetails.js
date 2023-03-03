@@ -16,10 +16,12 @@ export default {
               <header>
                     <div>
                         <h4 class="details-subject">{{email.from}}</h4>
-                        <p>\< {{email.from}} >\</p>
+                        <!-- <p>\< {{email.from}} >\</p> -->
                     </div>
                     <div>
                         <p>Feb 20, 2023,8:46PM (10 days ago)</p>
+                        
+                            <button @click = "makeNote" className="icon" v-html="getSvg('notes')"></button>
                         <div v-if="!email.isStarred" className="icon" v-html="getSvg('star')"></div>
                         <div v-if="email.isStarred" className="icon" v-html="getSvg('starFill')"></div>
                     </div>  
@@ -41,6 +43,9 @@ export default {
         }
     },
     methods: {
+        makeNote(){
+            this.$emit('makeNote',this.email)
+        },
         getSvg(iconName) {
             return svgService.getMailSvg(iconName)
         },

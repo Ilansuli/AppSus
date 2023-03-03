@@ -14,7 +14,7 @@ export default {
         </div>
 </section>
 
-<section class="side-nav-item" @click="filterStarred"  :class= "clickedClass('star')" >
+<section class="side-nav-item" @click="filterStarred" @click="clickedStar"  :class= "{'clicked-side-nav': isStar}" >
         <div class="icon" v-html="getSvg('star')"></div>
         <span>Starred</span>
 </section>
@@ -45,6 +45,7 @@ created() {
 data() {
     return {
         status: '',
+        isStar: false
     }
   },
   methods: {
@@ -52,23 +53,29 @@ data() {
     return svgService.getMailSvg(iconName)
   },
   filterStatus(status){
+        this.isStar = false
         this.status = status
         this.$emit('filterStatus', {keyWord: 'status', toUpdate: status})
+        this.$emit('closeDetails')
   },
   filterStarred(){
         // console.log('hey');
         this.$emit('filterStarred')
+        this.$emit('closeDetails')
+
   },
   clickedClass(status){
         if(this.status === status){
         return 'clicked-side-nav'
-        } 
-        if(this.status === 'star'){
-        return 'clicked-side-nav'
         }
 },
-  },
-  computed: {
+  clickedStar(){
+        this.isStar = true
+        this.status = ''
+  }
+},
+computed: {
+       
       
   },
 }

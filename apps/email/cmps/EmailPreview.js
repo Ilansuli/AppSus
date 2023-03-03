@@ -35,6 +35,7 @@ export default {
         `,
   components: {},
   created() {
+
   },
   data() {
     return {
@@ -50,15 +51,15 @@ export default {
     },
     toggleRead(flag) {
       this.email.isRead = flag
-      this.$emit('saveEmail',this.email)
+      this.$emit('updateEmail',this.email)
     },
     toggleStar(flag) {
       this.email.isStarred = flag
-      this.$emit('saveEmail',this.email)
+      this.$emit('updateEmail',this.email)
     },
     toggleStatus(status) {
       this.email.status = status
-      this.$emit('saveEmail',this.email)
+      this.$emit('updateEmail',this.email)
     }
   },
   computed: {
