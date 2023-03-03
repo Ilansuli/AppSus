@@ -2,8 +2,8 @@
     display: grid;
     /* gap: 4em; */
     /* padding-block-start: 108px; */
-    background-color: #ffff;
-    padding-inline: 20px;
+    /* background-color: #ffff; */
+    padding-inline: 53px;
     grid-template-rows: 80px 1fr;
     grid-template-columns: 50px 1fr;
 

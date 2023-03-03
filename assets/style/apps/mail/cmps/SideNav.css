@@ -1,4 +1,6 @@
-.side-nav {}
+.side-nav {
+    background-color: #f6f8fc;
+}
 
 .side-nav-item {
     display: flex;
@@ -9,6 +11,8 @@
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     cursor: pointer;
+    background-color: #f6f8fc;
+    
 }
 
 .unread-count {
@@ -31,4 +35,10 @@
     display: flex;
     gap: 98px;
     align-items: center;
+} 
+.clicked-side-nav{
+    background-color: #d3e3fd;
+    font-family: 'roboto-medium';
+    color: #041e49;
+    fill: #041e49;
 }

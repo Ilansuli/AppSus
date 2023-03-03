@@ -1,6 +1,7 @@
 import EmailList from "../cmps/EmailList.js"
 import EmailCompose from "../cmps/EmailCompose.js"
 import SideNav from "../cmps/SideNav.js"
+import EmailFilter from "../cmps/EmailFilter.js"
 
 import { eventBusService } from "../../../services/event-bus.service.js"
 import { emailService } from "../services/emailService.js"
@@ -13,31 +14,32 @@ export default {
   <section class="email-index">
     <section class ="side-nav">
       <button class="compose-btn" @click="isNewEmail = !isNewEmail"><div className="icon" v-html="getSvg('compose')"></div>Compose</button>
-      <SideNav />
+      <SideNav @filterStatus="setFilterBy" />
     </section>
-      
+    <section class="email-list-wrap"> 
+      <EmailFilter @filter="setFilterBy"/>
       <EmailList
       @removeEmail="removeEmail"
       @showDetails="showDetails"
-      :emails="emails"
-
+      :emails="filteredEmails"
       v-if="!isDetails" 
       />
       <RouterView v-if="isDetails" />
+    </section>
     <EmailCompose @saveEmail='saveEmail' v-if="isNewEmail" />
   </section>
     `,
   created() {
     emailService.query()
       .then(emails => this.emails = emails)
-    console.log(this.emails);
 
   },
   data() {
     return {
-      emails: null,
+      filterBy: {status:'inbox'},
+      emails: [],
       isNewEmail: false,
-      isDetails: false
+      isDetails: false,
     }
   },
   methods: {
@@ -65,22 +67,39 @@ export default {
     // hideDetails(){
     //   this.isDetails = false
     // }
+    setFilterBy({ keyWord, toUpdate }) {
+      this.filterBy[keyWord] = toUpdate
+      console.log("this.filterBy", this.filterBy)
+    },
+
   },
+
   computed: {
-        params(){
-           return this.$route.params.emailId
-        }
+    params() {
+      return this.$route.params.emailId
+    },
+    filteredEmails() {
+      let filteredEmails = []
+      const searchRegex = new RegExp(this.filterBy.txt, 'i')
+      const statusRegex = new RegExp(this.filterBy.status, 'i')
+
+      filteredEmails = this.emails.filter(email => searchRegex.test(email.subject && email.body) && statusRegex.test(email.status))
+      console.log(filteredEmails)
+      return filteredEmails
+    },
+
   },
   watch: {
-        params(){
-          const params = this.$route.params.emailId
-          if(!params) this.isDetails = false 
-          if(params) this.isDetails = true
-        }
+    params() {
+      const params = this.$route.params.emailId
+      if (params) this.isDetails = true
+      if (!params) this.isDetails = false
+    }
   },
   components: {
     EmailList,
     EmailCompose,
     SideNav,
+    EmailFilter
   },
 }

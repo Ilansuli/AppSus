@@ -9,7 +9,7 @@ export default {
           <div class="static-preview-btns">
             <button data-title="Starred" class ="gold-fill" v-if="email.isStarred"><div className="icon" v-html="getSvg('starFill')"></div></button>
             <button data-title="Not Starred" :class="setHoverClass"  v-if="!email.isStarred"><div className="icon" v-html="getSvg('star')"></div></button>
-            <button data-title="Important" class="gold-fill"  v-if="email.isImportant"><div className="icon" v-html="getSvg('importantFill')"></div></button>
+            <button data-title="Important" @click="toggleStatus('important')" class="gold-fill"  v-if="email.isImportant"><div className="icon" v-html="getSvg('importantFill')"></div></button>
             <button data-title="Important" :class="setHoverClass"  v-if="!email.isImportant"><div className="icon" v-html="getSvg('important')"></div></button>
             <span class="preview-name">{{email.from}}</span>
           </div>
@@ -18,19 +18,19 @@ export default {
             <span class="subject">{{email.subject}} - </span>
             <span class="txt">{{email.body}}</span>
           </div>
-
+          <span>...</span>
             <span v-if="!isHover" class="preview-date">Feb 23</span>
 
-            <ul v-if="isHover">
+            
+            <ul class="hovered-btns"  v-if="isHover">
               <li >
-                <button @click="removeEmail" data-title = "Delete"><div className="icon" v-html="getSvg('trash')"></div></button>
+                <button @click.stop="removeEmail" data-title = "Delete"><div className="icon" v-html="getSvg('trash')"></div></button>
               </li>
               <li >
               <button  v-if="!email.isRead" @click="email.isRead = true" data-title = "Mark As Read"><div className="icon" v-html="getSvg('unreadEnvelope')"></div></button>
               <button  v-if="email.isRead" @click="email.isRead = false" data-title = "Mark As Unread" ><div className="icon" v-html="getSvg('envelope')"></div></button>
               </li>
             </ul>
-            
         </article>
         `,
   components: {},

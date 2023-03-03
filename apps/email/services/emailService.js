@@ -23,7 +23,6 @@ function query(filterBy = {}) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 emails = emails.filter(email => regex.test(email.title))
             }
-            console.log(emails);
             return emails
         })
 }
