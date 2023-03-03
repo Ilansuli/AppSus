@@ -1,12 +1,22 @@
-.note-main {
+.notes-display {
   display: grid;
   justify-items: center;
-  grid-template-rows: 64px 170px 1fr;
   width: 100%;
+}
+.notes-display .side-nav {
+  grid-column: 1;
+  grid-row: 1/-1;
+  background-color: white;
+}
+.notes-display {
+  display: grid;
+  grid-template-rows: 170px 1fr;
+  grid-template-columns: 256px 1fr;
 }
 .pinnedList-container {
   margin-block-start: 30px;
 }
 .unpinnedList-container {
+  grid-column: 2;
   margin-block-start: 30px;
 }

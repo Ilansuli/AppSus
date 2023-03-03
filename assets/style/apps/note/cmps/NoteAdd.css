@@ -1,5 +1,6 @@
 .note-add {
-  grid-row: 2;
+  grid-row: 1;
+  grid-column: 2;
   margin-top: 2em;
   width: 599px;
   height: 136px;
@@ -26,19 +27,28 @@
   outline: none;
 }
 .note-add .tool-bar {
+  justify-content: space-between;
+}
+.tool-bar {
+  display: flex;
+  position: relative;
   margin: 0 8px;
   grid-row: 2;
   height: 33px;
-  display: flex;
-  justify-content: space-between;
+  gap: 10px;
+  margin-inline-start: 5px;
+  margin-block-end: 5px;
 }
-
+.tool-bar .close-btn {
+  margin-inline-end: 5px;
+}
 .note-add .tool-bar .note-type {
   display: flex;
   gap: 1em;
   justify-content: center;
   align-items: center;
 }
+
 .note-add button {
   cursor: pointer;
 }

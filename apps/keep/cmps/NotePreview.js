@@ -17,7 +17,7 @@ export default {
         @mouseleave="toggleHover(false)"
         >
        
-       <button @click="pin" className="icon pin">
+       <button @click="pin" className="icon pin"  v-if="isHover">
             <div v-if="note.isPinned"  v-html="getSvg('pinFull')"></div>
             <div v-if="!note.isPinned" data-title="Pin" className="icon" v-html="getSvg('pin')"></div>
         </button>
@@ -29,7 +29,7 @@ export default {
                         />
         
     <ToolBar
-           
+             v-if="isHover"
             @remove="remove"
             @copy="copy"
             @send="send"

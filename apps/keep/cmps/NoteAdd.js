@@ -23,7 +23,7 @@ export default {
             @change-type="changeType"
             />
            
-                <button @click="addNote">Close</button>
+                <button class='close-btn' @click="addNote">Close</button>
             </div>
 </section>
     `,
