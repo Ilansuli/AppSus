@@ -14,11 +14,12 @@ export default {
   <section class="email-index">
     <section class ="side-nav">
       <button class="compose-btn" @click="isNewEmail = !isNewEmail"><div className="icon" v-html="getSvg('compose')"></div>Compose</button>
-      <SideNav @filterStatus="setFilterBy" />
+      <SideNav @filterStarred="filterStarred" @filterStatus="setFilterBy" />
     </section>
     <section class="email-list-wrap"> 
-      <EmailFilter @filter="setFilterBy"/>
+      <EmailFilter @saveEmail="saveEmail" @filter="setFilterBy"/>
       <EmailList
+      @saveEmail = "saveEmail"
       @removeEmail="removeEmail"
       @showDetails="showDetails"
       :emails="filteredEmails"
@@ -36,7 +37,7 @@ export default {
   },
   data() {
     return {
-      filterBy: {status:'inbox'},
+      filterBy: { status: 'inbox',stars: false  },
       emails: [],
       isNewEmail: false,
       isDetails: false,
@@ -47,19 +48,22 @@ export default {
       return svgService.getMailSvg(iconName)
     },
     saveEmail(email) {
-      console.log('hey')
       emailService.save(email)
-        .then(savedEmail => {
+      .then(savedEmail => {
+        if(email.id)return
           this.emails.unshift(savedEmail)
+          // console.log(savedEmail)
         })
       this.isNewEmail = false
     },
     removeEmail(emailId) {
-      emailService.remove(emailId)
-        .then(() => {
-          const emailIdx = this.emails.findIndex(email => email.id === emailId)
-          this.emails.splice(emailIdx, 1)
-        })
+      const emailIdx = this.emails.findIndex(email => email.id === emailId)
+      if (this.emails[emailIdx].status !== 'trash') {
+        this.emails[emailIdx].status = 'trash'
+        emailService.save(this.emails[emailIdx]).then(()=> this.emails.unshift(savedEmail))
+      }
+      else (emailService.remove(emailId)
+        .then(() => this.emails.splice(emailIdx, 1)))
     },
     showDetails() {
       this.isDetails = true
@@ -69,8 +73,14 @@ export default {
     // }
     setFilterBy({ keyWord, toUpdate }) {
       this.filterBy[keyWord] = toUpdate
+      this.filterBy.stars = false
       console.log("this.filterBy", this.filterBy)
     },
+    filterStarred(){
+      // console.log('star')
+      this.filterBy.Status = '' 
+      this.filterBy.stars = true
+    }
 
   },
 
@@ -82,8 +92,12 @@ export default {
       let filteredEmails = []
       const searchRegex = new RegExp(this.filterBy.txt, 'i')
       const statusRegex = new RegExp(this.filterBy.status, 'i')
+      // const starredRegex = new RegExp(this.filterBy.starred, 'i')
 
-      filteredEmails = this.emails.filter(email => searchRegex.test(email.subject && email.body) && statusRegex.test(email.status))
+      filteredEmails = this.emails.filter(email => {
+        if(this.filterBy.stars) return searchRegex.test(email.subject && email.body ) && email.isStarred
+       return searchRegex.test(email.subject && email.body && email.from) && statusRegex.test(email.status)
+      })
       console.log(filteredEmails)
       return filteredEmails
     },

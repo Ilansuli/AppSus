@@ -14,7 +14,7 @@ export default {
         </div>
 </section>
 
-<section class="side-nav-item" :class= "clickedClass('star')" >
+<section class="side-nav-item" @click="filterStarred"  :class= "clickedClass('star')" >
         <div class="icon" v-html="getSvg('star')"></div>
         <span>Starred</span>
 </section>
@@ -44,7 +44,7 @@ created() {
 },
 data() {
     return {
-        status: ''
+        status: '',
     }
   },
   methods: {
@@ -55,9 +55,18 @@ data() {
         this.status = status
         this.$emit('filterStatus', {keyWord: 'status', toUpdate: status})
   },
+  filterStarred(){
+        // console.log('hey');
+        this.$emit('filterStarred')
+  },
   clickedClass(status){
-        if(this.status === status) return 'clicked-side-nav'
+        if(this.status === status){
+        return 'clicked-side-nav'
+        } 
+        if(this.status === 'star'){
+        return 'clicked-side-nav'
         }
+},
   },
   computed: {
       

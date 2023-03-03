@@ -5,7 +5,7 @@ export default {
     props: ['emails'],
     template: `
         <section class="email-list-wrap">
-                <EmailPreview @click="showDetails(email.id)" @removeEmail = "removeEmail" :email = "email"  v-for="email in emails"/>
+                <EmailPreview @saveEmail="saveEmail" @click="showDetails(email.id)" @removeEmail = "removeEmail" :email = "email"  v-for="email in emails"/>
         </section>
 
         `,
@@ -23,6 +23,9 @@ export default {
     methods: {
         removeEmail(emailId){
             this.$emit('removeEmail',emailId)
+        },
+        saveEmail(email){
+            this.$emit('saveEmail',email)
         },
         showDetails(emailId){
             this.$router.push("email/" + emailId)
