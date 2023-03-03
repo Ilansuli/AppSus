@@ -14,18 +14,18 @@ export default {
   <section class="email-index">
     <section class ="side-nav">
       <button class="compose-btn" @click="isNewEmail = !isNewEmail"><div className="icon" v-html="getSvg('compose')"></div>Compose</button>
-      <SideNav @filterStarred="filterStarred" @filterStatus="setFilterBy" />
+      <SideNav @closeDetails ="closeDetails" @filterStarred="filterStarred" @filterStatus="setFilterBy" />
     </section>
     <section class="email-list-wrap"> 
       <EmailFilter @saveEmail="saveEmail" @filter="setFilterBy"/>
       <EmailList
-      @saveEmail = "saveEmail"
+      @updateEmail = "updateEmail"
       @removeEmail="removeEmail"
       @showDetails="showDetails"
       :emails="filteredEmails"
       v-if="!isDetails" 
       />
-      <RouterView v-if="isDetails" />
+      <RouterView @makeNote="makeNote" v-if="isDetails" />
     </section>
     <EmailCompose @saveEmail='saveEmail' v-if="isNewEmail" />
   </section>
@@ -47,14 +47,23 @@ export default {
     getSvg(iconName) {
       return svgService.getMailSvg(iconName)
     },
+
+    updateEmail(email,updateKey,toUpdate){
+      const emailToUpdateIdx = this.emails.findIndex(emailToUpdate => email === emailToUpdate)
+      const emailToUpdate = this.emails[emailToUpdateIdx]
+      emailToUpdate[updateKey] = toUpdate
+      emailService.save(emailToUpdate)
+      console.log(emailToUpdateIdx)
+      // FIND EMAIL IN ARRAY UPDATE AND THEN SAVE
+    },
+
     saveEmail(email) {
-      emailService.save(email)
-      .then(savedEmail => {
-        if(email.id)return
+        emailService.save(email)
+        .then(savedEmail => {
           this.emails.unshift(savedEmail)
           // console.log(savedEmail)
         })
-      this.isNewEmail = false
+        this.isNewEmail = false
     },
     removeEmail(emailId) {
       const emailIdx = this.emails.findIndex(email => email.id === emailId)
@@ -64,6 +73,10 @@ export default {
       }
       else (emailService.remove(emailId)
         .then(() => this.emails.splice(emailIdx, 1)))
+    },
+    closeDetails(){
+      this.isDetails = false
+      this.$router.push('/email')
     },
     showDetails() {
       this.isDetails = true
@@ -80,6 +93,15 @@ export default {
       // console.log('star')
       this.filterBy.Status = '' 
       this.filterBy.stars = true
+    },
+    makeNote(email){
+     this.$router.push({
+      path:"/note",
+      query: {
+        title: email.subject,
+        txt: email.body
+      }
+     })
     }
 
   },
@@ -105,9 +127,7 @@ export default {
   },
   watch: {
     params() {
-      const params = this.$route.params.emailId
-      if (params) this.isDetails = true
-      if (!params) this.isDetails = false
+     
     }
   },
   components: {
