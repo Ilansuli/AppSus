@@ -12,6 +12,10 @@
 @import "cmps/NotePreview.css";
 @import "cmps/NoteList.css";
 @import "cmps/NoteAdd.css";
+@import "cmps/NoteImg.css";
+@import "cmps/todos.css";
 @import "cmps/NoteDetails.css";
+@import "cmps/NoteFilter.css";
 @import "cmps/screen.css";
 @import "cmps/colorPicker.css";
+@import "cmps/AppHeader.css";

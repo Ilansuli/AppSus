@@ -31,12 +31,13 @@
       "url": "https://images.unsplash.com/photo-1599270606287-331b4f5d0e02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3Vuc2hpbmV8ZW58MHx8MHx8&w=1000&q=80",
       "title": "Bobi and Me"
     },
-    "style": { "backgroundColor": "#00d" }
+    "style": { "backgroundColor": "#ffffff" }
   },
   {
     "id": "n105",
     "type": "NoteTodos",
     "isPinned": false,
+    "style": { "backgroundColor": "#ffffff" },
     "info": {
       "title": "Get my stuff together",
       "todos": [
@@ -53,9 +54,9 @@
     "type": "NoteVideo",
     "isPinned": false,
     "info": {
-      "url": "https://www.youtube.com/watch?v=UAnnKuFoq3Y",
+      "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
       "title": "Danielush"
     },
-    "style": { "backgroundColor": "#00d" }
+    "style": { "backgroundColor": "#ffffff" }
   }
 ]

@@ -5,7 +5,9 @@ export default {
          <div class="video-note">
                 <h1 class="note-title">{{info.title}}</h1>
          
-        <!-- <iframe class="video"  :src='info.url'> </iframe> -->
+        <video class="video" autoplay loop muted> 
+            <source :src='info.url' type='video/mp4'>
+        </video>
     
             </div>
         `,

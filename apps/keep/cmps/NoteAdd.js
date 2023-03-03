@@ -17,6 +17,7 @@ export default {
                     <button><div className="icon" v-html="getSvg('palette')"></div></button>
                     <button><div className="icon" v-html="getSvg('text')"></div></button>
                     <button><div className="icon" v-html="getSvg('img')"></div></button>
+                    <button><div className="icon" v-html="getSvg('video')"></div></button>
                     <button><div className="icon" v-html="getSvg('todo')"></div></button>
                 </nav>
                 <button @click="addNote">Close</button>

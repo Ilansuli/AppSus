@@ -13,8 +13,13 @@ export default {
   template: `
   <!-- <section class="note-app"> -->
     <section class="note-main">
+
       <div class="main-screen" :class="isModalOpen"></div>
-      <NoteFilter @filter="setFilterBy"/>
+      <header class="main-header flex">
+        <img src="../../assets/img/note/keep.png">
+        <h1>Keep</h1>
+        <NoteFilter @filter="setFilterBy"/>
+      </header>
       <NoteAdd @addNote="addNote"/>
       
       <RouterView 
@@ -36,10 +41,7 @@ export default {
 
   },
   created() {
-    noteService.query()
-      .then(notes => {
-        this.notes = notes
-      })
+    this.loadNotes()
   },
   data() {
     return {
@@ -48,6 +50,13 @@ export default {
     }
   },
   methods: {
+    loadNotes() {
+      noteService.query()
+        .then(notes => {
+          this.notes = notes
+          console.log(notes);
+        })
+    },
     removeNote(noteId) {
       noteService.remove(noteId)
         .then(() => {
@@ -75,9 +84,9 @@ export default {
     updateNote(updatedNote) {
       noteService.save(updatedNote)
         .then(updatedNote => {
-          console.log('Note Updated', updatedNote)
-          showSuccessMsg('note Updated')
-          this.notes.find(note => note.id === updatedNote.id) = updatedNote
+          // console.log('Note Updated', updatedNote)
+          const idx = this.notes.findIndex(note => updatedNote.id === note.id)
+          this.notes[idx] = updatedNote
         })
         .catch(err => {
           showErrorMsg()
@@ -105,9 +114,12 @@ export default {
     }
   },
   watch: {
-    isNoteId() {
-      console.log(this.$route.params);
-      this.$route.params.noteId
+    $route: {
+      handler(newValue) {
+        setTimeout(this.loadNotes(), 500)
+        // this.loadNotes()
+      },
+      immediate: true
     }
   },
   computed: {

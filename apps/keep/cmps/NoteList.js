@@ -1,34 +1,42 @@
 import NotePreview from './NotePreview.js'
 import { svgService } from "../../../services/svg.service.js"
+import { noteService } from '../services/note.service.js'
 
 export default {
     name: "note list",
     props: ['notes'],
-    template: `  
+    template: ` 
+  
     <section class="notes-list">
-        <article 
-                v-for="note in notes" 
+    <article
+        key="note-container" 
+                v-for="note in pinnedNotes" 
                 :key="note.id" 
-                class="note" 
+                @get-details="getDetails(note.id)"
                 >
                 <NotePreview 
+                @update="updateNote"
+                @remove="remove"
+                @getDetails = "getDetails"
                 :note="note" 
-                @click="getDetails(note.id)"
-                
                     />
-            <div class="tool-bar">
-                    <button><div className="icon" v-html="getSvg('pin')"></div>
-            </button>
-                    <button @click="toggleColorPicker"><div className="icon" v-html="getSvg('palette')"></div></button>
-                    <button @click="remove(note.id)"><div className="icon" v-html="getSvg('trash')"></div></button>
-            </div>
-            <section class="color-picker"       v-if="isSelectColor">
-                <article @click="changeBcgColor('#f28b82',note.id)" class="color red" ></article>
-                <article class="color orange"  @click="changeBcgColor('#fabc02',note)"></article>
-                <article class="color yellow"   @click="changeBcgColor('#fff476',note)"></article>
-                <article class="color green"  @click="changeBcgColor('#ccff90',note)"></article>
-                <article class="color blue"  @click="changeBcgColor('#a7ffeb',note)"></article>
-            </section>
+            
+            
+        </article>
+        <article
+        key="note-container" 
+                v-for="note in notes" 
+                :key="note.id" 
+                @get-details="getDetails(note.id)"
+                >
+                <NotePreview 
+                @update="updateNote"
+                @remove="remove"
+                @getDetails = "getDetails"
+                :note="note" 
+                    />
+            
+            
         </article>
     </section>
   
@@ -36,7 +44,8 @@ export default {
     data() {
         return {
             isSelectColor: false,
-            note: null
+            note: null,
+            pinnedNotes: []
         }
     },
     methods: {
@@ -52,11 +61,10 @@ export default {
         toggleColorPicker() {
             this.isSelectColor = !this.isSelectColor
         },
-        changeBcgColor(color, note) {
-            note.style.backgroundColor = color
-            console.log(note);
+        updateNote(note) {
+            // console.log(note);
             this.$emit('update', note)
-        }
+        },
     },
     computed: {
         styleObject(note) {
@@ -64,9 +72,14 @@ export default {
             return {
                 backgroundColor: note.style.backgroundColor || '#ffffff'
             }
+        },
+        pinnedNotes() {
+            this.pinnedNotes = this.notes.filter(note => note.isPinned)
+            console.log(pinnedNotes);
         }
     },
     created() {
+
 
     },
     components: {

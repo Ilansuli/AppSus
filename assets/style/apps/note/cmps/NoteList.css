@@ -1,20 +1,14 @@
 .notes-list {
-  grid-row: 2;
-  columns: 272px;
-  width: 100vw;
+  grid-row: 3;
+  column-width: 239px;
+  column-rule: 16px;
+  width: 80vw;
   margin-block-start: 2em;
   margin-inline-start: 3em;
-  /* margin-inline-end: 3em; */
-  /* column-gap: 1rem; */
-  /* column-width: 300px; */
 }
-
-.notes-list :first-child {
+.notes-list article:first-child {
   margin-block-start: 0px;
 }
-​ .app-filter:focus-within :is(.some-content, .some-title) {
-  display: block;
-}
-​ .custom-file-input:hover::before {
-  border-color: black;
+.notes-list > * {
+  margin-block-start: 16px;
 }

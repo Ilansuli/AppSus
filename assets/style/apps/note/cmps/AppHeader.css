@@ -1,0 +1,39 @@
+.main-header {
+  grid-column: 1/-1;
+  height: 64px;
+  width: 100vw;
+  display: grid;
+  align-items: center;
+  box-shadow: 0px 3px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+  grid-auto-flow: column;
+  grid-template-columns: 40px 44px 100px 1fr 40px;
+}
+
+.main-header img {
+  grid-column: 2;
+  height: 40px;
+  justify-self: flex-start;
+  align-self: center;
+}
+.main-header h1 {
+  color: #5f6367;
+  grid-column: 3;
+  font-size: 22px;
+  justify-self: flex-start;
+  align-self: center;
+}
+.main-header .note-filter {
+  grid-column: 4;
+}
+.main-header .filter-txt-container {
+  border-radius: 8px;
+  background-color: #f0f3f4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-inline-end: 16px;
+}
+.main-header .filter-txt-container input {
+  background-color: transparent;
+  width: 100%;
+}

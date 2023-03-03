@@ -1,14 +1,17 @@
 .note-add {
-  grid-column: 1;
+  grid-row: 2;
   margin-top: 2em;
   width: 599px;
+  height: 136px;
   display: grid;
-  grid-template-rows: 44px minmax(46px, 1fr) 33px;
+  grid-template-rows: 44px 1fr 36px;
   border-radius: 8px;
-  box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+  box-shadow: 1px 1px 0 rgb(0 0 0 / 10%), -1px -1px 11px 0px rgb(0 0 0 / 7%),
+    inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
 }
 
-.note-add > * {
+.note-add .add-title,
+.add-text {
   border: none;
   padding: 10px 15px;
   margin-block-start: 0px;
@@ -23,7 +26,9 @@
   outline: none;
 }
 .note-add .tool-bar {
+  margin: 0 8px;
   grid-row: 3;
+  height: 33px;
   display: flex;
   justify-content: space-between;
 }

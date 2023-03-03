@@ -1,0 +1,13 @@
+.todos .todo {
+  margin-inline-start: 0.5em;
+  display: grid;
+  gap: 0.25em;
+  grid-template-columns: 18px 1fr;
+}
+.todo .check-todo {
+  margin-inline-end: 0.5em;
+  height: 18px;
+  width: 18px;
+  box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+  border-width: 0 4px 0 0;
+}
