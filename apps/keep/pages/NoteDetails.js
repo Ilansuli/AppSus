@@ -6,6 +6,7 @@ import NoteImg from "../cmps/NoteImg.js"
 import NoteVideo from "../cmps/NoteVideo.js"
 import NoteTodos from "../cmps/NoteTodos.js"
 import ToolBar from "../cmps/ToolBar.js"
+import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
     name: 'noteDetails',
@@ -92,13 +93,15 @@ export default {
         },
 
         closeNote() {
-            noteService.save(this.note)
-                .then(
-                    this.$router.push('/note')
-                )
-                .catch(err => {
-                    console.log('error');
-                })
+            // noteService.save(this.note)
+            //     .then(
+            //         
+            //     )
+            //     .catch(err => {
+            //         console.log('error');
+            //     })
+            this.$router.push('/note')
+            eventBus.emit('updated', this.note)
         }
     },
     computed: {
@@ -115,7 +118,7 @@ export default {
     watch: {
         noteId() {
             console.log('bookId Changed!')
-             this.loadNote()
+            this.loadNote()
         }
     }
 }

@@ -1,29 +1,28 @@
-.note {
+.note-preview {
   width: 272px;
   box-shadow: inset -1px -1px 0 rgb(0 0 0 / 10%),
     inset 2px 2px 0 rgb(0 0 0 / 7%);
   break-inside: avoid-column;
   display: grid;
   position: relative;
-  padding-top: 12px;
   grid-template-rows: 1fr 33.11px;
   font-size: 1.125rem;
   border-radius: 8px;
   font-weight: 400;
   margin-inline-end: 16px;
+  margin-block-end: 16px;
   min-height: 30px;
 }
-.note {
-  margin-block-start: 0px;
-}
+
 .full-pin-icon {
   position: absolute;
   top: 0;
   right: 0;
   padding: 5px;
 }
-.text-box {
+.note-preview .text-box {
   grid-row: 1;
+  width: 272px;
   display: grid;
   grid-template-rows: 38px 63px;
   position: relative;
@@ -38,12 +37,7 @@
   font-weight: 500;
   overflow: hidden;
 }
-.text-box .note-text {
-  font-size: 14px;
-  grid-row: 2;
-  padding: 4px 16px 12px 16px;
-  overflow: hidden;
-}
+
 .note .tool-bar {
   margin: 8px;
   grid-row: 2;

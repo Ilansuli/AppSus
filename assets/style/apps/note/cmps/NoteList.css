@@ -1,14 +1,12 @@
 .notes-list {
   grid-row: 3;
-  column-width: 239px;
-  column-rule: 16px;
+  column-width: 241px;
+  column-gap: 16px;
   width: 80vw;
-  margin-block-start: 2em;
-  margin-inline-start: 3em;
 }
-.notes-list article:first-child {
+.notes-list .note-container:first-child {
   margin-block-start: 0px;
 }
-.notes-list > * {
+.notes-list .note-container:not(:first-child) {
   margin-block-start: 16px;
 }

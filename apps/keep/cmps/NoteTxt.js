@@ -2,9 +2,22 @@ export default {
     name: '',
     props: ['info', 'isEdit'],
     template: `
-         <div class="text-note">
-                <h1 :contenteditable="isEdit" class="note-title" v-text="info.title" @blur="updateTitle" ref></h1>
-                <p :contenteditable="isEdit" class="note-text" v-text="info.txt" @blur="updateTxt"></p>
+         <div class="note-info">
+                <h1 
+                :contenteditable="isEdit" 
+                class="note-title" 
+                v-text="info.title" 
+                @blur="updateTitle" 
+               
+                ></h1>
+                <p 
+                :contenteditable="isEdit" 
+                class="note-text" 
+                v-text="info.txt" 
+                @blur="updateTxt"
+                placeholder="Take a note...">
+
+            </p>
             </div>
         `,
     components: {},

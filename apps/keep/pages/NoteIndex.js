@@ -1,9 +1,10 @@
 import { noteService } from '../services/note.service.js'
 // import { getKeepSvg, getMailSvg } from '../../../services/svg.service.js'
-import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
+import { eventBus, showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 
 import NoteFilter from '../cmps/NoteFilter.js'
-import NoteList from '../cmps/NoteList.js'
+import PinnedNoteList from '../cmps/PinnedNoteList.js'
+import UnpinnedNoteList from '../cmps/UnpinnedNoteList.js'
 import NoteAdd from '../cmps/NoteAdd.js'
 
 
@@ -13,35 +14,48 @@ export default {
   template: `
   <!-- <section class="note-app"> -->
     <section class="note-main">
-
-      <div class="main-screen" :class="isModalOpen"></div>
+            <div class="main-screen" :class="isModalOpen"></div>
       <header class="main-header flex">
-        <img src="../../assets/img/note/keep.png">
-        <h1>Keep</h1>
-        <NoteFilter @filter="setFilterBy"/>
+            <img src="../../assets/img/note/keep.png">
+            <h1>Keep</h1>
+           <NoteFilter @filter="setFilterBy"/>
       </header>
       <NoteAdd @addNote="addNote"/>
-      
       <RouterView 
     @update="updateNote"
     @is-load-note="isLoadNote"/>
-        <NoteList 
-                :notes="filteredNotes" 
+<section class="pinnedList-container">
+<PinnedNoteList 
+                :notes="PinnedFilteredNotes" 
                  @remove="removeNote"
                  @update="updateNote"
                  @change-bcg='changeBcg' 
                 /> 
-                </section>
-<!-- </section> -->
+</section>
+<section class="unpinnedList-container">
+    <UnpinnedNoteList 
+                :notes="UnpinnedFilteredNotes" 
+                 @remove="removeNote"
+                 @update="updateNote"
+                 @change-bcg='changeBcg' 
+                /> 
+</section>
+             
+</section>
+
         `,
   components: {
     NoteFilter,
-    NoteList,
+    PinnedNoteList,
+    UnpinnedNoteList,
     NoteAdd,
+    PinnedNoteList,
+    UnpinnedNoteList
 
   },
   created() {
     this.loadNotes()
+    eventBus.on('updated', this.updateNote)
   },
   data() {
     return {
@@ -83,10 +97,11 @@ export default {
 
     updateNote(updatedNote) {
       noteService.save(updatedNote)
-        .then(updatedNote => {
-          // console.log('Note Updated', updatedNote)
-          const idx = this.notes.findIndex(note => updatedNote.id === note.id)
-          this.notes[idx] = updatedNote
+        .then(note => {
+          console.log('Note Updated', note)
+          const idx = this.notes.findIndex(note => note.id === note.id)
+          // this.notes[idx] = note
+          this.notes.splice(idx, 1, note)
         })
         .catch(err => {
           showErrorMsg()
@@ -113,20 +128,18 @@ export default {
       this.filterBy = filterBy
     }
   },
-  watch: {
-    $route: {
-      handler(newValue) {
-        setTimeout(this.loadNotes(), 500)
-        // this.loadNotes()
-      },
-      immediate: true
-    }
-  },
   computed: {
-    filteredNotes() {
+    PinnedFilteredNotes() {
+      const pinnedNotes = this.notes.filter(note => note.isPinned)
       const titleRegex = new RegExp(this.filterBy.search, 'i')
       const typeRegex = new RegExp(this.filterBy.type, 'i')
-      return this.notes.filter(note => titleRegex.test(note.info.title) && typeRegex.test(note.type))
+      return pinnedNotes.filter(note => titleRegex.test(note.info.title) && typeRegex.test(note.type))
+    },
+    UnpinnedFilteredNotes() {
+      const unpinnedNotes = this.notes.filter(note => !note.isPinned)
+      const titleRegex = new RegExp(this.filterBy.search, 'i')
+      const typeRegex = new RegExp(this.filterBy.type, 'i')
+      return unpinnedNotes.filter(note => titleRegex.test(note.info.title) && typeRegex.test(note.type))
     },
     isModalOpen() {
       return {

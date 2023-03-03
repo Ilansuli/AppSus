@@ -1,23 +1,17 @@
 import { svgService } from "../../../services/svg.service.js"
-
+import ToolBar from "./ToolBar.js"
 export default {
-    name: '',
-    emits: ['remove', 'change-color', 'pin', 'duplicate'],
+    name: 'Note Types',
+    props: [],
+    emits: ['change-color', 'change-type'],
     template: `
-        <div class="tool-bar">
-                    <button @click="pin">
-                        <div  data-title="Pin" className="icon" v-html="getSvg('pin')"></div>
-                    </button>
-                    <button @click="duplicate">
-                        <div  data-title="Copy" className="icon" v-html="getSvg('duplicate')"></div>
-                    </button>
-                    <button  @click="remove">
-                        <div data-title="Delete" className="icon" v-html="getSvg('trash')"></div>
-                    </button>
-                    <button @click="toggleColorPicker" >
-                        <div data-title=" Background Color"  className="icon" v-html="getSvg('palette')"></div>
-                    </button>
-                    </div>
+        <nav class="note-type" >
+                    <button @click="toggleColorPicker"><div className="icon" v-html="getSvg('palette')"></div></button>
+                    <button @click="changeType('NoteTxt')"><div className="icon" v-html="getSvg('text')"></div></button>
+                    <button @click="changeType('NoteImg')"><div className="icon" v-html="getSvg('img')"></div></button>
+                    <button @click="changeType('NoteVideo')"><div className="icon" v-html="getSvg('video')"></div></button>
+                    <button @click="changeType('NoteTodos')"><div className="icon" v-html="getSvg('todo')"></div></button>
+        </nav>
         <section class="color-picker" v-if="isSelectColor">
                 <article @click="changeBcgColor('#f28b82')" class="color red" ></article>
                 <article class="color orange"  @click="changeBcgColor('#fabc02')"></article>
@@ -27,7 +21,9 @@ export default {
                 <article class="color white"  @click="changeBcgColor('#ffffff')"></article>
             </section>
         `,
-    components: {},
+    components: {
+
+    },
     created() { },
     data() {
         return {
@@ -35,8 +31,8 @@ export default {
         }
     },
     methods: {
-        getSvg(iconName) {
-            return svgService.getNoteSvg(iconName)
+        changeType(type) {
+            this.$emit('change-type', type)
         },
         changeBcgColor(color) {
             this.$emit('change-color', color)
@@ -44,14 +40,11 @@ export default {
         toggleColorPicker() {
             this.isSelectColor = !this.isSelectColor
         },
-        remove() {
-            this.$emit('remove')
+
+        getSvg(iconName) {
+            return svgService.getNoteSvg(iconName)
         },
-        pin() {
-            this.$emit('pin')
-        }
-
-
     },
+
     computed: {},
 }

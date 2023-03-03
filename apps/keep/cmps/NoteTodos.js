@@ -4,7 +4,7 @@ export default {
     name: '',
     props: ['info'],
     template: `
-         <div class="todos-note">
+         <div class="note-info">
                 <h1 class="note-title">{{info.title}}</h1>
                 <section class="todos">
                     <div v-for="todo in info.todos" class="todo">

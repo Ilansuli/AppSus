@@ -5,11 +5,12 @@ import { noteService } from '../services/note.service.js'
 export default {
     name: "note list",
     props: ['notes'],
+    emits: ['update', 'remove', 'changeBcg'],
     template: ` 
-  
-    <section class="notes-list">
+    <h1>PINNED</h1>
+    <section class="notes-list pinned">
     <article
-        key="note-container" 
+                class="note-container" 
                 v-for="note in pinnedNotes" 
                 :key="note.id" 
                 @get-details="getDetails(note.id)"
@@ -21,10 +22,9 @@ export default {
                 :note="note" 
                     />
             
-            
         </article>
         <article
-        key="note-container" 
+                class="note-container" 
                 v-for="note in notes" 
                 :key="note.id" 
                 @get-details="getDetails(note.id)"
@@ -73,13 +73,12 @@ export default {
                 backgroundColor: note.style.backgroundColor || '#ffffff'
             }
         },
-        pinnedNotes() {
-            this.pinnedNotes = this.notes.filter(note => note.isPinned)
-            console.log(pinnedNotes);
-        }
+        // pinnedNotes() {
+        //     this.pinnedNotes = this.notes.filter(note => note.isPinned)
+        //     console.log(pinnedNotes);
+        // }
     },
     created() {
-
 
     },
     components: {

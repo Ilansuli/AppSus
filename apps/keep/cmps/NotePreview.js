@@ -11,8 +11,10 @@ export default {
     emits: ['update', 'remove', 'pin', 'get-details'],
     template: `
         <section 
-        class="note"  
+        class="note-preview"  
         :style = "{'background-color':note.style.backgroundColor}" 
+        @mouseover="toggleHover(true)"
+        @mouseleave="toggleHover(false)"
         >
        <div v-if="note.isPinned" className="icon full-pin-icon" v-html="getSvg('pinFull')"></div>
        <Component 
@@ -20,9 +22,9 @@ export default {
                         :is="note.type"  
                         :info="note.info"
                         :isEdit="false"
-                       
                         />
         <ToolBar
+            v-if="isHover"
             @pin="pin"
             @remove="remove"
             @change-color="changeBcgColor"
@@ -56,13 +58,16 @@ export default {
         },
         toggleColorPicker() {
             this.isSelectColor = !this.isSelectColor
+        },
+        toggleHover(boolean) {
+            this.isHover = boolean
         }
-
 
     },
     data() {
         return {
             isSelectColor: false,
+            isHover: false
         }
     },
     computed: {

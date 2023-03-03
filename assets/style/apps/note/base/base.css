@@ -12,3 +12,10 @@ h6 {
   display: flex;
   color: #4c4c4c;
 }
+input {
+  border: none;
+  padding: 0px;
+}
+input:focus-visible {
+  outline: none;
+}

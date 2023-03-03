@@ -1,7 +1,12 @@
 .note-main {
   display: grid;
-
   justify-items: center;
   grid-template-rows: 64px 170px 1fr;
   width: 100%;
+}
+.pinnedList-container {
+  margin-block-start: 30px;
+}
+.unpinnedList-container {
+  margin-block-start: 30px;
 }
