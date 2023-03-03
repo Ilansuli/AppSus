@@ -7,7 +7,8 @@ export default {
                 :contenteditable="isEdit" 
                 class="note-title"  
                 @focusout="updateTitle" 
-                >{{info.title}}</h1>
+                >{{info.title}}
+                </h1>
                 <p 
                 :contenteditable="isEdit" 
                 class="note-text" 
@@ -17,7 +18,6 @@ export default {
             </div>
         `,
     components: {},
-    created() { },
     data() {
         return {
         }

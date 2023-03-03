@@ -1,11 +1,11 @@
 .note-add {
   grid-row: 1;
   grid-column: 2;
-  margin-top: 2em;
+  margin-inline-start: 32px;
+  margin-top: 32px;
   width: 599px;
-  height: 136px;
   display: grid;
-  grid-template-rows: 1fr 36px;
+  grid-template-rows: minmax(90px, 1fr) 36px;
   border-radius: 8px;
   box-shadow: 1px 1px 0 rgb(0 0 0 / 10%), -1px -1px 11px 0px rgb(0 0 0 / 7%),
     inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);

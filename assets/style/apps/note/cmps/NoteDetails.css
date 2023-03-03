@@ -15,6 +15,7 @@
 .note-info {
   position: relative;
   display: grid;
+  grid-template-rows: 38px minmax(46px, 1fr);
   align-items: flex-start;
   padding: 12px 16px 0px 16px;
 }
@@ -27,7 +28,6 @@
   overflow: hidden;
 }
 .note-text {
-  margin-block-start: 16px;
   width: 100%;
   font-size: 14px;
   grid-row: 2;

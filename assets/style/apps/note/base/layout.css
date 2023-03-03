@@ -1,6 +1,5 @@
 .notes-display {
   display: grid;
-  justify-items: center;
   width: 100%;
 }
 .notes-display .side-nav {
@@ -10,7 +9,7 @@
 }
 .notes-display {
   display: grid;
-  grid-template-rows: 170px 1fr;
+  grid-template-rows: minmax(170px, 1fr) 1fr;
   grid-template-columns: 256px 1fr;
 }
 .pinnedList-container {
