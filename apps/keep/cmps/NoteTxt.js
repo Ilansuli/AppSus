@@ -5,18 +5,14 @@ export default {
          <div class="note-info">
                 <h1 
                 :contenteditable="isEdit" 
-                class="note-title" 
-                v-text="info.title" 
-                @blur="updateTitle" 
-               
-                ></h1>
+                class="note-title"  
+                @focusout="updateTitle" 
+                >{{info.title}}</h1>
                 <p 
                 :contenteditable="isEdit" 
                 class="note-text" 
-                v-text="info.txt" 
                 @blur="updateTxt"
-                placeholder="Take a note...">
-
+                >{{info.txt}}
             </p>
             </div>
         `,
@@ -29,6 +25,7 @@ export default {
     methods: {
         updateTitle(event) {
             var txt = event.target.innerText
+            console.log(txt);
             this.info.title = txt
             this.$emit('update-info', this.info)
         },
@@ -39,7 +36,8 @@ export default {
         }
     },
     created() {
-
+        if (!this.info.title) this.info.title = "Title"
+        if (!this.info.txt) this.info.txt = "Take a note..."
     },
     computed: {},
 }

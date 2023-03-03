@@ -37,6 +37,10 @@ const routerOptions = {
 					path: ':emailId',
 					component: EmailDetails
 				},
+				{
+					path: ':type',
+					component: EmailIndex
+				}
 			]
 		},
 		// Last fallback if no route was matched:

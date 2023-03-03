@@ -6,22 +6,29 @@ import NoteImg from "../cmps/NoteImg.js"
 import NoteVideo from "../cmps/NoteVideo.js"
 import NoteTodos from "../cmps/NoteTodos.js"
 import ToolBar from "../cmps/ToolBar.js"
+import NoteTypes from '../cmps/NoteTypes.js'
 import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
     name: 'noteDetails',
     props: [],
     template: `
-    <div v-if="note" class="note-modal" :style="styleObject" >
+    <div v-if="note" 
+    class="note-modal" 
+    :style = "{'background-color':note.style.backgroundColor}" >
     <Component 
                         :is="note.type"  
                         :info="note.info"
                         :isEdit="true"
                        @updateInfo="updateInfo"
                         />
-    <!-- <p class="note-title" contenteditable="true" ref="currNote" >{{note.info.title}}</p>
-    <p class="note-text" contenteditable="true" ref="currNote" >{{note.info.txt}}</p> -->
-    <div class="tool-bar">
+                        
+    <NoteTypes
+            @change-type="changeType"
+            @change-color="changeBcgColor"
+
+            />
+    <!-- <div class="tool-bar">
                 <nav class="note-type" >
                     <button><div className="icon"  v-html="getSvg('palette')"></div></button>
                     <button><div className="icon"  v-html="getSvg('text')"></div></button>
@@ -31,7 +38,8 @@ export default {
                 </nav>
                 <button @click="closeNote">Close</button>
              
-            </div>
+            </div> -->
+            <button @click="closeNote">Close</button>
     </div>
         `,
     components: {
@@ -39,6 +47,7 @@ export default {
         NoteTodos,
         NoteVideo,
         NoteTxt,
+        NoteTypes,
         ToolBar
     },
     created() {
@@ -64,6 +73,9 @@ export default {
                     this.$router.push('/note')
                 })
         },
+        changeType(type) {
+            this.note.type = type
+        },
 
         loadNote() {
             if (!this.noteId) return
@@ -74,12 +86,11 @@ export default {
                 })
         },
 
-        changeNoteColor(color) {
+        changeBcgColor(color) {
             console.log(color);
             this.note.style.backgroundColor = color
             this.$emit('update', this.note)
             noteService.save(this.note)
-
         },
 
         getSvg(iconName) {
@@ -91,6 +102,7 @@ export default {
             this.note.info = info
 
         },
+
 
         closeNote() {
             // noteService.save(this.note)
@@ -112,13 +124,16 @@ export default {
         },
         noteId() {
             return this.$route.params.noteId
-        }
+        },
 
     },
     watch: {
         noteId() {
             console.log('bookId Changed!')
             this.loadNote()
+        },
+        noteEmail() {
+            console.log('I got an email');
         }
     }
 }

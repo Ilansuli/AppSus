@@ -2,17 +2,17 @@ import { svgService } from "../../../services/svg.service.js"
 
 export default {
     name: '',
-    emits: ['remove', 'change-color', 'pin', 'duplicate'],
+    emits: ['remove', 'change-color', 'pin', 'copy', 'send'],
     template: `
         <div class="tool-bar">
-                    <button @click="pin">
-                        <div  data-title="Pin" className="icon" v-html="getSvg('pin')"></div>
-                    </button>
-                    <button @click="duplicate">
+                    <button @click="copy">
                         <div  data-title="Copy" className="icon" v-html="getSvg('duplicate')"></div>
                     </button>
                     <button  @click="remove">
                         <div data-title="Delete" className="icon" v-html="getSvg('trash')"></div>
+                    </button>
+                    <button  @click="send">
+                        <div data-title="send" className="icon" v-html="getSvg('send')"></div>
                     </button>
                     <button @click="toggleColorPicker" >
                         <div data-title=" Background Color"  className="icon" v-html="getSvg('palette')"></div>
@@ -49,6 +49,12 @@ export default {
         },
         pin() {
             this.$emit('pin')
+        },
+        copy() {
+            this.$emit('copy')
+        },
+        send() {
+            this.$emit('send')
         }
 
 

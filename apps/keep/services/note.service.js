@@ -22,7 +22,7 @@ function query(filterBy = {}) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 notes = notes.filter(note => regex.test(note.title))
             }
-            console.log(notes);
+            // console.log(notes);
             return notes
         })
 }

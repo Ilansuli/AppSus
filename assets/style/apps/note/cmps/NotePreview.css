@@ -14,7 +14,8 @@
   min-height: 30px;
 }
 
-.full-pin-icon {
+.pin {
+  background-color: transparent;
   position: absolute;
   top: 0;
   right: 0;

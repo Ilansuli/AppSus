@@ -27,6 +27,8 @@ export default {
 <section class="pinnedList-container">
 <PinnedNoteList 
                 :notes="PinnedFilteredNotes" 
+                @add = "addNote"
+                @send='sendNote'
                  @remove="removeNote"
                  @update="updateNote"
                  @change-bcg='changeBcg' 
@@ -35,6 +37,8 @@ export default {
 <section class="unpinnedList-container">
     <UnpinnedNoteList 
                 :notes="UnpinnedFilteredNotes" 
+                @add = "addNote"
+                @send='sendNote'
                  @remove="removeNote"
                  @update="updateNote"
                  @change-bcg='changeBcg' 
@@ -84,24 +88,36 @@ export default {
     },
 
     addNote(note) {
+      note.createdAt = Date.now()
+      console.log('IndexNote', note);
       noteService.save(note)
         .then(savedNote => {
-          console.log('Note saved', savedNote)
-          showSuccessMsg()
+          // console.log('Note saved', savedNote)
           this.notes.unshift(savedNote)
         })
         .catch(err => {
           showErrorMsg()
         })
     },
+    sendNote(note) {
+      this.$router.push({
+        path: '/e`mail',
+        query: {
+          subject: note.info.title,
+          body: note.info.txt
+        }
+      })
+    },
+    updateNote(noteToUpdate) {
+      noteService.save(noteToUpdate)
+        .then(updatedNote => {
+          // console.log('Note Updated', note)
 
-    updateNote(updatedNote) {
-      noteService.save(updatedNote)
-        .then(note => {
-          console.log('Note Updated', note)
-          const idx = this.notes.findIndex(note => note.id === note.id)
+          const idx = this.notes.findIndex(note => note.id === updatedNote.id)
           // this.notes[idx] = note
-          this.notes.splice(idx, 1, note)
+          console.log(idx);
+          // console.log(this.notes);
+          this.notes.splice(idx, 1, updatedNote)
         })
         .catch(err => {
           showErrorMsg()
@@ -145,6 +161,16 @@ export default {
       return {
         'modal-open': true
       }
+    },
+    gotEmail() {
+      return this.$route.params.type
     }
   },
+  watch: {
+    gotEmail() {
+      console.log('I got an email');
+    }
+  }
 }
+
+//this.$router.push({ path: '/mail', query: { composeId: this.mail.id } })

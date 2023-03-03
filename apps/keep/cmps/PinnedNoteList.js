@@ -5,24 +5,10 @@ import { noteService } from '../services/note.service.js'
 export default {
     name: "note list",
     props: ['notes'],
-    emits: ['update', 'remove', 'changeBcg'],
+    emits: ['update', 'remove', 'add', 'changeBcg', 'send'],
     template: ` 
     <h1>PINNED</h1>
     <section class="notes-list pinned">
-    <article
-                class="note-container" 
-                v-for="note in pinnedNotes" 
-                :key="note.id" 
-                @get-details="getDetails(note.id)"
-                >
-                <NotePreview 
-                @update="updateNote"
-                @remove="remove"
-                @getDetails = "getDetails"
-                :note="note" 
-                    />
-            
-        </article>
         <article
                 class="note-container" 
                 v-for="note in notes" 
@@ -31,12 +17,12 @@ export default {
                 >
                 <NotePreview 
                 @update="updateNote"
+                @add="addNote"
                 @remove="remove"
+                @send='send'
                 @getDetails = "getDetails"
                 :note="note" 
                     />
-            
-            
         </article>
     </section>
   
@@ -44,13 +30,15 @@ export default {
     data() {
         return {
             isSelectColor: false,
-            note: null,
             pinnedNotes: []
         }
     },
     methods: {
         remove(noteId) {
             this.$emit('remove', noteId)
+        },
+        send(note) {
+            this.$emit('send', note)
         },
         getDetails(noteId) {
             this.$router.push('/note/' + noteId)
@@ -62,9 +50,13 @@ export default {
             this.isSelectColor = !this.isSelectColor
         },
         updateNote(note) {
-            // console.log(note);
+            console.log(note);
             this.$emit('update', note)
         },
+        addNote(note) {
+            // console.log('ListNote',note);
+            this.$emit('add', note)
+        }
     },
     computed: {
         styleObject(note) {

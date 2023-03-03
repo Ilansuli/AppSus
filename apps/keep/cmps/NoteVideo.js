@@ -21,7 +21,9 @@ export default {
     </div>
         `,
     components: {},
-    created() { },
+    created() {
+        if (!this.info.title) this.info.title = "Title"
+     },
     data() {
         return {}
     },
