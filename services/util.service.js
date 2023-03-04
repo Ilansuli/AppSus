@@ -8,7 +8,8 @@ export const utilService = {
     loadFromStorage,
     saveToStorage,
     animateCSS,
-    getRandomColor
+    getRandomColor,
+    setQueryStringParams,
 }
 
 function makeId(length = 11) {
@@ -84,4 +85,16 @@ function getRandomColor() {
     }
     return color;
 }
+function setQueryStringParams(lat, lng) {
+    const queryStringParams = `?lat=${lat}&lng=${lng}`
+
+    const newUrl =
+        window.location.protocol +
+        '//' +
+        window.location.host +
+        window.location.pathname +
+        queryStringParams
+    window.history.pushState({ path: newUrl }, '', newUrl)
+}
+
 

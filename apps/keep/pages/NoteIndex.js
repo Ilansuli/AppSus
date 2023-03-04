@@ -1,6 +1,6 @@
 import { noteService } from '../services/note.service.js'
 // import { getKeepSvg, getMailSvg } from '../../../services/svg.service.js'
-import { eventBus, showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
+import { eventBusService, showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 
 import NoteFilter from '../cmps/NoteFilter.js'
 import PinnedNoteList from '../cmps/PinnedNoteList.js'
@@ -16,21 +16,14 @@ export default {
   template: `
   <!-- <section class="note-app"> -->
     <section class="note-main">
-            <div class="main-screen" :class="isModalOpen"></div>
-      <header class="main-header flex">
-            <img src="../../assets/img/note/keep.png">
-            <h1>Keep</h1>
-           <NoteFilter @filter="setFilterBySearch"/>
-      </header>
-
     <section class="notes-display">
 <sideNav
 @filter="setFilterByType"
 />
       <NoteAdd @addNote="addNote"/>
       <RouterView 
-    @update="updateNote"
-    @is-load-note="isLoadNote"/>
+            @update="updateNote"
+            @is-load-note="isLoadNote"/>
 <section class="pinnedList-container">
 <PinnedNoteList 
                 :notes="PinnedFilteredNotes" 
@@ -69,13 +62,18 @@ export default {
     if (this.$route.query.title) {
       this.createEmailNote(this.$route.query)
     }
+    if (this.$route.params.noteId) this.isDetails = true
+    if (!this.$route.params.noteId) this.isDetails = false
     this.loadNotes()
-    eventBus.on('updated', this.updateNote)
+    eventBusService.on('filter', searchWord => {
+      this.setFilterBySearch(searchWord)
+    })
   },
   data() {
     return {
       notes: [],
-      filterBy: {}
+      filterBy: {},
+      isDetails: false
     }
   },
   methods: {
@@ -155,6 +153,7 @@ export default {
     },
 
     setFilterBySearch(search) {
+      console.log(search);
       this.filterBy.search = search
     },
 
@@ -186,20 +185,20 @@ export default {
       const typeRegex = new RegExp(this.filterBy.type, 'i')
       return unpinnedNotes.filter(note => titleRegex.test(note.info.title) && typeRegex.test(note.type))
     },
-    isModalOpen() {
-      return {
-        'modal-open': true
-      }
-    },
     gotEmail() {
       return this.$route.query
-    }
+    },
+
+    noteId() {
+      return this.$route.params.noteId
+    },
   },
   watch: {
-    gotEmail() {
-      
-      console.log('I got an email');
-    }
+    noteId() {
+      if (this.$route.params.noteId) this.isDetails = true
+      if (!this.$route.params.noteId) this.isDetails = false
+
+    },
   }
 }
 

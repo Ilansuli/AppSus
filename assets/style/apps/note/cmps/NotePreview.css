@@ -15,12 +15,16 @@
 }
 
 .pin {
+  z-index: 1;
   cursor: pointer;
   background-color: transparent;
   position: absolute;
   top: 0;
   right: 0;
   padding: 5px;
+}
+.note-modal .pin {
+  z-index: 4;
 }
 .note-preview .text-box {
   grid-row: 1;

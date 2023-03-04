@@ -14,7 +14,7 @@
 
 .url-container img {
   position: relative;
-  height: 100%;
+  height: 300px;
   width: 100%;
   object-fit: cover;
 }
@@ -27,7 +27,6 @@
 }
 .url-container.edit {
   position: relative;
-  height: 300px;
 }
 .url-container .remove-url {
   position: absolute;

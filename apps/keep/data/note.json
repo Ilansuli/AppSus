@@ -5,26 +5,32 @@
     "type": "NoteTxt",
     "isPinned": true,
     "style": { "backgroundColor": "#ffffff" },
-    "info": { "txt": "Fullstack Me Baby!", "title": "FullStack" }
+    "info": {
+      "txt": "I had a weird dream where the code on my computer screen came to life, glowing with an eerie blue light and rearranging itself into intricate patterns and shapes. It was both fascinating and unsettling.",
+      "title": "My Dream"
+    }
   },
   {
-    "id": "n102",
+    "id": "n105",
     "createdAt": 1112244,
     "type": "NoteTxt",
-    "isPinned": true,
+    "isPinned": false,
     "style": { "backgroundColor": "#ffffff" },
-    "info": { "txt": "Coding is Life", "title": "Coding" }
+    "info": {
+      "txt": "Taizu - Known for its upscale Asian fusion cuisine and stylish decor, Taizu is a must-visit spot for foodies in Tel Aviv. The restaurant offers an extensive menu of creative dishes, such as seafood ceviche, beef tartare with chili, and crispy pork belly.",
+      "title": "Best Restaurant"
+    }
   },
   {
-    "id": "n103",
+    "id": "n104",
     "createdAt": 1112255,
     "type": "NoteTxt",
     "isPinned": true,
     "style": { "backgroundColor": "#ffffff" },
-    "info": { "txt": "I LOVE CSS", "title": "Coding" }
+    "info": { "txt": "NoFreeInternetHere", "title": "WIFI password" }
   },
   {
-    "id": "n104",
+    "id": "n103",
     "type": "NoteImg",
     "isPinned": false,
     "info": {
@@ -34,7 +40,7 @@
     "style": { "backgroundColor": "#ffffff" }
   },
   {
-    "id": "n105",
+    "id": "n102",
     "type": "NoteTodos",
     "isPinned": false,
     "style": { "backgroundColor": "#ffffff" },
@@ -45,7 +51,15 @@
           "txt": "Driving license",
           "doneAt": null
         },
-        { "txt": "Coding power", "doneAt": 187111111 }
+        { "txt": "Coding power", "doneAt": 187111111 },
+        {
+          "txt": "Sleep",
+          "doneAt": null
+        },
+        {
+          "txt": "Meet people",
+          "doneAt": null
+        }
       ]
     }
   },
@@ -71,11 +85,11 @@
   },
   {
     "id": "n108",
-    "type": "NoteMap",
-    "isPinned": false,
+    "type": "NoteImg",
+    "isPinned": true,
     "info": {
-      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3379.286163733088!2d34.83463778495322!3d32.11557318117685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d49bd9ca994a7%3A0x44c60419fc182184!2z15nXpteX16cg15jXkdeg16fXmdefIDU1LCDXqtecINeQ15HXmdeRLdeZ16TXlQ!5e0!3m2!1siw!2sil!4v1677918107752!5m2!1siw!2sil",
-      "title": "Map"
+      "url": "https://cdn.pixabay.com/photo/2016/09/08/21/09/piano-1655558_1280.jpg",
+      "title": "My Piano"
     },
     "style": { "backgroundColor": "#ffffff" }
   }
