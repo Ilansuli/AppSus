@@ -21,9 +21,10 @@ export default {
             <div class="tool-bar">
             <NoteTypes
             @change-type="changeType"
+            @change-color="changeBcgColor"
             />
            
-                <button @click="addNote">Close</button>
+                <button class='close-btn' @click="addNote">Close</button>
             </div>
 </section>
     `,

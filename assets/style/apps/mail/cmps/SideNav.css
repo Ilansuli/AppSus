@@ -1,4 +1,5 @@
 .side-nav {
+<<<<<<< HEAD
     background-color: #f6f8fc;
     grid-column: 1;
     grid-row: 2;
@@ -16,32 +17,47 @@
     cursor: pointer;
     background-color: #f6f8fc;
 
+=======
+  background-color: #f6f8fc;
+}
+
+.side-nav-item {
+  display: flex;
+  gap: 18px;
+  padding-inline-start: 26px;
+  padding-inline-end: 12px;
+  padding-block: 6px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  cursor: pointer;
+  background-color: #f6f8fc;
+>>>>>>> 265ca82992f1f5fe304b96658dd08d7518256c7e
 }
 
 .unread-count {
-    -webkit-font-smoothing: auto;
-    font-family: 'roboto-medium';
-    font-size: .75rem;
-    color: #5f6368;
-    opacity: .8;
+  -webkit-font-smoothing: auto;
+  font-family: "roboto-medium";
+  font-size: 0.75rem;
+  color: #5f6368;
+  opacity: 0.8;
 }
 
 .side-nav-item .icon {
-    fill: #5f6368;
+  fill: #5f6368;
 }
 
 .side-nav-item:hover {
-    background-color: #e7e7e7;
+  background-color: #e7e7e7;
 }
 
 .side-nav-item.inbox div {
-    display: flex;
-    gap: 98px;
-    align-items: center;
-} 
-.clicked-side-nav{
-    background-color: #d3e3fd;
-    font-family: 'roboto-medium';
-    color: #041e49;
-    fill: #041e49;
+  display: flex;
+  gap: 98px;
+  align-items: center;
+}
+.clicked-side-nav {
+  background-color: #d3e3fd;
+  font-family: "roboto-medium";
+  color: #041e49;
+  fill: #041e49;
 }

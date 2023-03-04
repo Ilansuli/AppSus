@@ -7,7 +7,7 @@ export default {
     props: ['notes'],
     emits: ['update', 'remove', 'add', 'changeBcg', 'send'],
     template: ` 
-    <h1>PINNED</h1>
+    <h1 style="fontSize: 12px">PINNED</h1>
     <section class="notes-list pinned">
         <article
                 class="note-container" 

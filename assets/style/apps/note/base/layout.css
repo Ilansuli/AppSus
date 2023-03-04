@@ -1,12 +1,27 @@
 .note-main {
   display: grid;
+  grid-template-rows: 68px 1fr;
+  justify-content: center;
   justify-items: center;
-  grid-template-rows: 64px 170px 1fr;
   width: 100%;
+}
+
+.notes-display .side-nav {
+  grid-column: 1;
+  grid-row: 1/-1;
+  background-color: white;
+}
+.notes-display {
+  grid-row: 2;
+  width: 100%;
+  display: grid;
+  grid-template-rows: minmax(170px, 1fr) 1fr;
+  grid-template-columns: 256px 1fr;
 }
 .pinnedList-container {
   margin-block-start: 30px;
 }
 .unpinnedList-container {
-  margin-block-start: 30px;
+  grid-column: 2;
+  margin-block-start: 90px;
 }

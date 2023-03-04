@@ -6,6 +6,8 @@ import NoteFilter from '../cmps/NoteFilter.js'
 import PinnedNoteList from '../cmps/PinnedNoteList.js'
 import UnpinnedNoteList from '../cmps/UnpinnedNoteList.js'
 import NoteAdd from '../cmps/NoteAdd.js'
+import SideNav from '../cmps/SideNav.js'
+import { router } from '../../../routes.js'
 
 
 export default {
@@ -18,8 +20,13 @@ export default {
       <header class="main-header flex">
             <img src="../../assets/img/note/keep.png">
             <h1>Keep</h1>
-           <NoteFilter @filter="setFilterBy"/>
+           <NoteFilter @filter="setFilterBySearch"/>
       </header>
+
+    <section class="notes-display">
+<sideNav
+@filter="setFilterByType"
+/>
       <NoteAdd @addNote="addNote"/>
       <RouterView 
     @update="updateNote"
@@ -44,7 +51,7 @@ export default {
                  @change-bcg='changeBcg' 
                 /> 
 </section>
-             
+</section>    
 </section>
 
         `,
@@ -54,12 +61,13 @@ export default {
     UnpinnedNoteList,
     NoteAdd,
     PinnedNoteList,
-    UnpinnedNoteList
+    UnpinnedNoteList,
+    SideNav
 
   },
   created() {
     if (this.$route.query.title) {
-      console.log('got Note');
+      this.createEmailNote(this.$route.query)
     }
     this.loadNotes()
     eventBus.on('updated', this.updateNote)
@@ -75,9 +83,9 @@ export default {
       noteService.query()
         .then(notes => {
           this.notes = notes
-          console.log(notes);
         })
     },
+
     removeNote(noteId) {
       noteService.remove(noteId)
         .then(() => {
@@ -97,11 +105,13 @@ export default {
         .then(savedNote => {
           // console.log('Note saved', savedNote)
           this.notes.unshift(savedNote)
+
         })
         .catch(err => {
           showErrorMsg()
         })
     },
+
     sendNote(note) {
       this.$router.push({
         path: '/email',
@@ -111,6 +121,7 @@ export default {
         }
       })
     },
+
     updateNote(noteToUpdate) {
       noteService.save(noteToUpdate)
         .then(updatedNote => {
@@ -143,8 +154,23 @@ export default {
 
     },
 
-    setFilterBy(filterBy) {
-      this.filterBy = filterBy
+    setFilterBySearch(search) {
+      this.filterBy.search = search
+    },
+
+    setFilterByType(type) {
+      this.filterBy.type = type
+    },
+
+    createEmailNote(query) {
+      const emailNote = noteService.getEmptyNote()
+      emailNote.info.title = query.title
+      emailNote.info.txt = query.txt
+      noteService.save(emailNote).then(
+        setTimeout(() => this.$router.push('/note/' + emailNote.id), 600)
+
+      )
+
     }
   },
   computed: {

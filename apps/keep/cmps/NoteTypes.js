@@ -6,11 +6,11 @@ export default {
     emits: ['change-color', 'change-type'],
     template: `
         <nav class="note-type" >
-                    <button @click="toggleColorPicker"><div className="icon" v-html="getSvg('palette')"></div></button>
-                    <button @click="changeType('NoteTxt')"><div className="icon" v-html="getSvg('text')"></div></button>
-                    <button @click="changeType('NoteImg')"><div className="icon" v-html="getSvg('img')"></div></button>
-                    <button @click="changeType('NoteVideo')"><div className="icon" v-html="getSvg('video')"></div></button>
-                    <button @click="changeType('NoteTodos')"><div className="icon" v-html="getSvg('todo')"></div></button>
+            <button @click="changeType('NoteTxt')"><div className="icon" v-html="getSvg('text')"></div></button>
+            <button @click="changeType('NoteImg')"><div className="icon" v-html="getSvg('img')"></div></button>
+            <button @click="changeType('NoteVideo')"><div className="icon" v-html="getSvg('video')"></div></button>
+            <button @click="changeType('NoteTodos')"><div className="icon" v-html="getSvg('done')"></div></button>
+            <button @click="toggleColorPicker"><div className="icon" v-html="getSvg('palette')"></div></button>
         </nav>
         <section class="color-picker" v-if="isSelectColor">
                 <article @click="changeBcgColor('#f28b82')" class="color red" ></article>

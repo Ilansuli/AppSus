@@ -1,13 +1,10 @@
-.note-main {
-  /* height: 100%; */
-  display: grid;
-  grid-template-rows: 125px 1fr;
-  justify-content: center;
-  justify-items: center;
-  width: 100%;
-}
 .main-layout {
   min-height: 100vh;
   display: grid;
   grid-template-rows: 70px 1fr 35px;
+}
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
