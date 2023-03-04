@@ -1,16 +1,17 @@
 import { svgService } from "../../../services/svg.service.js"
+import { emailService } from "../services/emailService.js"
 
 export default {
   name: 'Side Nav', 
-  props: [],
+  props: ['emails'],
   template: `
   <section class="side-nav">
 
           <section @click="filterStatus('inbox')" data-title="Inbox" class="side-nav-item inbox" :class= "clickedClass('inbox')">
-                  <div class="icon" v-html="getSvg('inbox')"></div>
+                  <div @click = "loadCountUnread" class="icon" v-html="getSvg('inbox')"></div>
     <div>
             <span>Inbox</span>
-            <span class="unread-count">3,180</span>
+            <span class="unread-count">{{countUnread}}</span>
         </div>
 </section>
 
@@ -41,17 +42,31 @@ export default {
 components:{},
 created() {
         this.status = 'inbox'
+        this.loadCountUnread()
+  
 },
 data() {
     return {
         status: '',
-        isStar: false
+        isStar: false,
+        countUnread: 0,
     }
   },
   methods: {
+loadCountUnread(){
+        setTimeout(()=> {
+                   let unreadCounter = 0
+                   this.emails.forEach(email => {
+                   if(email.isRead) unreadCounter++
+                   })
+                this.countUnread = unreadCounter
+
+        },500)
+                  },
      getSvg(iconName) {
     return svgService.getMailSvg(iconName)
   },
+
   filterStatus(status){
         this.isStar = false
         this.status = status
@@ -72,10 +87,14 @@ data() {
   clickedStar(){
         this.isStar = true
         this.status = ''
-  }
-},
-computed: {
-       
-      
   },
+
+},
+
+computed: {
+  },
+  watch:{
+       
+  }
 }
+

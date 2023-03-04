@@ -14,8 +14,8 @@ export default {
   template: `
   <section class="email-index">
     <section class ="side-nav">
-      <button class="compose-btn" @click="isNewEmail = !isNewEmail" @click="createComposeEmail"><div className="icon" v-html="getSvg('compose')"></div>Compose</button>
-      <SideNav @closeDetails ="closeDetails" @filterStarred="filterStarred" @filterStatus="setFilterBy" />
+      <button class="compose-btn"  @click="createComposeEmail"><div className="icon" v-html="getSvg('compose')"></div>Compose</button>
+      <SideNav :emails="emails" @closeDetails ="closeDetails" @filterStarred="filterStarred" @filterStatus="setFilterBy" />
     </section>
     <EmailFilter @saveEmail="saveEmail" @filter="setFilterBy"/>
       <EmailList
@@ -26,7 +26,7 @@ export default {
       v-if="!isDetails" 
       />
       <RouterView @makeNote="makeNote" v-if="isDetails" />
-    <EmailCompose :composeEmail="composeEmail"  @saveEmail='saveEmail' v-if="isNewEmail" />
+    <EmailCompose :composeEmail="composeEmail"  @saveEmail='saveEmail'  />
   </section>
     `,
   created() {
@@ -46,9 +46,8 @@ export default {
     return {
       filterBy: { status: '', stars: false },
       emails: [],
-      isNewEmail: false,
       isDetails: false,
-      composedEmail : null
+      composeEmail : null
     }
   },
   methods: {
@@ -56,7 +55,7 @@ export default {
       const emptyEmail = emailService.getEmptyEmail()
       emailService.save(emptyEmail).then(composeEmail => {
         this.composeEmail = composeEmail
-        return this.updateQuery(composeEmail.id)
+        return this.updateQuery(this.composeEmail.id)
       })
     },
     updateQuery(id) {
@@ -90,8 +89,8 @@ export default {
     },
 
     updateEmail(email, updateKey, toUpdate) {
-      const emailToUpdate = this.emails[emailToUpdateIdx]
       const emailToUpdateIdx = this.emails.findIndex(emailToUpdate => email === emailToUpdate)
+      const emailToUpdate = this.emails[emailToUpdateIdx]
       emailToUpdate[updateKey] = toUpdate
       emailService.save(emailToUpdate)
       console.log(emailToUpdateIdx)
@@ -110,7 +109,7 @@ export default {
       const emailIdx = this.emails.findIndex(email => email.id === emailId)
       if (this.emails[emailIdx].status !== 'trash') {
         this.emails[emailIdx].status = 'trash'
-        emailService.save(this.emails[emailIdx]).then(() => this.emails.unshift(savedEmail))
+        emailService.save(this.emails[emailIdx]).then( savedEmail => this.emails.unshift(savedEmail))
       }
       else (emailService.remove(emailId)
         .then(() => this.emails.splice(emailIdx, 1)))
@@ -164,11 +163,17 @@ export default {
       console.log(filteredEmails)
       return filteredEmails
     },
+    composeEmailId() {
+      return this.$route.params
+    }
 
-
-    watch: {
-    },
-
+  },
+  watch:{
+    composeEmailId(){
+      if(this.$route.params === "/email"){
+        this.isDetails = false
+      }
+    }
   },
   components: {
     EmailList,
