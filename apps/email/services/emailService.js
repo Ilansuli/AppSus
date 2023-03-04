@@ -6,12 +6,13 @@ import { storageService } from '../../../services/async-storage.service.js'
 
 const EMAIL_KEY = 'emailDB'
 
+
 export const emailService = {
     query,
     get,
     remove,
     save,
-    getEmptyEmail
+    getEmptyEmail,
 }
 
 _createEmails()

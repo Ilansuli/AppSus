@@ -28,7 +28,20 @@ export default {
             this.$emit('updateEmail',email)
         },
         showDetails(emailId){
-            this.$router.push("email/" + emailId)
+            if(this.$route.query){
+                const {newComposeId} = this.$route.query
+                this.$router.push({
+                  path: `/email/${emailId}`,
+            //       // params: params + '/',
+                  query: {
+                    newComposeId: newComposeId,
+                  }
+                 })
+              }
+            
+            // this.$router.push("/email/" + emailId)
+
+            
             this.$emit('showDetails')
         }
     },

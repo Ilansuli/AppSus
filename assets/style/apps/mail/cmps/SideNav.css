@@ -1,5 +1,8 @@
 .side-nav {
     background-color: #f6f8fc;
+    grid-column: 1;
+    grid-row: 2;
+    
 }
 
 .side-nav-item {
@@ -12,7 +15,7 @@
     border-bottom-right-radius: 30px;
     cursor: pointer;
     background-color: #f6f8fc;
-    
+
 }
 
 .unread-count {

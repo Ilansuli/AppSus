@@ -32,10 +32,11 @@ const routerOptions = {
 		{
 			path: '/email',
 			component: EmailIndex,
+			props: true,
 			children: [
 				{
 					path: ':emailId',
-					component: EmailDetails
+					component: EmailDetails,
 				},
 				{
 					path: ':type',

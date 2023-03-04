@@ -12,6 +12,7 @@ export default {
                         <div data-title="Delete" className="icon" v-html="getSvg('trash')"></div>
                     </button>
                     <button  @click="send">
+                        <h4>'shtoot</h4>
                         <div data-title="send" className="icon" v-html="getSvg('send')"></div>
                     </button>
                     <button @click="toggleColorPicker" >
@@ -36,6 +37,7 @@ export default {
     },
     methods: {
         getSvg(iconName) {
+            console.log(svgService.getNoteSvg(iconName))
             return svgService.getNoteSvg(iconName)
         },
         changeBcgColor(color) {

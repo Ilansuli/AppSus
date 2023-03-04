@@ -16,8 +16,7 @@ export default {
 
           <div class="preview-txt">
             <span class="subject">{{email.subject}} - </span>
-            <span class="txt">{{email.body}}<span>...</span>
-            </span>
+            <span class="txt">{{email.body}}<span>...</span></span>
           </div>
             <span v-if="!isHover" class="preview-date">Feb 23</span>
 

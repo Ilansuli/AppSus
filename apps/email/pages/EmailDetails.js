@@ -51,7 +51,7 @@ export default {
         },
         loadEmail(){
             const { emailId } = this.$route.params
-            // console.log(emailId)
+            console.log(emailId)
             emailService.get(emailId)
                 .then(email => this.email = email)
         }
