@@ -12,7 +12,7 @@ export default {
                 <div class="second-s">s</div>
             </div>
 
-            <div class="apps-icon" @click ="toggleHover" v-html="getSvg('apps')"></div> 
+            <div class="apps-icon" @blur="toggleHover"  @click ="toggleHover" v-html="getSvg('apps')"></div> 
 
             <div class="dropdown-content" v-show="isHover">
 
@@ -30,9 +30,8 @@ export default {
                 <div class="keep-logo" >
                     <router-link to="/note"><img src="https://i.pinimg.com/originals/09/96/92/099692d1d651d51b7caf3040fce0f748.png"></router-link>
                 </div>
+
             </div>
-        </span>
-    </div>
         </header>
     `,
     data(){

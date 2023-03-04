@@ -1,0 +1,13 @@
+.home-page{
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+    height: 100%;
+    grid-row: 2;
+}
+.home-page h1{
+    font-size: xxx-large;
+    position: absolute;
+    top: 209px;
+    left: 190px;
+}
