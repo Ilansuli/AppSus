@@ -8,9 +8,9 @@ import UserMsg from './cmps/UserMsg.js'
 
 const options = {
     template: `
-        <section class="main-layout" >
+        <section class="main-layout">
             <AppHeader />
-            <RouterView  />
+            <RouterView />
             <UserMsg />
             <AppFooter />
         </section>
