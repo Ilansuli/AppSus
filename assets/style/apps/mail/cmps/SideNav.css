@@ -1,23 +1,4 @@
 .side-nav {
-<<<<<<< HEAD
-    background-color: #f6f8fc;
-    grid-column: 1;
-    grid-row: 2;
-    
-}
-
-.side-nav-item {
-    display: flex;
-    gap: 18px;
-    padding-inline-start: 26px;
-    padding-inline-end: 12px;
-    padding-block: 6px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    cursor: pointer;
-    background-color: #f6f8fc;
-
-=======
   background-color: #f6f8fc;
 }
 
@@ -31,7 +12,6 @@
   border-bottom-right-radius: 30px;
   cursor: pointer;
   background-color: #f6f8fc;
->>>>>>> 265ca82992f1f5fe304b96658dd08d7518256c7e
 }
 
 .unread-count {

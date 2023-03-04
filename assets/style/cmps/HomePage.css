@@ -5,9 +5,17 @@
     height: 100%;
     grid-row: 2;
 }
-.home-page h1{
-    font-size: xxx-large;
+.home-page .title{
     position: absolute;
-    top: 209px;
-    left: 190px;
+    top: 160px;
+    left: 185px;
+    font-size: 89px;
+}
+
+.title .just{
+margin-inline-start: 51px;
+}
+.title .horse{
+    margin-inline-start: 106px;
+    margin-block-start: 10px;
 }

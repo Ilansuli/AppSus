@@ -5,12 +5,12 @@ export default {
   props: [],
   template: `   
     <form v-if="composeEmail" @focusout="onFormBlur" ref="form"  @submit.prevent="saveEmail" class="new-email-form " >
-      <header><h5>New Message</h5> - x</header>
+      <header><h5>New Message</h5></header>
       <!-- <input v-model="email.from" id="from" type="text" placeHolder ="Your-Mail" /> -->
-      <input @mouseover="isForm = true" @mouseleave = "isForm = false" ref="toInput" v-model = "composeEmail.to"  type="text" placeHolder="To" />
-      <input  @mouseover="isForm = true" @mouseleave = "isForm = false" v-model="composeEmail.subject"  type="text" placeHolder="Subject"/>
-      <textarea   @mouseover="isForm = true" @mouseleave = "isForm = false" v-model="composeEmail.body" cols="30" rows="10"></textarea>
-      <button @mouseover="isForm = true" @mouseleave = "isForm = false">Send</button>
+      <input class="input-to" @mouseover="isForm = true" @mouseleave = "isForm = false" ref="toInput" v-model = "composeEmail.to"  type="text" placeHolder="To" />
+      <input class="input-subject"  @mouseover="isForm = true" @mouseleave = "isForm = false" v-model="composeEmail.subject"  type="text" placeHolder="Subject"/>
+      <textarea class="compose-text-area"   @mouseover="isForm = true" @mouseleave = "isForm = false" v-model="composeEmail.body" cols="30" rows="10"></textarea>
+      <button class="form-submit-btn" @mouseover="isForm = true" @mouseleave = "isForm = false">Send</button>
     </form>
     `,
   components: {
