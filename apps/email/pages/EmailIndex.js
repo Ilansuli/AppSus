@@ -17,7 +17,6 @@ export default {
       <button class="compose-btn"  @click="createComposeEmail"><div className="icon" v-html="getSvg('compose')"></div>Compose</button>
       <SideNav :emails="emails" @closeDetails ="closeDetails" @filterStarred="filterStarred" @filterStatus="setFilterBy" />
     </section>
-    <EmailFilter @saveEmail="saveEmail" @filter="setFilterBy"/>
       <EmailList
       @updateEmail = "updateEmail"
       @removeEmail="removeEmail"
@@ -31,6 +30,10 @@ export default {
     `,
   created() {
     if (this.$route.query.subject) this.createNoteEmail(this.$route.query)
+
+    eventBusService.on('filter', searchWord => {
+      this.setFilterBy({keyWord: 'txt', toUpdate : searchWord})
+    })
 
     emailService.query()
       .then(emails => this.emails = emails)

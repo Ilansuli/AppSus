@@ -11,8 +11,8 @@ const options = {
         <section class="main-layout" >
             <AppHeader />
             <RouterView  />
-            <AppFooter />
             <UserMsg />
+            <AppFooter />
         </section>
     `,
     components: {
