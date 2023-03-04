@@ -17,14 +17,14 @@ export default {
 
             <div class="dropdown-content" v-show="isHover">
                 <div class="home-logo">
-                    <router-link to="/"><img  src="../../assets/img/main/home.png"></router-link>  
+                    <router-link to="/"><img  src="assets/img/main/home.png"></router-link>  
                 </div>
                 <div>
-                    <router-link to="/about"><img  src="../../assets/img/main/about.png"></router-link>
+                    <router-link to="/about"><img  src="assets/img/main/about.png"></router-link>
                 </div>
 
                 <div class="gmail-logo">
-                    <router-link  to="/email"><img  src="../../assets/img/main/gmail.png"></router-link>
+                    <router-link  to="/email"><img  src="assets/img/main/gmail.png"></router-link>
                 </div>
 
                 <div class="keep-logo" >
