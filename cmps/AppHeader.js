@@ -1,4 +1,5 @@
 import { svgService } from "../services/svg.service.js"
+import AppFilter from "./AppFilter.js"
 
 export default {
     template: `
@@ -11,11 +12,10 @@ export default {
                 <div class="u">u</div>
                 <div class="second-s">s</div>
             </div>
-
+                    <AppFilter/>
             <div class="apps-icon" @click ="toggleHover" v-html="getSvg('apps')"></div> 
 
             <div class="dropdown-content" v-show="isHover">
-
                 <div class="home-logo">
                     <router-link to="/"><img  src="../../assets/img/main/home.png"></router-link>  
                 </div>
@@ -31,27 +31,28 @@ export default {
                     <router-link to="/note"><img src="https://i.pinimg.com/originals/09/96/92/099692d1d651d51b7caf3040fce0f748.png"></router-link>
                 </div>
             </div>
-        </span>
-    </div>
         </header>
     `,
-    data(){
-        return{
-            isHover : false
+    data() {
+        return {
+            isHover: false
         }
     },
-    methods:{
-        toggleHover(){
+    methods: {
+        toggleHover() {
             this.isHover = !this.isHover
         },
         getSvg(iconName) {
-                return svgService.getMailSvg(iconName)
-              }
+            return svgService.getMailSvg(iconName)
+        }
     },
-    mounted(){
+    mounted() {
         this.isHover = false
     },
-    unmounted(){
+    unmounted() {
         this.isHover = true
+    },
+    components: {
+        AppFilter
     }
 }

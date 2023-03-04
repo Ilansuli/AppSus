@@ -34,35 +34,3 @@
   background-color: transparent;
   width: 100%;
 }
-.note-filter {
-  grid-row: 1;
-  height: 100%;
-  align-self: center;
-  border-radius: 8px;
-  background-color: #f0f3f4;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  display: grid;
-  grid-template-columns: 30px 1fr;
-  align-items: center;
-  justify-content: flex-start;
-  height: 48px;
-  padding: 8px;
-  max-width: 720px;
-}
-.note-filter .filter-txt {
-  grid-column: 2;
-  background-color: transparent;
-}
-.note-filter > * {
-  border: none;
-}
-.note-filter .filter-txt-container .filter-txt {
-  border: none;
-}
-.note-filter .filter-txt:focus-visible {
-  width: inherit;
-  justify-self: flex-start;
-  outline: none;
-}

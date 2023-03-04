@@ -3,7 +3,8 @@
   grid-column: 2;
   margin-inline-start: 32px;
   margin-top: 32px;
-  max-width: 600px;
+  width: 600px;
+  justify-self: center;
   height: fit-content;
   display: grid;
   grid-template-rows: minmax(90px, fit-content) 36px;

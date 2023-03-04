@@ -1,6 +1,6 @@
 import { noteService } from '../services/note.service.js'
 // import { getKeepSvg, getMailSvg } from '../../../services/svg.service.js'
-import { eventBus, showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
+import { eventBusService, showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 
 import NoteFilter from '../cmps/NoteFilter.js'
 import PinnedNoteList from '../cmps/PinnedNoteList.js'
@@ -16,13 +16,6 @@ export default {
   template: `
   <!-- <section class="note-app"> -->
     <section class="note-main">
-            <div  :class="['main-screen', isDetails? 'details-open':'details-close']"></div>
-      <header class="main-header flex">
-            <img src="../../assets/img/note/keep.png">
-            <h1>Keep</h1>
-           <NoteFilter @filter="setFilterBySearch"/>
-      </header>
-
     <section class="notes-display">
 <sideNav
 @filter="setFilterByType"
@@ -72,7 +65,9 @@ export default {
     if (this.$route.params.noteId) this.isDetails = true
     if (!this.$route.params.noteId) this.isDetails = false
     this.loadNotes()
-    eventBus.on('updated', this.updateNote)
+    eventBusService.on('filter', searchWord => {
+      this.setFilterBySearch(searchWord)
+    })
   },
   data() {
     return {
@@ -158,6 +153,7 @@ export default {
     },
 
     setFilterBySearch(search) {
+      console.log(search);
       this.filterBy.search = search
     },
 

@@ -10,7 +10,7 @@ import NoteAudio from '../cmps/NoteAudio.js'
 import NoteTodos from "../cmps/NoteTodos.js"
 import ToolBar from "../cmps/ToolBar.js"
 import NoteTypes from '../cmps/NoteTypes.js'
-import { eventBus } from '../../../services/event-bus.service.js'
+import { eventBusService } from '../../../services/event-bus.service.js'
 
 export default {
     name: 'noteDetails',
@@ -19,7 +19,6 @@ export default {
     <div v-if="note" 
     class="note-modal" 
     :style = "{'background-color':note.style.backgroundColor}" >
-     
     <button @click="pin" className="icon pin" >
             <div v-if="note.isPinned"  v-html="getSvg('pinFull')"></div>
             <div v-if="!note.isPinned" data-title="Pin" className="icon" v-html="getSvg('pin')"></div>
@@ -131,7 +130,7 @@ export default {
             //         console.log('error');
             //     })
             this.$router.push('/note')
-            eventBus.emit('updated', this.note)
+            eventBusService.emit('updated', this.note)
         }
     },
     computed: {
@@ -149,6 +148,7 @@ export default {
         noteId() {
             console.log('bookId Changed!')
             this.loadNote()
+
         },
         noteEmail() {
             console.log('I got an email');

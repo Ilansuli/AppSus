@@ -1,9 +1,7 @@
 .note-main {
-  display: grid;
-  grid-template-rows: 68px 1fr;
   justify-content: center;
   justify-items: center;
-  width: 100%;
+  width: 100vw;
 }
 
 .notes-display .side-nav {
@@ -13,7 +11,7 @@
 }
 .notes-display {
   grid-row: 2;
-  width: 100%;
+  width: 100vw;
   display: grid;
   grid-template-rows: minmax(170px, fit-content) 1fr 1fr;
   grid-template-columns: 256px 1fr;
