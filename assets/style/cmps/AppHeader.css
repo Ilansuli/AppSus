@@ -1,12 +1,73 @@
 .app-header {
-  background-color: var(--clr5);
-  color: var(--secondary-clr1);
   padding: 1em;
+  background-color: #fefefe;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 70px;
+  position: relative;
+  box-shadow: inset 0px -1px 0 #dadce0;
 }
 
+.logo {
+  font-size: 40px;
+  font-weight: 600;
+  display: flex;
+}
+
+.logo .a {
+  color: #4284f3;
+}
+
+.logo .first-p {
+  color: #e94335;
+}
+
+.logo .second-p {
+  color: #fabb05;
+}
+
+.logo .first-s {
+  color: #4284f3;
+}
+
+.logo .u {
+  color: #34a753;
+}
+
+.logo .second-s {
+  color: #e94335;
+}
+
+.dropdown-content {
+  padding: 23px;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
+  z-index: 11;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(0,100%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 27px;
+  background-color: #fefefe;
+
+  /* transition: 0.3s ease-in; */
+}
+.apps-icon{
+  height: 100%;
+  cursor: pointer;
+}
+.keep-logo{
+  width: 46px;
+}
+.gmail-logo{
+  width: 61px;
+}
+.home-logo{
+  width: 44px;
+}
 @media(max-width: 720px) {
-  .app-header {
-    background-color: var(--clr3);
-    color: var(--secondary-clr2);
-  }
+  .app-header {}
 }

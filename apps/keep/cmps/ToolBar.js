@@ -37,7 +37,6 @@ export default {
     },
     methods: {
         getSvg(iconName) {
-            console.log(svgService.getNoteSvg(iconName))
             return svgService.getNoteSvg(iconName)
         },
         changeBcgColor(color) {
