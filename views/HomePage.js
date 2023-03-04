@@ -3,15 +3,15 @@ export default {
         <section class="home-page">
             <img src="../../assets/img/main/home-page.jpg" alt="" />
             <div>
-                <h1>
+                <div>
                     Not
-                </h1>
-                <h1>
+                </div>
+                <div>
                     Just
-                </h1>
-                <h1>
+                </div>
+                <div>
                     A Horse
-                </h1>
+                </div>
             </div>
         </section>
     `,

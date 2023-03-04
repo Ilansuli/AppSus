@@ -32,6 +32,10 @@ export default {
   created() {
     if (this.$route.query.subject) this.createNoteEmail(this.$route.query)
 
+    eventBusService.on('filter', searchWord => {
+      this.setFilterBy({keyWord: 'txt', toUpdate : searchWord})
+    })
+
     emailService.query()
       .then(emails => this.emails = emails)
 
