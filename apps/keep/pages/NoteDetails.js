@@ -4,6 +4,8 @@ import { svgService } from "../../../services/svg.service.js"
 import NoteTxt from "../cmps/NoteTxt.js"
 import NoteImg from "../cmps/NoteImg.js"
 import NoteVideo from "../cmps/NoteVideo.js"
+import NoteAudio from '../cmps/NoteAudio.js'
+import NoteMap from '../cmps/NoteMap.js'
 import NoteTodos from "../cmps/NoteTodos.js"
 import ToolBar from "../cmps/ToolBar.js"
 import NoteTypes from '../cmps/NoteTypes.js'
@@ -22,7 +24,9 @@ export default {
                         :isEdit="true"
                        @updateInfo="updateInfo"
                         />
-                        
+    <section class="tool-bar">
+
+              
     <NoteTypes
             @change-type="changeType"
             @change-color="changeBcgColor"
@@ -40,12 +44,15 @@ export default {
              
             </div> -->
             <button @click="closeNote">Close</button>
+            </section> 
     </div>
         `,
     components: {
         NoteImg,
         NoteTodos,
         NoteVideo,
+        NoteAudio,
+        NoteMap,
         NoteTxt,
         NoteTypes,
         ToolBar

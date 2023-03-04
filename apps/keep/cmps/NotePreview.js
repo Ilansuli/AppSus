@@ -2,6 +2,8 @@ import { svgService } from "../../../services/svg.service.js"
 import NoteTxt from "./NoteTxt.js"
 import NoteImg from "./NoteImg.js"
 import NoteVideo from "./NoteVideo.js"
+import NoteAudio from "./NoteAudio.js"
+import NoteMap from "./NoteMap.js"
 import NoteTodos from "./NoteTodos.js"
 import ToolBar from "./ToolBar.js"
 
@@ -95,7 +97,9 @@ export default {
         NoteTodos,
         NoteTxt,
         NoteVideo,
-        ToolBar
+        NoteAudio,
+        NoteMap,
+        ToolBar,
     }
 
 }

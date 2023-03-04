@@ -3,7 +3,7 @@
   grid-column: 2;
   margin-inline-start: 32px;
   margin-top: 32px;
-  width: 599px;
+  max-width: 599px;
   display: grid;
   grid-template-rows: minmax(90px, 1fr) 36px;
   border-radius: 8px;

@@ -43,6 +43,7 @@ export default {
     created() {
         if (!this.info.title) this.info.title = "Title"
         if (this.info.todos === undefined) this.info.todos = [{ txt: '', doneAt: null }]
+        if (this.info.txt) this.info.todos[0].txt = this.info.txt
     },
     data() {
         return {
