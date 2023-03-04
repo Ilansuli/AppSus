@@ -1,10 +1,6 @@
 export default {
     template: `
         <section class="email-filter">
-            <input 
-                v-model="filterBy"
-                placeholder="Search"
-                type="text" />
         </section>
     `,
     data() {
