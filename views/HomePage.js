@@ -1,5 +1,5 @@
 export default {
-	template: `
+    template: `
         <section class="home-page">
             <img src="../../assets/img/main/home-page.jpg" alt="" />
             <div class ="title">

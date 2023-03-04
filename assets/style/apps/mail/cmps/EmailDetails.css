@@ -1,4 +1,5 @@
 .email-details{
+    overflow: auto;
     display: grid;
     gap: 1em;
     /* padding-block-start: 108px; */
