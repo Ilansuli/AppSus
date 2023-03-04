@@ -11,8 +11,7 @@
 }
 .notes-display {
   grid-row: 2;
-  height: 100vh;
-  width: 100vw;
+
   display: grid;
   grid-template-rows: minmax(170px, fit-content) 1fr 1fr;
   grid-template-columns: 256px 1fr;
