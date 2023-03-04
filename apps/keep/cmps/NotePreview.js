@@ -3,7 +3,8 @@ import NoteTxt from "./NoteTxt.js"
 import NoteImg from "./NoteImg.js"
 import NoteVideo from "./NoteVideo.js"
 import NoteAudio from "./NoteAudio.js"
-import NoteMap from "./NoteMap.js"
+// import NoteMap from "./NoteMap.js"
+// import NoteCanvas from "./NoteCanvas.js"
 import NoteTodos from "./NoteTodos.js"
 import ToolBar from "./ToolBar.js"
 
@@ -19,7 +20,7 @@ export default {
         @mouseleave="toggleHover(false)"
         >
        
-       <button @click="pin" className="icon pin"  v-if="isHover">
+        <button @click="pin" className="icon pin" v-if="isHover" >
             <div v-if="note.isPinned"  v-html="getSvg('pinFull')"></div>
             <div v-if="!note.isPinned" data-title="Pin" className="icon" v-html="getSvg('pin')"></div>
         </button>
@@ -98,7 +99,8 @@ export default {
         NoteTxt,
         NoteVideo,
         NoteAudio,
-        NoteMap,
+        // NoteMap,
+        // NoteCanvas,
         ToolBar,
     }
 

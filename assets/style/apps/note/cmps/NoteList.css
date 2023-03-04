@@ -2,7 +2,7 @@
   grid-row: 3;
   column-width: 272px;
   column-gap: 16px;
-  width: 80vw;
+  max-width: 80vw;
 }
 .notes-list .note-container:first-child {
   margin-block-start: 0px;

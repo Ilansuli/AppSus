@@ -5,7 +5,8 @@ import NoteTxt from "../cmps/NoteTxt.js"
 import NoteImg from "../cmps/NoteImg.js"
 import NoteVideo from "../cmps/NoteVideo.js"
 import NoteAudio from '../cmps/NoteAudio.js'
-import NoteMap from '../cmps/NoteMap.js'
+// import NoteMap from '../cmps/NoteMap.js'
+// import NoteCanvas from '../cmps/NoteCanvas.js'
 import NoteTodos from "../cmps/NoteTodos.js"
 import ToolBar from "../cmps/ToolBar.js"
 import NoteTypes from '../cmps/NoteTypes.js'
@@ -18,6 +19,11 @@ export default {
     <div v-if="note" 
     class="note-modal" 
     :style = "{'background-color':note.style.backgroundColor}" >
+     
+    <button @click="pin" className="icon pin" >
+            <div v-if="note.isPinned"  v-html="getSvg('pinFull')"></div>
+            <div v-if="!note.isPinned" data-title="Pin" className="icon" v-html="getSvg('pin')"></div>
+        </button>
     <Component 
                         :is="note.type"  
                         :info="note.info"
@@ -52,7 +58,8 @@ export default {
         NoteTodos,
         NoteVideo,
         NoteAudio,
-        NoteMap,
+        // NoteMap,
+        // NoteCanvas,
         NoteTxt,
         NoteTypes,
         ToolBar
@@ -79,6 +86,10 @@ export default {
                     this.loadNote()
                     this.$router.push('/note')
                 })
+        },
+        pin() {
+            console.log(this.note);
+            this.note.isPinned = !this.note.isPinned
         },
         changeType(type) {
             this.note.type = type

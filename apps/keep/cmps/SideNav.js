@@ -27,7 +27,7 @@ export default {
         <span>Videos</span>
 </section>
 <section  @click="filter('NoteTodos')" class="side-nav-item" :class= "clickedClass('NoteTodos')">
-        <div class="icon" v-html="getSvg('todo')"></div>
+        <div class="icon" v-html="getSvg('done')"></div>
         <span>Todos</span>
 </section>
 
