@@ -3,6 +3,7 @@ import { svgService } from "../../../services/svg.service.js"
 export default {
     name: 'Email Details',
     props: [],
+    emits: ['makeNote'],
     template: `
     <section class="email-details">
         <h1>{{email.subject}}</h1>
@@ -12,8 +13,7 @@ export default {
         <div class="main-details-container">
               <header>
                     <div>
-                        <h4 class="details-subject">{{getName()}} <span> &lt;{{email.from}}&gt;</span></h4>
-                        <!-- <p>\< {{email.from}} >\</p> -->
+                        <h4 class="details-subject">{{senderName}} <span> &lt;{{senderEmail}}&gt;</span></h4>
                     </div>
                     <div class="details-options">
                         <p>Feb 20, 2023,8:46PM (10 days ago)</p>
@@ -25,27 +25,9 @@ export default {
                     </div>  
            </header>
            <article class ="details-body">
-       
-              <p>
-                  {{email.body[0]}}
-                </p>
-              <p>
-                  {{email.body[1]}}
-                </p>
-              <p>
-                  {{email.body[2]}}
-                </p>
-              <p>
-                  {{email.body[3]}}
-                </p>
-              <p>
-                  {{email.body[4]}}
-                </p>
-              <p>
-                  {{email.body[5]}}
-                </p>
-
-
+            <p>
+                {{email.body}}
+            </p>
            </article>
         </div>
 
@@ -57,30 +39,42 @@ export default {
     },
     data() {
         return {
-            email: {}
+            email: {},
+            senderName: '',
+            senderEmail: ''
         }
     },
     methods: {
         getSvg(iconName) {
             return svgService.getMailSvg(iconName)
-          },
-        getName(){
-           let idx = this.email.from.indexOf('@')
-           const name = this.email.from.slice(0,idx)
-           return name
         },
-        makeNote(){
-            this.$emit('makeNote',this.email)
+
+        makeNote() {
+            this.$emit('makeNote', this.email)
         },
         getSvg(iconName) {
             return svgService.getMailSvg(iconName)
         },
-        loadEmail(){
+        loadEmail() {
             const { emailId } = this.$route.params
-            console.log(emailId)
             emailService.get(emailId)
-                .then(email => this.email = email)
-        }
+                .then(email => {
+                    this.email = email
+                    this.senderDetailsExct()
+                })
+        },
+        senderDetailsExct() {
+            const regex = /^([^<>]+)\s*<([^<>]+)>$/;
+            const match = regex.exec(this.email.from);
+            if (match) {
+                const name = match[1];
+                const email = match[2];
+                console.log(name, email);
+                this.senderName = name
+                this.senderEmail = email
+            }
+        },
     },
-    computed: {},
+    computed: {
+    },
 }

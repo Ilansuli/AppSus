@@ -1,74 +1,85 @@
 import { emailService } from "../services/emailService.js"
-
+import { svgService } from "../../../services/svg.service.js"
+import ErrModal from "./ErrModal.js"
 export default {
   name: 'Email Compose',
   props: [],
   template: `   
-    <form v-if="composeEmail" @focusout="onFormBlur" ref="form"  @submit.prevent="saveEmail" class="new-email-form " >
-      <header><h5>New Message</h5></header>
+    <form v-if="composeEmail" @focusout="onFormBlur" ref="form"   class="new-email-form " >
+
+      <header>
+        <h5>New Message</h5>
+        <button class="icon-x close-btn" v-html="getSvg('x')" @click="saveEmail(false)"></button>
+      </header>
+
       <!-- <input v-model="email.from" id="from" type="text" placeHolder ="Your-Mail" /> -->
-      <input class="input-to" @mouseover="isForm = true" @mouseleave = "isForm = false" ref="toInput" v-model = "composeEmail.to"  type="text" placeHolder="To" />
-      <input class="input-subject"  @mouseover="isForm = true" @mouseleave = "isForm = false" v-model="composeEmail.subject"  type="text" placeHolder="Subject"/>
-      <textarea class="compose-text-area"   @mouseover="isForm = true" @mouseleave = "isForm = false" v-model="composeEmail.body" cols="30" rows="10"></textarea>
-      <button class="form-submit-btn" @mouseover="isForm = true" @mouseleave = "isForm = false">Send</button>
+      <input class="input-to" v-model = "composeEmail.to"  type="text" ref='toInput' placeHolder="To" />
+      <input class="input-subject" v-model="composeEmail.subject"  type="text" placeHolder="Subject"/>
+      <textarea class="compose-text-area" v-model="composeEmail.body" cols="30" rows="10"></textarea>
+      <button class="form-submit-btn" @click="saveEmail(true)">Send</button>
+      <!-- <ErrModal @closeErrModal="closeErrModal" v-if="isErr"/> -->
     </form>
+
     `,
   components: {
   },
   created() {
-    this.composeEmail = null
-    setTimeout(() => {
-      if (this.$route.query.newComposeId) {
-        this.composeEmail = this.loadComposeEmail()
-      }
-    }, 100)
-
   },
   data() {
     return {
-      isForm: false,
+      isErr: false,
+      // isForm: false,
       composeEmail: null,
     }
   },
+  mounted() {
+    this.focusInput();
+  },
   methods: {
-    onFormBlur() {
-      // console.log(this.composeEmail)
-      if (this.isForm) return
-      this.composeEmail.status = 'drafts'
-      
-      this.saveEmail()
-      if (this.$route.params) {
-        const {emailId} = this.$route.params
-        this.$router.push(`/email/${emailId}`)
-      }
+    closeErrModal(){
+    this.isErr = false
+    },
+    focusInput() {
+      this.$refs.toInput.focus();
+    },
+    closeComposeForm() {
+      this.$emit('updateQuery')
+      this.composeEmail = null
+    },
+    saveEmail(flag) {
+      console.log(flag);
+      const email = this.composeEmail
+      if (flag && !email.to) return this.isErr = true // TODO: Add Err
+      if (!flag && !email.to && !email.subject && !email.body) return this.closeComposeForm()
+      email.status = flag ? 'sent' : 'drafts'
+      this.$emit('saveEmail', email)
+      this.closeComposeForm()
     },
     loadComposeEmail() {
       const { newComposeId } = this.$route.query
       emailService.get(newComposeId)
         .then(email => this.composeEmail = email)
     },
-    saveEmail() {
-      this.composeEmail.from = `To: ${this.composeEmail.to}`
-      this.$emit('saveEmail', this.composeEmail)
-      this.composeEmail = null
+    getSvg(iconName) {
+      return svgService.getMailSvg(iconName)
     }
   },
   computed: {
     composeEmailId() {
       return this.$route.query.newComposeId
     }
+
   },
   mounted() {
-    // this.$refs.toInput.focus()
   },
   watch: {
     composeEmailId() {
       if (this.$route.query.newComposeId) {
         this.loadComposeEmail()
-      } else {
-        this.composeEmail = null
-        console.log(this.composeEmail)
       }
     },
+  },
+  components: {
+    ErrModal
   }
 }

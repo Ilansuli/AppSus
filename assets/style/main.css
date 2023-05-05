@@ -13,6 +13,8 @@
 @import "cmps/AppHeader.css";
 @import "cmps/UserMsg.css";
 @import "cmps/AppFooter.css";
+@import "cmps/Login.css";
+@import "cmps/SignUp.css";
 
 /* Apps */
     /* EMAIL */
@@ -23,6 +25,9 @@
 @import 'apps/mail/cmps/EmailFilter.css';
 @import 'apps/mail/cmps/EmailCompose.css';
 @import 'apps/mail/cmps/EmailDetails.css';
+@import 'apps/mail/cmps/ErrModal.css';
+@import 'apps/mail/cmps/Logo.css';
+@import 'apps/mail/cmps/customInput.css';
 
     /* KEEP */
 @import 'apps/note/NoteIndex.css';

@@ -56,12 +56,12 @@ function _createEmails() {
 
 function getEmptyEmail() {
     return{
-        id: '',
         subject:'',
         isStarred: false,
-        status: 'sent',
+        isRead: true,
+        status: '',
         body:'',
-        sentAt: 0,
+        sentAt: Date.now(),
         removedAt:null,
         from:'',
         to:'',

@@ -3,6 +3,7 @@ import EmailPreview from "./EmailPreview.js"
 export default {
     name: 'Email List',
     props: ['emails'],
+    emits:['removeEmail','showDetails','updateEmail',],
     template: `
         <section class="email-list-wrap">
                 <EmailPreview @updateEmail="updateEmail" @click="showDetails(email.id)" @removeEmail = "removeEmail" :email = "email"  v-for="email in emails"/>
@@ -32,7 +33,6 @@ export default {
                 const {newComposeId} = this.$route.query
                 this.$router.push({
                   path: `/email/${emailId}`,
-            //       // params: params + '/',
                   query: {
                     newComposeId: newComposeId,
                   }
@@ -41,7 +41,6 @@ export default {
             
             // this.$router.push("/email/" + emailId)
 
-            
             this.$emit('showDetails')
         }
     },

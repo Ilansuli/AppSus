@@ -1,19 +1,24 @@
 import { svgService } from "../services/svg.service.js"
+import { userService } from "../services/user.service.js"
+
+import Logo from "./Logo.js"
 import AppFilter from "./AppFilter.js"
 
 export default {
     template: `
-        <header class="app-header">
-            <div class="logo">
-                <div class="a">A</div>
-                <div class="first-p">p</div>
-                <div class="second-p">p</div>
-                <div class="first-s">s</div>
-                <div class="u">u</div>
-                <div class="second-s">s</div>
-            </div>
-                    <AppFilter/>
-            <div class="apps-icon" @click ="toggleHover" v-html="getSvg('apps')"></div> 
+        <header class="app-header" v-if="!isLogin">
+            <section class="first-section">
+                <Logo/>
+            </section>
+
+            <section>
+                <AppFilter/>
+            </section>
+
+              <section class="third-section">
+                  <div class="apps-icon" @click ="toggleHover" v-html="getSvg('apps')"></div>   
+                  <div class="loggedInUser" v-if="loggedInUser" > <img  :src="loggedInUser.imgUrl" alt="" /> </div>
+                </section>  
 
             <div class="dropdown-content" v-show="isHover">
                 <div class="home-logo">
@@ -24,7 +29,7 @@ export default {
                 </div>
 
                 <div class="gmail-logo">
-                    <router-link  to="/email"><img  src="assets/img/main/gmail.png"></router-link>
+                    <router-link  to="/email/"><img  src="assets/img/main/gmail.png"></router-link>
                 </div>
 
                 <div class="keep-logo" >
@@ -36,10 +41,18 @@ export default {
     `,
     data() {
         return {
-            isHover: false
+            isHover: false,
+            isLogin: false,
+            loggedInUser: null
         }
     },
+    created() {
+        this.loadLoggedInUser()
+    },
     methods: {
+        loadLoggedInUser() {
+            this.loggedInUser = userService.getLoggedinUser()
+        },
         toggleHover() {
             this.isHover = !this.isHover
         },
@@ -53,7 +66,14 @@ export default {
     unmounted() {
         this.isHover = true
     },
+    watch:{
+        '$route'(){
+            console.log(this.$route);
+            if(this.$route.path === '/login') this.isLogin = true
+        }
+    },
     components: {
-        AppFilter
+        AppFilter,
+        Logo
     }
 }

@@ -1,0 +1,30 @@
+.logo {
+    font-size: 40px;
+    font-weight: 600;
+    display: flex;
+  }
+  
+  .logo .a {
+    color: #4284f3;
+  }
+  
+  .logo .first-p {
+    color: #e94335;
+  }
+  
+  .logo .second-p {
+    color: #fabb05;
+  }
+  
+  .logo .first-s {
+    color: #4284f3;
+  }
+  
+  .logo .u {
+    color: #34a753;
+  }
+  
+  .logo .second-s {
+    color: #e94335;
+  }
+  

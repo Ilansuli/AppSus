@@ -1,7 +1,6 @@
 .email-index{
     display: grid;
     grid-template-columns: 256px 1fr;
-    background-color: #f6f8fc;
 }
 .compose-btn{
     display: flex;

@@ -1,7 +1,8 @@
-.new-email-form{
+.new-email-form {
     display: flex;
     flex-direction: column;
-    /* border-radius: 8px 8px 0 0; */
+    box-shadow: rgba(0, 0, 0, .2) 0 2px 6px;
+    box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, .14), 0px 3px 14px 2px rgba(0, 0, 0, .12), 0px 5px 5px -3px rgba(0, 0, 0, .2);
     position: fixed;
     background: lightgray;
     bottom: 0;
@@ -9,36 +10,50 @@
     width: 450px;
     background-color: #fff;
     height: 465px;
-    border-radius: 36px; 
     font-size: 13px;
     font-weight: 700;
     height: 440px;
 }
-.new-email-form > *{
+
+.new-email-form>* {
     border: 0;
 }
-.new-email-form input{
+
+.new-email-form input {
     box-shadow: inset 0px -1px 0 #f1f1f1;
     height: 45px;
     padding-inline: 21px;
 }
-.new-email-form textarea{
+
+.new-email-form textarea {
     resize: none;
 }
-.new-email-form header{
+
+.new-email-form header {
+    border-radius: 8px 8px 0 0;
     background-color: #d3e3fd;
-}
-.new-email-form header h5{
+    display: flex;
+    justify-content: space-between;
     padding: 20px;
 }
-.compose-text-area{
+
+.compose-text-area {
     height: 235px;
 }
-.form-submit-btn{
+
+.form-submit-btn {
     width: 106px;
     background: #0b57d0;
     height: 38px;
     border-radius: 26px;
     color: #fff;
     margin-inline-start: 10px;
+} 
+.form-submit-btn:hover{
+    box-shadow: 0 1px 2px 0 rgba(26, 115, 232, 0.451), 0 1px 3px 1px rgba(26, 115, 232, 0.302);
+    background-color: #297be6;
+}
+.close-btn svg{
+width: 14px;
+height: 14px;
 }

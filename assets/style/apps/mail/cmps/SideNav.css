@@ -12,6 +12,7 @@
   border-bottom-right-radius: 30px;
   cursor: pointer;
   background-color: #f6f8fc;
+  margin-inline-end: 14px;
 }
 
 .unread-count {

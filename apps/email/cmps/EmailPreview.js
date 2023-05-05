@@ -3,33 +3,54 @@ import { svgService } from "../../../services/svg.service.js"
 export default {
   name: 'Email Preview',
   props: ['email'],
+  emits: ['removeEmail', 'updateEmail',],
   template: `
         <article class="email-preview" :class="setReadClass" @mouseover="isHover = true" @mouseleave="isHover = false">
 
           <div class="static-preview-btns">
-            <button data-title="Not Starred" @click.stop="toggleStar(true)" :class="setHoverClass"  v-if="!email.isStarred"><div className="icon" v-html="getSvg('star')"></div></button>
-            <button data-title="Starred" @click.stop="toggleStar(false)" class ="gold-fill" v-if="email.isStarred"><div className="icon" v-html="getSvg('starFill')"></div></button>
-            <button data-title="Important" @click.stop="toggleStatus('important')" class="gold-fill"  v-if="email.status === 'important'"><div className="icon" v-html="getSvg('importantFill')"></div></button>
-            <button data-title="Important" @click.stop="toggleStatus('important')":class="setHoverClass"  v-if="email.status !== 'important'"><div className="icon" v-html="getSvg('important')"></div></button>
-            <span class="preview-name">{{email.from}}</span>
+            <button 
+                :data-title="email.isStarred ? 'Starred' : 'Not Starred' "
+                @click.stop="toggleStar"
+                :class="classByStatus('starred','gold-fill',setHoverClass)">
+              <div className="icon"
+                  v-html="email.isStarred ? getSvg('starFill') : getSvg('star')">
+              </div>
+            </button>
+            
+            <button 
+                :data-title="email.status === 'important' ? 'Not Important':'Important'"
+                @click.stop="toggleStatus('important')"
+                :class="classByStatus('important','gold-fill',setHoverClass)">
+              <div className="icon" 
+                v-html="email.status === 'important' ? getSvg('importantFill') : getSvg('important')">
+              </div>
+            </button>
+            <span class="preview-name" :class="draftClass" >{{namePreview}}</span>
           </div>
 
           <div class="preview-txt">
-          <span class="subject">{{email.subject}} - </span>
-            <span class="txt">{{email.body[0]}}</span>
+          <span class="subject">{{email.subject ? email.subject+'-' : '(no subject)'}}  </span>
+            <span class="txt">{{email.body}}</span>
+            <span>{{ lineDots }}</span>
           </div>
-          <span>...</span>
-            <span v-if="!isHover" class="preview-date">Feb 23</span>
+            <span v-if="!isHover" class="preview-date">{{formatDate}}</span>
 
-            
             <ul class="hovered-btns"  v-if="isHover">
+
               <li >
                 <button @click.stop="removeEmail" data-title = "Delete"><div className="icon" v-html="getSvg('trash')"></div></button>
               </li>
-              <li >
-              <button  v-if="!email.isRead" @click.stop="toggleRead(true)" data-title = "Mark As Read"><div className="icon" v-html="getSvg('unreadEnvelope')"></div></button>
-              <button  v-if="email.isRead" @click.stop="toggleRead(false)" data-title = "Mark As Unread" ><div className="icon" v-html="getSvg('envelope')"></div></button>
+
+              <li>
+              <button 
+                  @click.stop="toggleRead" 
+                  :data-title = "email.isRead?'Mark As Unread':'Mark As Read'">
+                <div className="icon"
+                    v-html="email.isRead ? getSvg('envelope') : getSvg('unreadEnvelope')">
+                </div>
+              </button>
               </li>
+
             </ul>
         </article>
         `,
@@ -49,27 +70,47 @@ export default {
     removeEmail() {
       this.$emit('removeEmail', this.email.id)
     },
-    toggleRead(flag) {
-      this.email.isRead = flag
-      this.$emit('updateEmail',this.email)
+    toggleRead() {
+      this.email.isRead = !this.email.isRead
+      this.$emit('updateEmail', this.email)
     },
-    toggleStar(flag) {
-      this.email.isStarred = flag
-      this.$emit('updateEmail',this.email)
+    toggleStar() {
+      this.email.isStarred = !this.email.isStarred
+      this.$emit('updateEmail', this.email)
     },
     toggleStatus(status) {
       this.email.status = status
-      this.$emit('updateEmail',this.email)
-    }
+      this.$emit('updateEmail', this.email)
+    },
+    classByStatus(status, ifTrue, ifFalse) {
+      if (status !== 'starred') return this.email.status === status ? ifTrue : ifFalse
+      return this.email.isStarred ? ifTrue : ifFalse
+    },
+    senderNameExct() {
+      const regex = /^([^<>]+)\s*<([^<>]+)>$/;
+      const match = regex.exec(this.email.from);
+      if (match) {
+        const name = match[1];
+        return name
+      }
+    },
   },
   computed: {
-    convertTimeStamp() {
-      const currentDateTS = Date.now()
-      const sentTS = this.email.sentAt
-      if (currentDateTS - sentTS < 604800) {
-        return sentDate.getMonth() + 1 + 'months'
+    formatDate() {
+      const date = new Date(this.email.sentAt);
+      const today = new Date();
+      const thisYear = today.getFullYear();
+
+      if (date.toDateString() === today.toDateString()) {
+        const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+        return date.toLocaleTimeString([], options);
+      } else if (date.getFullYear() === thisYear) {
+        const options = { month: 'short', day: 'numeric' };
+        return date.toLocaleDateString([], options);
+      } else {
+        const options = { year: 'numeric', day: 'numeric', month: 'numeric' };
+        return date.toLocaleDateString('en-GB', options);
       }
-      const sentDate = new Date(sentTS)
     },
     setHoverClass() {
       return {
@@ -81,6 +122,18 @@ export default {
       return {
         'unread': !this.email.isRead
       }
+    },
+    lineDots() {
+      if (this.email.body[0] && this.email.body[0].length + this.email.body[1].length > 103) return '...'
+    },
+    namePreview() {
+      // { { email.status === 'sent' ? 'To: ' : '' } } { { this.email.status === 'sent' ? this.email.to : senderNameExct } }
+      if(this.email.status === 'sent') return `To: ${this.email.to}`
+      else if(this.email.status === 'drafts') return 'Draft'
+      else return this.senderNameExct()
+    },
+    draftClass(){
+      return this.email.status === 'drafts' ? 'draft' : ''
     }
   },
 

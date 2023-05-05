@@ -2,7 +2,6 @@
 
 //SEND FUNCTION
 function on(eventName, listener) {
-    console.log(eventName, listener);
     const callListener = ({ detail }) => {
         listener(detail)
     }
