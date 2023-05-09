@@ -1,8 +1,6 @@
 import { emailService } from "../services/emailService.js"
 import { svgService } from "../../../services/svg.service.js"
 import ErrModal from "./ErrModal.js"
-import { svgService } from "../../../services/svg.service.js"
-import ErrModal from "./ErrModal.js"
 export default {
   name: 'Email Compose',
   props: [],

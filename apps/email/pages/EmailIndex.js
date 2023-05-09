@@ -10,13 +10,11 @@ import { utilService } from "../../../services/util.service.js"
 
 export default {
   name: 'Email Index',
-  name: 'Email Index',
   props: [],
   template: `
   <section class="email-index">
     <section class ="side-nav">
       <button class="compose-btn"  @click="createComposeEmail"><div className="icon" v-html="getSvg('compose')"></div>Compose</button>
-      <SideNav :emails="emails" :filterBy="filterBy" @closeDetails ="closeDetails" @filterStarred="filterStarred" @filterStatus="setFilterBy" />
       <SideNav :emails="emails" :filterBy="filterBy" @closeDetails ="closeDetails" @filterStarred="filterStarred" @filterStatus="setFilterBy" />
     </section>
     
@@ -30,8 +28,6 @@ export default {
       />
       <RouterView @makeNote="makeNote" v-if="isDetails" :key="routeParams.emailId" />
     <EmailCompose :composeEmail="composeEmail"  @saveEmail='saveEmail' @updateQuery='updateQuery'  />
-      <RouterView @makeNote="makeNote" v-if="isDetails" :key="routeParams.emailId" />
-    <EmailCompose :composeEmail="composeEmail"  @saveEmail='saveEmail' @updateQuery='updateQuery'  />
   </section>
     `,
   created() {
@@ -40,7 +36,6 @@ export default {
     if (this.$route.query.subject) this.createNoteEmail(this.$route.query)
 
     eventBusService.on('filter', searchWord => {
-      this.setFilterBy({ keyWord: 'txt', toUpdate: searchWord })
       this.setFilterBy({ keyWord: 'txt', toUpdate: searchWord })
     })
 
@@ -55,9 +50,7 @@ export default {
     return {
       filterBy: { status: '', stars: false },
       emails: [],
-      isDetails: false,
-      composeEmail: null,
-      loggedInUser: null
+        isDetails: false,
       composeEmail: null,
       loggedInUser: null
     }
@@ -83,14 +76,6 @@ export default {
         path,
         query
       })
-    updateQuery(newComposeId = null) {
-      const emailIdRoute = this.$route.params.emailId || null
-      const path = emailIdRoute ? `/email/${emailIdRoute}` : `/email/`
-      const query = newComposeId ? { newComposeId } : {}
-      this.$router.replace({
-        path,
-        query
-      })
     },
     createNoteEmail(query) {
       const emptyEmail = emailService.getEmptyEmail()
@@ -102,28 +87,21 @@ export default {
     getSvg(iconName) {
       return svgService.getMailSvg(iconName)
     },
-
     updateEmail(email, updateKey, toUpdate) {
       const emailToUpdateIdx = this.emails.findIndex(emailToUpdate => email === emailToUpdate)
       const emailToUpdate = this.emails[emailToUpdateIdx]
       emailToUpdate[updateKey] = toUpdate
       emailService.save(emailToUpdate)
-      console.log(emailToUpdateIdx)
-      // FIND EMAIL IN ARRAY UPDATE AND THEN SAVE
     },
-
     saveEmail(email) {
       emailService.save(email)
         .then(savedEmail => {
           this.emails.unshift(savedEmail)
-          // console.log(savedEmail)
         })
       this.isNewEmail = false
     },
     removeEmail(emailId) {
       const emailIdx = this.emails.findIndex(email => email.id === emailId)
-
-
       if (this.emails[emailIdx].status !== 'trash') {
         this.emails[emailIdx].status = 'trash'
         emailService.save(this.emails[emailIdx])
@@ -135,15 +113,13 @@ export default {
         emailService.save(this.emails[emailIdx])
           .then(savedEmail => this.emails.unshift(savedEmail))
       }
-      else {
-        emailService.remove(emailId)
-          .then(() => this.emails.splice(emailIdx, 1))
-      }
+      // else {
+      //   emailService.remove(emailId)
+      //     .then(() => this.emails.splice(emailIdx, 1))
+      // }
     },
     closeDetails() {
       this.isDetails = false
-      if (this.$route.params.emailId) this.$route.params = {}
-      if (this.$route.query.newComposeId) this.updateQuery(this.$route.query.newComposeId)
       if (this.$route.params.emailId) this.$route.params = {}
       if (this.$route.query.newComposeId) this.updateQuery(this.$route.query.newComposeId)
     },
@@ -172,34 +148,25 @@ export default {
   },
 
   computed: {
-
-
     filteredEmails() {
       let filteredEmails = []
       const searchRegex = new RegExp(this.filterBy.txt, 'i')
       const statusRegex = new RegExp(this.filterBy.status, 'i')
       // const starredRegex = new RegExp(this.filterBy.starred, 'i')
-
       filteredEmails = this.emails.filter(email => {
         if (this.filterBy.stars) return searchRegex.test(email.subject && email.body) && email.isStarred
         return searchRegex.test(email.subject && email.body && email.from) && statusRegex.test(email.status)
       })
       return filteredEmails
     },
-    routeParams() {
-    routeParams() {
+    routeParams(){
       return this.$route.params
     }
   },
   watch: {
     routeParams() {
       this.isDetails = this.$route.params.emailId ? true : false
-  watch: {
-    routeParams() {
-      this.isDetails = this.$route.params.emailId ? true : false
     }
-
-
   },
   components: {
     EmailList,
@@ -208,3 +175,4 @@ export default {
     EmailFilter
   },
 }
+

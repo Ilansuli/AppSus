@@ -82,7 +82,5 @@ export default {
     components: {
         AppFilter,
         Logo
-        AppFilter,
-        Logo
     }
 }
