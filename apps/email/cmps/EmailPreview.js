@@ -87,12 +87,14 @@ export default {
       return this.email.isStarred ? ifTrue : ifFalse
     },
     senderNameExct() {
-      const regex = /^([^<>]+)\s*<([^<>]+)>$/;
-      const match = regex.exec(this.email.from);
-      if (match) {
-        const name = match[1];
-        return name
-      }
+        const regex = /^(.*)@.*$/;
+        const match = this.email.from.match(regex);
+        if(match) {
+          match[1] = match[1].charAt(0).toUpperCase() + match[1].slice(1)
+          console.log(match[1]);
+          return match[1]
+        } 
+        return null
     },
   },
   computed: {
