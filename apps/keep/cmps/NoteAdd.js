@@ -1,10 +1,10 @@
 import { noteService } from "../services/note.service.js"
 import { svgService } from "../../../services/svg.service.js"
 import NoteTypes from "./NoteTypes.js"
-import NoteImg from "./NoteImg.js"
+import NoteImg from "./DynamicCmps/NoteImg.js"
 import NoteTxt from "./NoteTxt.js"
-import NoteVideo from "./NoteVideo.js"
-import NoteTodos from "./NoteTodos.js"
+import NoteVideo from "./DynamicCmps/NoteVideo.js"
+import NoteTodos from "./DynamicCmps/NoteTodos.js"
 import ToolBar from "./ToolBar.js"
 export default {
     name: 'NoteAdd',

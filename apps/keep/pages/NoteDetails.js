@@ -2,12 +2,12 @@ import { noteService } from '../services/note.service.js'
 import { svgService } from "../../../services/svg.service.js"
 
 import NoteTxt from "../cmps/NoteTxt.js"
-import NoteImg from "../cmps/NoteImg.js"
-import NoteVideo from "../cmps/NoteVideo.js"
-import NoteAudio from '../cmps/NoteAudio.js'
+import NoteImg from "../cmps/DynamicCmps/NoteImg.js"
+import NoteVideo from "../cmps/DynamicCmps/NoteVideo.js"
+import NoteAudio from '../cmps/DynamicCmps/NoteAudio.js'
 // import NoteMap from '../cmps/NoteMap.js'
 // import NoteCanvas from '../cmps/NoteCanvas.js'
-import NoteTodos from "../cmps/NoteTodos.js"
+import NoteTodos from "../cmps/DynamicCmps/NoteTodos.js"
 import ToolBar from "../cmps/ToolBar.js"
 import NoteTypes from '../cmps/NoteTypes.js'
 import { eventBusService } from '../../../services/event-bus.service.js'

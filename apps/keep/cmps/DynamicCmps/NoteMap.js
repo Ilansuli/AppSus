@@ -1,5 +1,5 @@
-import { svgService } from "../../../services/svg.service.js"
-import { mapService } from "../services/map.service.js"
+import { svgService } from "../../../../services/svg.service.js"
+import { mapService } from "../../services/map.service.js"
 
 export default {
     name: 'noteVideo',

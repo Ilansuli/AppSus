@@ -2,6 +2,7 @@
   justify-content: center;
   justify-items: center;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .notes-display .side-nav {
@@ -11,7 +12,6 @@
 }
 .notes-display {
   grid-row: 2;
-
   display: grid;
   grid-template-rows: minmax(170px, fit-content) 1fr 1fr;
   grid-template-columns: 256px 1fr;

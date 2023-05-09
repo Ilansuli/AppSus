@@ -1,21 +1,22 @@
 /* Setup */
-@import "setup/vars.css";
-@import "setup/typography.css";
+@import 'setup/vars.css';
+@import 'setup/typography.css';
+@import 'setup/mediaquery.css';
 
 /* Base */
-@import "base/base.css";
-@import "base/helpers.css";
-@import "base/layout.css";
-@import "base/forms.css";
-@import "../../setup/typography.css";
+@import 'base/base.css';
+@import 'base/helpers.css';
+@import 'base/layout.css';
+@import 'base/forms.css';
+@import '../../setup/typography.css';
 /* cmp */
-@import "cmps/NotePreview.css";
-@import "cmps/NoteList.css";
-@import "cmps/NoteAdd.css";
-@import "cmps/NoteComp.css";
-@import "cmps/todos.css";
-@import "cmps/NoteDetails.css";
-@import "cmps/screen.css";
-@import "cmps/colorPicker.css";
-@import "cmps/AppHeader.css";
-@import "cmps/SideNav.css";
+@import 'cmps/NotePreview.css';
+@import 'cmps/NoteList.css';
+@import 'cmps/NoteAdd.css';
+@import 'cmps/NoteComp.css';
+@import 'cmps/todos.css';
+@import 'cmps/NoteDetails.css';
+@import 'cmps/screen.css';
+@import 'cmps/colorPicker.css';
+@import 'cmps/AppHeader.css';
+@import 'cmps/SideNav.css';

@@ -1,0 +1,8 @@
+@media (max-width: 800px) {
+  .notes-list {
+    column-width: 100vw;
+  }
+  .note-add {
+    margin-inline-start: 0px;
+  }
+}

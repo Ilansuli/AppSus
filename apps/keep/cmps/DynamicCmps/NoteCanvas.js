@@ -1,4 +1,4 @@
-import { svgService } from "../../../services/svg.service.js"
+import { svgService } from "../../../../services/svg.service.js"
 
 export default {
     name: 'noteVideo',

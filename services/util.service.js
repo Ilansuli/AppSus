@@ -98,19 +98,18 @@ function setQueryStringParams(lat, lng) {
 }
 
 getTimeStamps()
-function getTimeStamps(){
-const timestamps = [];
+function getTimeStamps() {
+    const timestamps = [];
 
-for (let i = 0; i < 40; i++) {
-    const year = 2018 + Math.floor(Math.random() * 5); // Random year between 2018 and 2022
-    const month = Math.floor(Math.random() * 12) + 1; // Random month between 1 and 12
-    const day = Math.floor(Math.random() * 28) + 1; // Random day between 1 and 28
-    const hours = Math.floor(Math.random() * 24); // Random hours between 0 and 23
-    const minutes = Math.floor(Math.random() * 60); // Random minutes between 0 and 59
-    const seconds = Math.floor(Math.random() * 60); // Random seconds between 0 and 59
-    const milliseconds = Math.floor(Math.random() * 1000); // Random milliseconds between 0 and 999
-    const timestamp = new Date(year, month - 1, day, hours, minutes, seconds, milliseconds).getTime();
-    timestamps.push(timestamp);
-  }
-  console.log(timestamps)
+    for (let i = 0; i < 40; i++) {
+        const year = 2018 + Math.floor(Math.random() * 5); // Random year between 2018 and 2022
+        const month = Math.floor(Math.random() * 12) + 1; // Random month between 1 and 12
+        const day = Math.floor(Math.random() * 28) + 1; // Random day between 1 and 28
+        const hours = Math.floor(Math.random() * 24); // Random hours between 0 and 23
+        const minutes = Math.floor(Math.random() * 60); // Random minutes between 0 and 59
+        const seconds = Math.floor(Math.random() * 60); // Random seconds between 0 and 59
+        const milliseconds = Math.floor(Math.random() * 1000); // Random milliseconds between 0 and 999
+        const timestamp = new Date(year, month - 1, day, hours, minutes, seconds, milliseconds).getTime();
+        timestamps.push(timestamp);
+    }
 }

@@ -10,3 +10,11 @@
 .notes-list .note-container:not(:first-child) {
   margin-block-start: 16px;
 }
+@media (max-width: 800px) {
+  .notes-list {
+    column-width: 100vw;
+  }
+  .note-add {
+    margin-inline-start: 0px;
+  }
+}
