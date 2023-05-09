@@ -1,6 +1,8 @@
 .notes-list {
+  width: 80%;
+  margin-block-end: 16px;
   grid-row: 3;
-  column-width: 272px;
+  column-width: 200px;
   column-gap: 16px;
   max-width: 80vw;
 }

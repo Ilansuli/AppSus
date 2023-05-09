@@ -13,12 +13,11 @@
   cursor: pointer;
   background-color: #f6f8fc;
   margin-inline-end: 14px;
- 
 }
 
 .unread-count {
   -webkit-font-smoothing: auto;
-  font-family: "roboto-medium";
+  font-family: 'roboto-medium';
   font-size: 0.75rem;
   color: #5f6368;
   opacity: 0.8;
@@ -37,14 +36,14 @@
   gap: 98px;
   align-items: center; */
 }
-.nav-status{
+.nav-status {
 }
-.clicked-side-nav span{
+.clicked-side-nav span {
   color: #041e49;
   font-family: roboto-regular;
   font-weight: bold;
 }
-.clicked-side-nav .icon svg{
+.clicked-side-nav .icon svg {
   fill: #041e49;
 }
 .clicked-side-nav {
@@ -56,19 +55,19 @@
 .clicked-side-nav path {
   stroke: #041e49;
 }
-.side-nav-item.important{
+.side-nav-item.important {
   padding-inline-start: 23px;
   gap: 16px;
 }
-.icon-important svg{
+.icon-important svg {
   width: 24px;
   height: 24px;
 }
-.icon-important{
+.icon-important {
   width: 24px;
   height: 24px;
 }
-.compose-btn{
+.compose-btn {
   display: flex;
   align-items: center;
   background-color: #c2e7ff;
@@ -78,14 +77,12 @@
   color: #001d35;
   border-radius: 16px;
   font-family: roboto-regular;
-  font-size: .875rem;
+  font-size: 0.875rem;
   padding-inline-start: 15px;
   margin-block-start: 8px;
   margin-inline-start: 8px;
   margin-block-end: 25px;
-
-
 }
-.compose-btn:hover{
+.compose-btn:hover {
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }

@@ -21,7 +21,7 @@ export default {
         >
        
         <button @click="pin" className="icon pin" v-if="isHover" >
-            <div v-if="note.isPinned"  v-html="getSvg('pinFull')"></div>
+            <div v-if="note.isPinned" data-title="Unpin Note" v-html="getSvg('pinFull')"></div>
             <div v-if="!note.isPinned" data-title="Pin Note" className="icon" v-html="getSvg('pin')"></div>
         </button>
        <Component 

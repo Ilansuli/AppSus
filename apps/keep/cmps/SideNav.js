@@ -5,28 +5,28 @@ export default {
         props: [],
         emits: ['filter'],
         template: `
-  <section class="side-nav">
+  <section class="note-side-nav">
 
-          <section @click="filter('')"  class="side-nav-item inbox" :class= "clickedClass('')">
+          <section @click="filter('')"  class="note-side-nav-item inbox" :class="clickedClass('')">
                   <div class="icon" v-html="getSvg('bulb')"></div>
     <div>
             <span>Notes</span>
         </div>
 </section>
 
-<section class="side-nav-item" @click="filter('NoteTxt')" :class= "clickedClass('NoteTxt')" >
+<section class="note-side-nav-item" @click="filter('NoteTxt')":class="clickedClass('NoteTxt')" >
         <div class="icon" v-html="getSvg('pencil2')"></div>
         <span>Texts</span>
 </section>
-<section  @click="filter('NoteImg')" class="side-nav-item" :class= "clickedClass('NoteImg')">
+<section  @click="filter('NoteImg')" class="note-side-nav-item" :class="clickedClass('NoteImg')">
         <div class="icon" v-html="getSvg('img')"></div>
         <span>Imgs</span>
 </section>
-<section @click="filter('NoteVideo')" class="side-nav-item" :class= "clickedClass('NoteVideo')">
+<section @click="filter('NoteVideo')" class="note-side-nav-item" :class="clickedClass('NoteVideo')">
         <div class="icon" v-html="getSvg('video')"></div>
         <span>Videos</span>
 </section>
-<section  @click="filter('NoteTodos')" class="side-nav-item" :class= "clickedClass('NoteTodos')">
+<section  @click="filter('NoteTodos')" class="note-side-nav-item" :class="clickedClass('NoteTodos')">
         <div class="icon" v-html="getSvg('done')"></div>
         <span>Todos</span>
 </section>
@@ -54,7 +54,7 @@ export default {
                 },
                 clickedClass(type) {
                         if (this.type === type) {
-                                return 'clicked-side-nav'
+                                return 'active'
                         }
                 },
 

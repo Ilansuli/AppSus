@@ -16,10 +16,11 @@ export default {
   template: `
   <!-- <section class="note-app"> -->
     <section class="note-main">
-    <section class="notes-display">
-<sideNav
-@filter="setFilterByType"
-/>
+      <SideNav
+      @filter="setFilterByType"
+      />
+      <section class="notes-display">
+
       <NoteAdd @addNote="addNote"/>
       <RouterView 
             @update="updateNote"

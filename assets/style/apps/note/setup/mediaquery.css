@@ -5,4 +5,13 @@
   .note-add {
     margin-inline-start: 0px;
   }
+  .notes-list {
+    width: 100% !important;
+  }
+  .side-nav span {
+    display: none;
+  }
+  .notes-display {
+    grid-template-columns: 100px 1fr !important;
+  }
 }

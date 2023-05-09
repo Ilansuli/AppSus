@@ -5,16 +5,11 @@
   overflow-x: hidden;
 }
 
-.notes-display .side-nav {
-  grid-column: 1;
-  grid-row: 1/-1;
-  background-color: white;
-}
 .notes-display {
+  margin-inline-start: 80px;
   grid-row: 2;
-  display: grid;
-  grid-template-rows: minmax(170px, fit-content) 1fr 1fr;
-  grid-template-columns: 256px 1fr;
+  display: flex;
+  flex-direction: column;
 }
 .pinnedList-container {
   grid-row: 2;

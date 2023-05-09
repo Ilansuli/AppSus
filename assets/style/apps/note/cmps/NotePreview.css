@@ -1,5 +1,5 @@
 .note-preview {
-  width: 272px;
+  width: 100%;
   box-shadow: inset -1px -1px 0 rgb(0 0 0 / 10%),
     inset 2px 2px 0 rgb(0 0 0 / 7%);
   break-inside: avoid-column;
@@ -16,12 +16,10 @@
 .note-preview:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-.note-preview:hover .pin {
-  opacity: 0.5;
-}
 
 .pin {
   z-index: 1;
+  opacity: 0.5;
   cursor: pointer;
   background-color: transparent;
   position: absolute;
@@ -29,6 +27,9 @@
   right: 0;
   padding: 5px;
   transition: opacity 0.4 ease-in-out;
+}
+.pin svg {
+  height: 32px !important;
 }
 .pin:hover {
   opacity: 1;
