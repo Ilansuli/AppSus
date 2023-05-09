@@ -7,7 +7,7 @@ export default {
     template: `
         <header class="app-header" v-if="!isLogin">
             <section class="first-section">
-                <Logo/>
+             <router-link  to="/"><Logo/></router-link>
             </section>
 
             <section>
@@ -49,7 +49,7 @@ export default {
             event.stopPropagation()
             this.isDropDownMenu = !this.isDropDownMenu
         },
-        closeDropDownMenu(){
+        closeDropDownMenu() {
             this.isDropDownMenu = false
         },
         getSvg(iconName) {

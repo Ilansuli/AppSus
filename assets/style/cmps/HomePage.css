@@ -1,21 +1,22 @@
-.home-page{
-    background-size:cover;
-    background-position:center center;
-    background-repeat:no-repeat;
-    height: 100%;
-    grid-row: 2;
+.home-page {
+  background-image: url('../../img/main/home-page.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+  grid-row: 2;
 }
-.home-page .title{
-    position: absolute;
-    top: 160px;
-    left: 185px;
-    font-size: 89px;
+.home-page .title {
+  position: absolute;
+  top: 160px;
+  left: 185px;
+  font-size: 89px;
 }
 
-.title .just{
-margin-inline-start: 51px;
+.title .just {
+  margin-inline-start: 51px;
 }
-.title .horse{
-    margin-inline-start: 106px;
-    margin-block-start: 10px;
+.title .horse {
+  margin-inline-start: 106px;
+  margin-block-start: 10px;
 }

@@ -1,0 +1,7 @@
+@media (max-width: 800px) {
+  .person {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+}
