@@ -6,6 +6,8 @@ import NoteDetails from './apps/keep/pages/NoteDetails.js'
 
 import EmailIndex from './apps/email/pages/EmailIndex.js'
 import EmailDetails from './apps/email/pages/EmailDetails.js'
+import Login from './cmps/Login.js'
+import SignUp from './cmps/SignUp.js'
 const { createRouter, createWebHashHistory } = VueRouter
 
 const routerOptions = {
@@ -30,7 +32,7 @@ const routerOptions = {
 			]
 		},
 		{
-			path: '/email',
+			path: '/email/',
 			component: EmailIndex,
 			props: true,
 			children: [
@@ -42,7 +44,16 @@ const routerOptions = {
 					path: ':type',
 					component: EmailIndex
 				}
+
 			]
+		},
+		{
+			path:'/login',
+			component: Login,
+		},
+		{
+			path:'/signup',
+			component: SignUp,
 		},
 		// Last fallback if no route was matched:
 		{

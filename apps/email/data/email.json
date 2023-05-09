@@ -1,19 +1,12 @@
 
 [
   {
-    "id": "e11",
+    "id": "edfs1",
     "subject": "Quory CSS",
-    "body": [
-      "Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
-"color-mix() and HD color spaceStyle querieView transitions API supporNot only is that a lot of things, but they’re all pretty exciting things at that!,I’m most excited for style queries, which are a part of the container queries spec, but all of them open up new doors that ranged from “I need a pre-processor for this” to “that was impossible without this new feature”.Of course, one browser supporting a bunch of awesome features isn’t enough to start using them, but many of these were already supported by Safari.But with two browsers supporting something, I do feel comfortable to start making content around those things, so in a way that list is a bit of a preview for things to come in the coming months And of course, even if Firefox was up to date on these as well, it would raise the question of when we can actually use them in production.I think many even now could be used as progressive enhancements.",
-"I’ve used grids masonry layout on my own site for a few years already, as an example.Everything works fine if you are on a browser that doesn’t support it, but it looks better if you’re on one that does",
-"hrome without masonry on left, Firefox with masonry on the rightEventually, we’ll be able to start using features like this more and more, but always do keep an eye on your own site’s analytics to have a general idea of your audience. That’s the best way to know when you can start using some of these fancy new things!🙋‍♂️ What I’ve been up to this week3D tilting card effect with mouse tracking A few weeks ago, I had a thumbnail that had a 3D-looking code block in it, and I sort of felt like making it with CSS.With it being 3D, it sort of left like it would be worth making it follow the mouse around, so I did that too",
-"There are JS libraries out there, like tiltJS, but it’s actually pretty simple to pull off without it When I shared that I was working on that on my YT community feed, people asked if it was possible to track the mouse with CSS-only.The above GIF is using JavaScript, but since several people asked about a CSS-only solution, I figured it was worth exploring.So, I took a look at all of that in this video.The CSS-only solution is a little hacky, but it’s always fun to see how we can do something like that, even if it’s not the most practical thing in the world.The problem with Viewport Unit",
-"Circling back to browser support, you might have heard that Interlop 2023 was recently put out.Interlop is a cross-browser effort to basically make sure everything is working in all browsers, and that it all works the same across the different rendering engines.This does mean progressing on features like the ones mentioned above, but it also means fixing cross-browser irregularities with existing features, including things like flexbox, where all the browsers still have a least a few little things they don’t handle correctly.They do this by putting together automated tests to run in "
-    ],
+    "body": "Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions,\ncolor-mix() and HD color space\nStyle querie\nView transitions API support\nNot only is that a lot of things, but they’re all pretty exciting things at that!,I’m most excited for style queries, which are a part of the container queries spec, but all of them open up new doors that ranged from “I need a pre-processor for this” to “that was impossible without this new feature”.Of course, one browser supporting a bunch of awesome features isn’t enough to start using them, but many of these were already supported by Safari.But with two browsers supporting something, I do feel comfortable to start making content around those things, so in a way that list is a bit of a preview for things to come in the coming months And of course, even if Firefox was up to date on these as well, it would raise the question of when we can actually use them in production.I think many even now could be used as progressive enhancements.,\nI’ve used grids masonry layout on my own site for a few years already, as an example.Everything works fine if you are on a browser that doesn’t support it, but it looks better if you’re on one that does,\nhrome without masonry on left, Firefox with masonry on the rightEventually, we’ll be able to start using features like this more and more, but always do keep an eye on your own site’s analytics to have a general idea of your audience. That’s the best way to know when you can start using some of these fancy new things!🙋‍♂️ What I’ve been up to this week3D tilting card effect with mouse tracking A few weeks ago, I had a thumbnail that had a 3D-looking code block in it, and I sort of felt like making it with CSS.With it being 3D, it sort of left like it would be worth making it follow the mouse around, so I did that too,\nThere are JS libraries out there, like tiltJS, but it’s actually pretty simple to pull off without it When I shared that I was working on that on my YT community feed, people asked if it was possible to track the mouse with CSS-only.The above GIF is using JavaScript, but since several people asked about a CSS-only solution, I figured it was worth exploring.So, I took a look at all of that in this video.The CSS-only solution is a little hacky, but it’s always fun to see how we can do something like that, even if it’s not the most practical thing in the world.The problem with Viewport Unit,\nCircling back to browser support, you might have heard that Interlop 2023 was recently put out.Interlop is a cross-browser effort to basically make sure everything",
     "isStarred": true,
     "status": "inbox",
-    "sentAt": 167766679594,
+    "sentAt": 1600095942371,
     "removedAt": null,
     "from": "momo@momo.com",
     "to": "user@appsus.com"
@@ -21,34 +14,22 @@
   {
     "id": "e102",
     "subject": "Learn to code your own physics-based action game [free 3-hour GameDev course]x",
-    "body": [
-      "Here are this week's five links that are worth your time:/n1. It's 2023 and not only can you play other people's video games –",
-       "you can build games yourself. This freeCodeCamp GameDev course will teach you how to use JavaScript to code your own physics-based action game. You'll learn how to animate game sprites, implement collision detection, and program enemy AI. Along the way, you'll learn some CSS3, vanilla JavaScript, HTML Canvas, and other broadly useful open source tools. (3 hour YouTube course): https://www.freecodecamp.org/news/create-an-animated-physics-game-with-javascript/",
-       "2. What's the simplest way to get started with Python web development? Well, many developers will recommend Flask. You can learn the basics of this light-weight web development framework in just a few hours of study. This Python Web Development course will teach you how to build and deploy a production-ready, database-driven Flask app. (4 hour YouTube course): https://www.freecodecamp.org/news/develop-database-driven-web-apps-with-python-flask-and-mysql/",
-       "3. z-index is easily one of the most confusing properties in all of CSS. It controls how HTML elements appear on the page, and how close they are to your user's eyeballs. This beginner tutorial will teach you about  It will give you a solid mental model. Soon you too will understand how your browser's DOM renders elements on top of one another. (40 minute read): https://www.freecodecamp.org/news/z-index-property-and-stacking-order-css/",
-       "4. What are URIs? What are HTTP Headers? How does DNS work? This HTTP Networking Handbook will teach you many of the fundamentals about how the web works, with lots of helpful illustrations. You can bookmark it to use it as a reference. And freeCodeCamp also published a 4-hour video course to accompany it if you want to go even deeper. (full-length book): https://www.freecodecamp.org/news/http-full-course/"
-
-    ],
+    "body": "Here are this week's five links that are worth your time:\n\n1. It's 2023 and not only can you play other people's video games –\n       you can build games yourself. This freeCodeCamp GameDev course will teach you how to use JavaScript to code your own physics-based action game. You'll learn how to animate game sprites, implement collision detection, and program enemy AI. Along the way, you'll learn some CSS3, vanilla JavaScript, HTML Canvas, and other broadly useful open source tools. (3 hour YouTube course): https://www.freecodecamp.org/news/create-an-animated-physics-game-with-javascript/\n       2. What's the simplest way to get started with Python web development? Well, many developers will recommend Flask. You can learn the basics of this light-weight web development framework in just a few hours of study. This Python Web Development course will teach you how to build and deploy a production-ready, database-driven Flask app. (4 hour YouTube course): https://www.freecodecamp.org/news/develop-database-driven-web-apps-with-python-flask-and-mysql/\n       3. z-index is easily one of the most confusing properties in all of CSS. It controls how HTML elements appear on the page, and how close they are to your user's eyeballs. This beginner tutorial will teach you about  It will give you a solid mental model. Soon you too will understand how your browser's DOM renders elements on top of one another. (40 minute read): https://www.freecodecamp.org/news/z-index-property-and-stacking-order-css/\n       4. What are URIs? What are HTTP Headers? How does DNS work? This HTTP Networking Handbook will teach you many of the fundamentals about how the web works, with lots of helpful illustrations. You can bookmark it to use it as a reference. And freeCodeCamp also published a 4-hour video course to accompany it if you want to go even deeper. (full-length book): https://www.freecodecamp.org/news/http-full-course/",
     "isStarred": true,
     "isRead": true,
     "status": "inbox",
-    "sentAt": 1551133931459,
+    "sentAt": 1528251895410,
     "removedAt": null,
     "from": "ilan@momo.com",
     "to": "me"
   },
   {
-    "id": "101",
+    "id": "412gds",
     "subject": "Important account update",
-    "body": [
-      "Dear valued customer, we hope this message finds you well. As we continue to navigate these challenging times, we wanted to reach out to let you know that we are here for you. Our team is working tirelessly to ensure that our products and services remain accessible and reliable, even in the face of unprecedented global events. We understand that these are uncertain times, but we are committed to providing the same high level of support and service that you have come to expect from us. Thank you for your continued trust and loyalty, and please don't hesitate to reach out if there's anything we can do to assist you during this time.",
-      "Hello and welcome to our monthly newsletter! We have a lot of exciting updates to share with you today, including new product launches, upcoming events, and more. Our team has been hard at work over the past few months, and we can't wait to show you what we've been working on. In today's video, we'll be taking a closer look at our latest software release and how it can benefit your business. We'll also be sharing some tips and tricks for maximizing your productivity and streamlining your workflow. And don't forget to follow us on social media for even more news and updates! Thank you for your continued support, and we look forward to serving you in the months ahead.",
-      "Today is another short day as tomorrow is going to be a big one! In today's video, I talk about the importance of the meta tag for the viewport, because without it, our media queries are pretty much useless! Tomorrow I'll be doing a deep dive into the last challenge that I issued, so if you haven't had a chance to tackle it yet, give it a shot before we dive into the solution! Kevin View Day 17 | The viewport meta tag",
-      "There are a lot of other great ones out there, but I didn’t want to make the list too long and I wanted to include a nice mix of different people who take different approaches to their streams and cover different types of content. 🏁 </newsletter> Speaking of live streaming, I have plans for a rare YouTube live stream this upcoming Tuesday at 10am EDT. I will be back with a weekly stream on Twitch eventually but also will be adding a monthly YT stream too, with this being the first of those. And with that, have an awesome week,"
-    ],
+    "body": "Dear valued customer, we hope this message finds you well. As we continue to navigate these challenging times, we wanted to reach out to let you know that we are here for you. Our team is working tirelessly to ensure that our products and services remain accessible and reliable, even in the face of unprecedented global events. We understand that these are uncertain times, but we are committed to providing the same high level of support and service that you have come to expect from us. Thank you for your continued trust and loyalty, and please don't hesitate to reach out if there's anything we can do to assist you during this time.\n\nHello and welcome to our monthly newsletter! We have a lot of exciting updates to share with you today, including new product launches, upcoming events, and more. Our team has been hard at work over the past few months, and we can't wait to show you what we've been working on. In today's video, we'll be taking a closer look at our latest software release and how it can benefit your business. We'll also be sharing some tips and tricks for maximizing your productivity and streamlining your workflow. And don't forget to follow us on social media for even more news and updates! Thank you for your continued support, and we look forward to serving you in the months ahead.\n\nToday is another short day as tomorrow is going to be a big one! In today's video, I talk about the importance of the meta tag for the viewport, because without it, our media queries are pretty much useless! Tomorrow I'll be doing a deep dive into the last challenge that I issued, so if you haven't had a chance to tackle it yet, give it a shot before we dive into the solution! Kevin View Day 17 | The viewport meta tag\n\nThere are a lot of other great ones out there, but I didn’t want to make the list too long and I wanted to include a nice mix of different people who take different approaches to their streams and cover different types of content. 🏁 </newsletter> Speaking of live streaming, I have plans for a rare YouTube live stream this upcoming Tuesday at 10am EDT. I will be back with a weekly stream on Twitch eventually but also will be adding a monthly YT stream too, with this being the first of those. And with that, have an awesome week,",
     "isStarred": true,
     "status": "important",
-    "sentAt": 167766679594,
+    "sentAt": 1681755942755,
     "removedAt": null,
     "from": "ScrappyKoko@gmail.com",
     "to": "user@appsus.com"
@@ -56,40 +37,28 @@
   {
     "id": "e1202",
     "subject": "My Dream Was To Come To America",
-    "body": [
-      "was hocked to deat you know that we are here for you. Our team is working tirelessly to ensure that our products and services remain accessible and reliable, even in the face of unprecedented global events. We understand that these are uncertain times, but we are committed to providing the same high level of support and service that you have come to expect from us. Thank you for your continued trust and loyalty, and please don't hesitate to reach out if there's anything we can do to assist you during this time.",
-      "Hello and welcome to our monthly newsletter! We have a lot of exciting updates to share with you today, including new product launches, upcoming events, and more. Our team has been hard at work over the past few months, and we can't wait to show you what we've been working on. In today's video, we'll be taking a closer look at our latest software release and how it can benefit your business. We'll also be sharing some tips and tricks for maximizing your productivity and streamlining your workflow. And don't forget to follow us on social media for even more news and updates! Thank you for your continued support, and we look forward to serving you in the months ahead.",
-      "Today is another short day as tomorrow is going to be a big one! In today's video, I talk about the importance of the meta tag for the viewport, because without it, our media queries are pretty much useless! Tomorrow I'll be doing a deep dive into the last challenge that I issued, so if you haven't had a chance to tackle it yet, give it a shot before we dive into the solution! Kevin View Day 17 | The viewport meta tag",
-      "There are a lot of other great ones out there, but I didn’t want to make the list too long and I wanted to include a nice mix of different people who take different approaches to their streams and cover different types of content. 🏁 </newsletter> Speaking of live streaming, I have plans for a rare YouTube live stream this upcoming Tuesday at 10am EDT. I will be back with a weekly stream on Twitch eventually but also will be adding a monthly YT stream too, with this being the first of those. And with that, have an awesome week,"
-    ]
-    ,
+    "body": "",
     "isStarred": true,
     "status": "important",
-    "sentAt": 1551133931459,
+    "sentAt": 1577250857390,
     "removedAt": null,
     "from": "john.doe@example.com",
     "to": "user@appsus.com"
   },
   {
-    "id": "e11",
+    "id": "12sadf",
     "subject": "Your feedback matters to us",
     "body": [
-      "Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
-"color-mix() and HD color spaceStyle querieView transitions API supporNot only is that a lot of things, but they’re all pretty exciting things at that!,I’m most excited for style queries, which are a part of the container queries spec, but all of them open up new doors that ranged from “I need a pre-processor for this” to “that was impossible without this new feature”.Of course, one browser supporting a bunch of awesome features isn’t enough to start using them, but many of these were already supported by Safari.But with two browsers supporting something, I do feel comfortable to start making content around those things, so in a way that list is a bit of a preview for things to come in the coming months And of course, even if Firefox was up to date on these as well, it would raise the question of when we can actually use them in production.I think many even now could be used as progressive enhancements.",
-"I’ve used grids masonry layout on my own site for a few years already, as an example.Everything works fine if you are on a browser that doesn’t support it, but it looks better if you’re on one that does",
-"hrome without masonry on left, Firefox with masonry on the rightEventually, we’ll be able to start using features like this more and more, but always do keep an eye on your own site’s analytics to have a general idea of your audience. That’s the best way to know when you can start using some of these fancy new things!🙋‍♂️ What I’ve been up to this week3D tilting card effect with mouse tracking A few weeks ago, I had a thumbnail that had a 3D-looking code block in it, and I sort of felt like making it with CSS.With it being 3D, it sort of left like it would be worth making it follow the mouse around, so I did that too",
-"There are JS libraries out there, like tiltJS, but it’s actually pretty simple to pull off without it When I shared that I was working on that on my YT community feed, people asked if it was possible to track the mouse with CSS-only.The above GIF is using JavaScript, but since several people asked about a CSS-only solution, I figured it was worth exploring.So, I took a look at all of that in this video.The CSS-only solution is a little hacky, but it’s always fun to see how we can do something like that, even if it’s not the most practical thing in the world.The problem with Viewport Unit",
-"Circling back to browser support, you might have heard that Interlop 2023 was recently put out.Interlop is a cross-browser effort to basically make sure everything is working in all browsers, and that it all works the same across the different rendering engines.This does mean progressing on features like the ones mentioned above, but it also means fixing cross-browser irregularities with existing features, including things like flexbox, where all the browsers still have a least a few little things they don’t handle correctly.They do this by putting together automated tests to run in "
     ],
     "isStarred": true,
     "status": "important",
-    "sentAt": 167766679594,
+    "sentAt": 1647516691373,
     "removedAt": null,
     "from": "Shipoopy@momo.com",
     "to": "user@appsus.com"
   },
   {
-    "id": "e11",
+    "id": "klm12",
     "subject": "Congratulations on your recent purchase    ",
     "body": [
       " and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -101,13 +70,13 @@
     ],
     "isStarred": true,
     "status": "important",
-    "sentAt": 167766679594,
+    "sentAt": 1632138913708,
     "removedAt": null,
     "from": "natanSuli6@momo.com",
     "to": "user@appsus.com"
   },
   {
-    "id": "e11",
+    "id": "jk151",
     "subject": "Hello There My Freind",
     "body": [
       "mix() and HD color pull off without it When I shared that I was working on that spaceStyle querieView transitions API supporNot only is th Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -119,14 +88,14 @@
     ],
     "isStarred": true,
     "status": "important",
-    "sentAt": 167766679594,
+    "sentAt": 1519079746090,
     "removedAt": null,
     "from": "Ibragim2147@appsus.com",
     "to": "momo@momo.com"
   },
   
   {
-    "id": "e11",
+    "id": "51251hh",
     "subject": "Miss you!",
     "body": [
       "Everything works fine if you are on a browser that doesn’t support it, but it loo Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -137,13 +106,13 @@
     ],
     "isStarred": true,
     "status": "important",
-    "sentAt": 167766679594,
+    "sentAt": 1527957589311,
     "removedAt": null,
     "from": "momo@momo.com",
     "to": "YaronBiton@appsus.com"
   },
   {
-    "id": "e11",
+    "id": "mk4532",
     "subject": "Miss you!",
     "body": [
       "Circling back to browser support, you might have heard that Interlop 2023 was recently put out.Interlop is a cross-browser effort to basically make sure everything is working in all browsers,Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -155,13 +124,13 @@
     ],
     "isStarred": true,
     "status": "important",
-    "sentAt": 167766679594,
+    "sentAt": 1555840667590,
     "removedAt": null,
     "from": "LiorDoron@momo.com",
     "to": "user@appsus.com"
   },
   {
-    "id": "e11",
+    "id": "bn1235",
     "subject": "Miss you!",
     "body": [
       "hrome without masonry on left, Firefox with masonry on the rightEventually, we’ll be able toSometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -173,7 +142,7 @@
     ],
     "isStarred": true,
     "status": "important",
-    "sentAt": 167766679594,
+    "sentAt": 1589137562701,
     "removedAt": null,
     "from": "KevinPowell@momo.com",
     "to": "user@appsus.com"
@@ -189,24 +158,21 @@
       "email": "johndoe@example.com"
     },
     "date": "2022-02-28T12:00:00.000Z",
-    "body": "Welcome to the February edition of our monthly newsletter! This month, we're focusing on tips and tricks for boosting productivity and streamlining your workflow. From automating repetitive tasks to staying organized and on track, we've got you covered. In today's video, we'll be sharing some of our favorite productivity hacks and how you can implement them in your daily routine. Plus, we'll be announcing some exciting new updates and features that are coming soon to our platform. As always, thank you for your continued support and feedback. We're here to help you succeed and grow your business, and we look forward to sharing more valuable insights with you in the months ahead!"
+    "body": "Welcome to the February edition of our monthly newsletter! This month, we're focusing on tips and tricks for boosting productivity and streamlining your workflow. From automating repetitive tasks to staying organized and on track, we've got you covered. In today's video, we'll be sharing some of our favorite productivity hacks and how you can implement them in your daily routine. Plus, we'll be announcing some exciting new updates and features that are coming soon to our platform. As always, thank you for your continued support and feedback. We're here to help you succeed and grow your business, and we look forward to sharing more valuable insights with you in the months ahead!",
+    "sentAt": 1544068804846
   },
   {
-    "id": 1,
+    "id": "asdas12",
     "subject": "Hello",
-    "body": [
-      "Hey, how are you doing? It's been a while since we last spoke.",
-      "I hope everything is going well with you. I've been keeping busy with work and other things.",
-      "Let's catch up soon!",
-      "Best regards,"
-    ],
+    "body": "Hey, how are you doing? It's been a while since we last spoke.\n I hope everything is going well with you. I've been keeping busy with work and other things.\nLet's catch up soon!\nBest regards,",
+    "sentAt": 1667678942930,
     "isStarred": false,
     "status": "sent",
     "from": "John Doe <johndoe@example.com>",
     "to": "Jane Smith <janesmith@example.com>"
   },
   {
-    "id": 2,
+    "id": "12gsd",
     "subject": "Meeting Reminder",
     "body": [
       "Just a friendly reminder that we have a meeting scheduled for tomorrow at 10am.",
@@ -214,13 +180,14 @@
       "Thanks!",
       "Best regards,"
     ],
+    "sentAt": 1626162492569,
     "isStarred": false,
     "status": "draft",
     "from": "Bob Johnson <bobjohnson@example.com>",
     "to": "All Staff <staff@example.com>"
   },
   {
-    "id": 3,
+    "id": "12sgarrs",
     "subject": "Job Opportunity",
     "body": [
       "Hello,",
@@ -229,13 +196,14 @@
       "If you're interested, please let me know and I can send you more details.",
       "Best regards,"
     ],
+    "sentAt": 1632294890568,
     "isStarred": false,
     "status": "important",
     "from": "Hiring Manager <hiringmanager@example.com>",
     "to": "John Doe <johndoe@example.com>"
   },
   {
-    "id": 4,
+    "id": "kd90",
     "subject": "Newsletter",
     "body": [
       "Welcome to our monthly newsletter!",
@@ -244,13 +212,14 @@
       "Thanks for reading!",
       "Best regards,"
     ],
+    "sentAt": 1611345119260,
     "isStarred": false,
     "status": "inbox",
     "from": "Newsletter <newsletter@example.com>",
     "to": "All Subscribers <subscribers@example.com>"
   },
   {
-    "id": 5,
+    "id": "1fdsmf",
     "subject": "Request for Information",
     "body": [
       "Dear Sir/Madam,",
@@ -260,13 +229,14 @@
       "Thank you for your time.",
       "Best regards,"
     ],
+    "sentAt": 1535451772262,
     "isStarred": false,
     "status": "important",
     "from": "Jane Smith <janesmith@example.com>",
     "to": "Sales Department <sales@example.com>"
   },
   {
-    "id": 6,
+    "id": "jk150",
     "subject": "Vacation Request",
     "body": [
       "Hello,",
@@ -275,13 +245,14 @@
       "Please let me know if there are any issues with this request.",
       "Thank you for your time."
     ],
+    "sentAt": 1551637193529,
     "isStarred": false,
     "status": "important",
     "from": "Jane Smith <janesmith@example.com>",
     "to": "Sales Department <sales@example.com>"
     },
     {
-      "id": "e11",
+      "id": "df2141",
       "subject": "Quory CSS",
       "body": [
         "Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -292,13 +263,13 @@
       ],
       "isStarred": true,
       "status": "inbox",
-      "sentAt": 167766679594,
+      "sentAt": 1558959195098,
       "removedAt": null,
       "from": "momo@momo.com",
       "to": "user@appsus.com"
     },
     {
-      "id": "e102",
+      "id": "asdas4",
       "subject": "Learn to code your own physics-based action game [free 3-hour GameDev course]x",
       "body": [
   "There are JS libraries out there, like tiltJS, but it’s actually pretty simple to pull off without it When I shared that I was working on that on my YT community feed, people asked if it was possible to track the mouse with CSS-only.The above GIF is using JavaScript, but since several people asked about a CSS-only solution, I figured it was worth exploring.So, I took a look at all of that in this video.The CSS-only solution is a little hacky, but it’s always fun to see how we can do something like that, even if it’s not the most practical thing in the world.The problem with Viewport Unit",
@@ -312,13 +283,13 @@
       "isStarred": true,
       "isRead": true,
       "status": "sent",
-      "sentAt": 1551133931459,
+      "sentAt": 1559953344049,
       "removedAt": null,
       "from": "ilan@momo.com",
       "to": "me"
     },
     {
-      "id": "101",
+      "id": "asl124",
       "subject": "Important account update",
       "body": [
         "Dear valued customer, we hope this message finds you well. As we continue to navigate these challenging times, we wanted to reach out to let you know that we are here for you. Our team is working tirelessly to ensure that our products and services remain accessible and reliable, even in the face of unprecedented global events. We understand that these are uncertain times, but we are committed to providing the same high level of support and service that you have come to expect from us. Thank you for your continued trust and loyalty, and please don't hesitate to reach out if there's anything we can do to assist you during this time.",
@@ -328,30 +299,29 @@
       ],
       "isStarred": true,
       "status": "important",
-      "sentAt": 167766679594,
+      "sentAt": 1559953344049,
       "removedAt": null,
       "from": "ScrappyKoko@gmail.com",
       "to": "user@appsus.com"
     },
     {
-      "id": "e1202",
+      "id": "41gas",
       "subject": "My Dream Was To Come To America",
       "body": [
         "was hocked to deat you know that we are here for you. Our team is working tirelessly to ensure that our products and services remain accessible and reliable, even in the face of unprecedented global events. We understand that these are uncertain times, but we are committed to providing the same high level of support and service that you have come to expect from us. Thank you for your continued trust and loyalty, and please don't hesitate to reach out if there's anything we can do to assist you during this time.",
         "Hello and welcome to our monthly newsletter! We have a lot of exciting updates to share with you today, including new product launches, upcoming events, and more. Our team has been hard at work over the past few months, and we can't wait to show you what we've been working on. In today's video, we'll be taking a closer look at our latest software release and how it can benefit your business. We'll also be sharing some tips and tricks for maximizing your productivity and streamlining your workflow. And don't forget to follow us on social media for even more news and updates! Thank you for your continued support, and we look forward to serving you in the months ahead.",
         "Today is another short day as tomorrow is going to be a big one! In today's video, I talk about the importance of the meta tag for the viewport, because without it, our media queries are pretty much useless! Tomorrow I'll be doing a deep dive into the last challenge that I issued, so if you haven't had a chance to tackle it yet, give it a shot before we dive into the solution! Kevin View Day 17 | The viewport meta tag",
         "There are a lot of other great ones out there, but I didn’t want to make the list too long and I wanted to include a nice mix of different people who take different approaches to their streams and cover different types of content. 🏁 </newsletter> Speaking of live streaming, I have plans for a rare YouTube live stream this upcoming Tuesday at 10am EDT. I will be back with a weekly stream on Twitch eventually but also will be adding a monthly YT stream too, with this being the first of those. And with that, have an awesome week,"
-      ]
-      ,
+      ],
       "isStarred": true,
       "status": "important",
-      "sentAt": 1551133931459,
+      "sentAt": 1623581521017,
       "removedAt": null,
       "from": "john.doe@example.com",
       "to": "user@appsus.com"
     },
     {
-      "id": "e11",
+      "id": "5135kkk",
       "subject": "Your feedback matters to us",
       "body": [
         "Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -363,13 +333,13 @@
       ],
       "isStarred": true,
       "status": "important",
-      "sentAt": 167766679594,
+      "sentAt": 1620254004007,
       "removedAt": null,
       "from": "Shipoopy@momo.com",
       "to": "user@appsus.com"
     },
     {
-      "id": "e11",
+      "id": "512412",
       "subject": "Congratulations on your recent purchase    ",
       "body": [
         " and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -381,13 +351,13 @@
       ],
       "isStarred": true,
       "status": "trash",
-      "sentAt": 167766679594,
+      "sentAt": 1575695197683,
       "removedAt": null,
       "from": "natanSuli6@momo.com",
       "to": "user@appsus.com"
     },
     {
-      "id": "e11",
+      "id": "51ffs1",
       "subject": "Hello There My Freind",
       "body": [
         "mix() and HD color pull off without it When I shared that I was working on that spaceStyle querieView transitions API supporNot only is th Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -399,13 +369,13 @@
       ],
       "isStarred": false,
       "status": "drafts",
-      "sentAt": 167766679594,
+      "sentAt": 1575695197683,
       "removedAt": null,
       "from": "Ibragim2147@appsus.com",
       "to": "momo@momo.com"
     },
     {
-      "id": "e11",
+      "id": "5124fd",
       "subject": "Miss you!",
       "body": [
         "p is a cross-browser effort to basically make sure everything p is a cross-browser effort to basically make sure everythingp is a cross-browser effort to basically make sure everything people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -417,13 +387,13 @@
       ],
       "isStarred": true,
       "status": "inbox",
-      "sentAt": 167766679594,
+      "sentAt": 1611307185704,
       "removedAt": null,
       "from": "ChenTheQueen@appsus.com",
       "to": "momo@momo.com"
     },
     {
-      "id": "e11",
+      "id": "5124gd",
       "subject": "Miss you!",
       "body": [
         "Everything works fine if you are on a browser that doesn’t support it, but it loo Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -435,13 +405,13 @@
       ],
       "isStarred": true,
       "status": "inbox",
-      "sentAt": 167766679594,
+      "sentAt": 1618719919736,
       "removedAt": null,
       "from": "momo@momo.com",
       "to": "YaronBiton@appsus.com"
     },
     {
-      "id": "e11",
+      "id": "asdk51",
       "subject": "Miss you!",
       "body": [
         "Circling back to browser support, you might have heard that Interlop 2023 was recently put out.Interlop is a cross-browser effort to basically make sure everything is working in all browsers,Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -453,13 +423,13 @@
       ],
       "isStarred": true,
       "status": "sent",
-      "sentAt": 167766679594,
+      "sentAt": 1516474943616,
       "removedAt": null,
       "from": "LiorDoron@momo.com",
       "to": "user@appsus.com"
     },
     {
-      "id": 3,
+      "id": "123gds",
       "subject": "Job Opportunity",
       "body": [
         "Hello,",
@@ -468,13 +438,14 @@
         "If you're interested, please let me know and I can send you more details.",
         "Best regards,"
       ],
+      "sentAt": 1604207907403,
       "isStarred": false,
       "status": "inbox",
       "from": "Hiring Manager <hiringmanager@example.com>",
       "to": "John Doe <johndoe@example.com>"
     },
     {
-      "id": 4,
+      "id": "sdf12",
       "subject": "Newsletter",
       "body": [
         "Welcome to our monthly newsletter!",
@@ -483,13 +454,14 @@
         "Thanks for reading!",
         "Best regards,"
       ],
+      "sentAt": 1650569183076,
       "isStarred": false,
       "status": "inbox",
       "from": "Newsletter <newsletter@example.com>",
       "to": "All Subscribers <subscribers@example.com>"
     },
     {
-      "id": 5,
+      "id": "12412ds",
       "subject": "Request for Information",
       "body": [
         "Dear Sir/Madam,",
@@ -499,13 +471,14 @@
         "Thank you for your time.",
         "Best regards,"
       ],
+      "sentAt": 1532048380032,
       "isStarred": false,
       "status": "inbox",
       "from": "Jane Smith <janesmith@example.com>",
       "to": "Sales Department <sales@example.com>"
     },
     {
-      "id": 6,
+      "id": "asd123",
       "subject": "Vacation Request",
       "body": [
         "Hello,",
@@ -514,13 +487,14 @@
         "Please let me know if there are any issues with this request.",
         "Thank you for your time."
       ],
+      "sentAt": 1616832024886,
       "isStarred": false,
       "status": "inbox",
       "from": "Jane Smith <janesmith@example.com>",
       "to": "Sales Department <sales@example.com>"
       },
       {
-        "id": "e11",
+        "id": "mas51",
         "subject": "Quory CSS",
         "body": [
           "Sometimes people ask me if I ever run out of ideas for content, considering I basically only talk about CSS. With my channel going on 7 years now(!) and with almost 600 videos(!!!), it could definitely be a real possibility… if it weren’t for the fact that CSS seems to be exploding of late.With Chrome 111 (currently in Beta), they’ve just added a ton of features, all of which I could make quite a bit of content around!Just for CSS, we’re gettingAdvanced :nth-child selectorsTrigonometric functions",
@@ -532,26 +506,27 @@
         ],
         "isStarred": true,
         "status": "inbox",
-        "sentAt": 167766679594,
+        "sentAt": 1644438020396,
         "removedAt": null,
         "from": "momo@momo.com",
         "to": "user@appsus.com"
       },
       {
-        "id": "1",
+        "id": "nkln123",
         "subject": "Meeting Reminder",
         "body": [
           "Just a reminder that our team meeting is scheduled for tomorrow at 10am.",
           "Please make sure to review the agenda and come prepared with any updates or questions.",
           "Looking forward to seeing you all there!"
         ],
+        "sentAt": 1583573127147,
         "isStarred": false,
         "status": "inbox",
         "from": "John Smith <john.smith@example.com>",
         "to": "Team <team@example.com>"
       },
       {
-        "id": "2",
+        "id": "12312kj",
         "subject": "Project Update",
         "body": [
           "Hey team,",
@@ -561,13 +536,14 @@
           "Best,",
           "Jane"
         ],
+        "sentAt": 1579259357335,
         "isStarred": true,
         "status": "inbox",
         "from": "Jane Doe <jane.doe@example.com>",
         "to": "Team <team@example.com>"
       },
       {
-        "id": "3",
+        "id": "mn21",
         "subject": "Vacation Request",
         "body": [
           "Hi Manager,",
@@ -577,13 +553,14 @@
           "Thanks!",
           "Sarah"
         ],
+        "sentAt": 1579259357335,
         "isStarred": false,
         "status": "inbox",
         "from": "Sarah Johnson <sarah.johnson@example.com>",
         "to": "Manager <manager@example.com>"
       },
       {
-        "id": "4",
+        "id": "knnk12",
         "subject": "New Product Launch",
         "body": [
           "Hey everyone,",
@@ -593,13 +570,14 @@
           "Best,",
           "David"
         ],
+        "sentAt": 1539433806258,
         "isStarred": true,
         "status": "inbox",
         "from": "David Lee <david.lee@example.com>",
         "to": "Team <team@example.com>"
       },
       {
-        "id": "5",
+        "id": "mkljkl41",
         "subject": "Monthly Report",
         "body": [
           "Hi everyone,",
@@ -608,12 +586,10 @@
           "Best,",
           "Michael"
         ],
+        "sentAt": 1562033169314,
         "isStarred": false,
         "status": "inbox",
         "from": "Michael Kim <michael.kim@example.com>",
         "to": "Team <team@example.com>"
       }
-    
-    
-      
 ]

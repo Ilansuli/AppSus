@@ -112,7 +112,7 @@ export default {
 
     sendNote(note) {
       this.$router.push({
-        path: '/email',
+        path: '/email/',
         query: {
           subject: note.info.title,
           body: note.info.txt
