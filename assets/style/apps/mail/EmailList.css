@@ -2,14 +2,15 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding-block: 10px;
+    padding-block-start: 17px;
     background-color: #fff;
-    margin-block: 8px;
+    /* margin-block-end: 60px; */
     border-radius: 16px;
     padding-inline: 16px;
     grid-column: 2;
     grid-row: 1;
     overflow: auto;
-    height: 634px;
+    height: 100vh;
+    padding-block-end: 123px;
 }
 

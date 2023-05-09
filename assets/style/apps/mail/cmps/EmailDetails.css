@@ -9,7 +9,9 @@
     grid-template-columns: 50px 1fr;
     grid-column: 2;
     fill: #001d35;
-    height: 645px;
+    overflow: auto;
+    height: 100vh;
+    padding-block-end: 123px;
 }
 
 .email-details h1{
