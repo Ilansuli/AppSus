@@ -65,13 +65,60 @@ export default {
                                         if (email.isRead) unreadCounter++
                                 })
                                 this.countUnread = unreadCounter
+        components: {},
+        created() {
+                this.status = 'inbox'
+                this.loadCountUnread()
+
+        },
+        data() {
+                return {
+                        status: '',
+                        isStar: false,
+                        countUnread: 0,
+                }
+        },
+        methods: {
+                loadCountUnread() {
+                        setTimeout(() => {
+                                let unreadCounter = 0
+                                this.emails.forEach(email => {
+                                        if (email.isRead) unreadCounter++
+                                })
+                                this.countUnread = unreadCounter
 
                         }, 500)
                 },
                 getSvg(iconName) {
                         return svgService.getMailSvg(iconName)
                 },
+                        }, 500)
+                },
+                getSvg(iconName) {
+                        return svgService.getMailSvg(iconName)
+                },
 
+                filterStatus(status) {
+                        this.status = status
+                        this.$emit('filterStatus', { keyWord: 'status', toUpdate: status })
+                        this.$emit('closeDetails')
+                },
+                filterStarred() {
+                        this.status = 'starred'
+                        this.$emit('filterStarred')
+                        this.$emit('closeDetails')
+                },
+        },
+        computed: {
+                clickedClass(status) {
+                        if (this.filterBy.status === status) {
+                                return 'clicked-side-nav'
+                        }
+                },
+        },
+        watch: {
+
+        }
                 filterStatus(status) {
                         this.status = status
                         this.$emit('filterStatus', { keyWord: 'status', toUpdate: status })

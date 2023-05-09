@@ -1,10 +1,19 @@
 import { emailService } from "../services/emailService.js"
 import { svgService } from "../../../services/svg.service.js"
 import ErrModal from "./ErrModal.js"
+import { svgService } from "../../../services/svg.service.js"
+import ErrModal from "./ErrModal.js"
 export default {
   name: 'Email Compose',
   props: [],
   template: `   
+    <form v-if="composeEmail" @focusout="onFormBlur" ref="form"   class="new-email-form " >
+
+      <header>
+        <h5>New Message</h5>
+        <button class="icon-x close-btn" v-html="getSvg('x')" @click="saveEmail(false)"></button>
+      </header>
+
     <form v-if="composeEmail" @focusout="onFormBlur" ref="form"   class="new-email-form " >
 
       <header>
@@ -28,8 +37,13 @@ export default {
     return {
       isErr: false,
       // isForm: false,
+      isErr: false,
+      // isForm: false,
       composeEmail: null,
     }
+  },
+  mounted() {
+    this.focusInput();
   },
   mounted() {
     this.focusInput();
@@ -82,6 +96,9 @@ export default {
         this.loadComposeEmail()
       }
     },
+  },
+  components: {
+    ErrModal
   },
   components: {
     ErrModal
