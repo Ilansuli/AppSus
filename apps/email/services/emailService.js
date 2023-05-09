@@ -1,7 +1,7 @@
 'use strict'
 
 import { utilService } from '../../../services/util.service.js'
-import emailData from "./../data/email.json" assert { type: "json" };
+import emailData from "../data/email.json" assert { type: "json" };
 import { storageService } from '../../../services/async-storage.service.js'
 
 const EMAIL_KEY = 'emailDB'
@@ -55,16 +55,16 @@ function _createEmails() {
 
 
 function getEmptyEmail() {
-    return{
+    return {
         id: '',
-        subject:'',
+        subject: '',
         isStarred: false,
         status: 'sent',
-        body:'',
+        body: '',
         sentAt: 0,
-        removedAt:null,
-        from:'',
-        to:'',
+        removedAt: null,
+        from: '',
+        to: '',
     }
 }
 const demoData = [

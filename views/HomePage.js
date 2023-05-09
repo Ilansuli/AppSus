@@ -4,13 +4,13 @@ export default {
             <img src="assets/img/main/home-page.jpg" alt="" />
             <div class ="title">
                 <div class="not">
-                    Not
+                    one place
                 </div>
                 <div class="just">
-                    Just
+                    for your
                 </div>
                 <div class="horse">
-                    A Horse
+                    productivity
                 </div>
             </div>
         </section>
