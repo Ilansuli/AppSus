@@ -12,5 +12,6 @@
     overflow: auto;
     height: 100vh;
     padding-block-end: 123px;
+    margin-block-start: 16px;
 }
 
