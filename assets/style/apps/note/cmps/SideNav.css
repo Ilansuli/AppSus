@@ -8,7 +8,7 @@
   height: 100vh;
   font-size: 15px;
 }
-.note-side-nav:hover {
+.note-side-nav:hover {  
   z-index: 2023;
   background-color: white;
   width: 280px;

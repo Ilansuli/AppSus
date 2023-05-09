@@ -13,9 +13,11 @@ export default {
   props: [],
   template: `
   <section class="email-index">
-    <section class ="side-nav">
-      <button class="compose-btn"  @click="createComposeEmail"><div className="icon" v-html="getSvg('compose')"></div>Compose</button>
-      <SideNav :emails="emails" :filterBy="filterBy" @closeDetails ="closeDetails" @filterStarred="filterStarred" @filterStatus="setFilterBy" />
+    <section class="side-nav-placeholder">
+      <section class ="side-nav-container">
+        <button class="compose-btn"  @click="createComposeEmail"><div className="icon" v-html="getSvg('compose')"></div><span class="compose-btn-txt">Compose</span></button>
+        <SideNav :emails="emails" :filterBy="filterBy" @closeDetails ="closeDetails" @filterStarred="filterStarred" @filterStatus="setFilterBy" />
+      </section>
     </section>
     
     

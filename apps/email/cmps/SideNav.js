@@ -7,7 +7,6 @@ export default {
         emits: ['filterStatus', 'filterStarred', 'closeDetails'],
         template: `
 <section class="side-nav">
-
         <section @click="filterStatus('inbox')" class="side-nav-item inbox" :class="{'clicked-side-nav' : filterBy.status === 'inbox'}">
                 <div @click = "loadCountUnread" class="icon" v-html="filterBy.status ==='inbox' ? getSvg('inboxFill') : getSvg('inbox')"></div>
                 <div>
@@ -55,12 +54,13 @@ export default {
                         countUnread: 0,
                 }
         },
+
         methods: {
                 loadCountUnread() {
                         setTimeout(() => {
                                 let unreadCounter = 0
                                 this.emails.forEach(email => {
-                                if(email.isRead) unreadCounter++
+                                        if (email.isRead) unreadCounter++
                                 })
                                 this.countUnread = unreadCounter
                         }, 500)

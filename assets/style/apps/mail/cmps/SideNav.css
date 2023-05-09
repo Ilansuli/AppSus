@@ -1,5 +1,34 @@
-.side-nav {
+.side-nav-placeholder {
   background-color: #f6f8fc;
+  height: 100vh;
+  position: relative;
+}
+
+.side-nav-container {
+  z-index: 10;
+  background-color: hsl(220, 50%, 98%);
+  position: absolute;
+  /* background-color: white;*/
+  /* display: flex; */
+  /* flex-direction: column; */
+  height: 100vh;
+  /* font-size: 15px; */
+}
+.side-nav-container:hover{
+width: 177px;
+padding-inline-end: 13px;
+box-shadow: 0 16px 10px 0 rgba(0, 0, 0, 0.14),
+0 11px 18px 0 rgba(0, 0, 0, 0.12), 0 13px 5px -1px rgba(0, 0, 0, 0.2);
+}
+.side-nav-container:hover .nav-status,
+.unread-count {
+  display: block;
+}
+.compose-btn-txt{
+  display: none;
+}
+.side-nav-container:hover .compose-btn-txt{
+  display: block;
 }
 
 .side-nav-item {
@@ -12,10 +41,10 @@
   border-bottom-right-radius: 30px;
   cursor: pointer;
   background-color: #f6f8fc;
-  margin-inline-end: 14px;
 }
 
 .unread-count {
+  display: none;
   -webkit-font-smoothing: auto;
   font-family: 'roboto-medium';
   font-size: 0.75rem;
@@ -32,47 +61,58 @@
 }
 
 .side-nav-item.inbox div {
-  /* display: flex;
+  display: flex;
   gap: 98px;
-  align-items: center; */
+  align-items: center;
 }
+
 .nav-status {
+  display: none;
 }
+
 .clicked-side-nav span {
   color: #041e49;
   font-family: roboto-regular;
   font-weight: bold;
 }
+
 .clicked-side-nav .icon svg {
   fill: #041e49;
 }
+
 .clicked-side-nav {
   background-color: #d3e3fd;
 }
+
 .clicked-side-nav svg {
   fill: #041e49;
 }
+
 .clicked-side-nav path {
   stroke: #041e49;
 }
+
 .side-nav-item.important {
   padding-inline-start: 23px;
   gap: 16px;
 }
+
 .icon-important svg {
   width: 24px;
   height: 24px;
 }
+
 .icon-important {
   width: 24px;
   height: 24px;
 }
+
 .compose-btn {
+  padding-inline-end: 24px;
   display: flex;
   align-items: center;
   background-color: #c2e7ff;
   padding-block: 16px;
-  padding-inline-end: 24px;
   gap: 16px;
   color: #001d35;
   border-radius: 16px;
@@ -83,6 +123,7 @@
   margin-inline-start: 8px;
   margin-block-end: 25px;
 }
+
 .compose-btn:hover {
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
