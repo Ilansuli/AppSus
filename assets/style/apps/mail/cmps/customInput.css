@@ -1,0 +1,64 @@
+.form-control {
+	position: relative;
+}
+
+.form-label {
+    position: absolute;
+    left: 1rem;
+    top: 0.75rem;
+    padding: 0 0.25rem;
+    color: #5f6368;
+    transition: all 0.3s ease;
+}
+
+.form-input {
+    position: absolute;
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+}
+
+.form-input::placeholder {
+	opacity: 0;
+	visibility: hidden;
+	color: transparent;
+}
+
+.form-input:focus {
+	outline: none;
+	border: 2px solid hsl(225, 100%, 60%);
+}
+
+.form-input:focus ~ .form-label {
+    top: -9px;
+    left: 1rem;
+    z-index: 2;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(225, 100%, 60%);
+    transition: all 0.2s ease-in-out;
+    background-color: #fff;
+}
+
+.form-input:not(:placeholder-shown) ~ .form-label {
+    top: -0.75rem;
+    left: 1rem;
+    z-index: 9;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.contact-column {
+	max-width: 30rem;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+
+.contact-inform {
+    padding: 4rem 2rem 2rem;
+}

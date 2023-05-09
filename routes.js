@@ -30,7 +30,7 @@ const routerOptions = {
 			]
 		},
 		{
-			path: '/email',
+			path: '/email/',
 			component: EmailIndex,
 			props: true,
 			children: [
@@ -42,6 +42,7 @@ const routerOptions = {
 					path: ':type',
 					component: EmailIndex
 				}
+
 			]
 		},
 		// Last fallback if no route was matched:

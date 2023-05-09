@@ -1,59 +1,86 @@
 import { svgService } from "../services/svg.service.js"
+
+import Logo from "./Logo.js"
 import AppFilter from "./AppFilter.js"
 
 export default {
     template: `
-        <header class="app-header">
-            <div class="logo">
-                <div class="a">A</div>
-                <div class="first-p">p</div>
-                <div class="second-p">p</div>
-                <div class="first-s">s</div>
-                <div class="u">u</div>
-                <div class="second-s">s</div>
-            </div>
-                    <AppFilter/>
-            <div class="apps-icon" @click ="toggleHover" v-html="getSvg('apps')"></div> 
+        <header class="app-header" v-if="!isLogin">
+            <section class="first-section">
+                <Logo/>
+            </section>
 
-            <div class="dropdown-content" v-show="isHover">
-                <div class="home-logo">
+            <section>
+                <AppFilter/>
+            </section>
+
+              <section class="third-section">
+                  <div class="apps-icon" @click ="toggleDropDownMenu" v-html="getSvg('apps')"></div>   
+                </section>  
+
+            <ul class="dropdown-content" v-if="isDropDownMenu" ref="dropdown">
+                <li class="home-logo">
                     <router-link to="/"><img  src="assets/img/main/home.png"></router-link>  
-                </div>
-                <div>
+                </li>
+                <li>
                     <router-link to="/about"><img  src="assets/img/main/about.png"></router-link>
-                </div>
+                </li>
 
-                <div class="gmail-logo">
-                    <router-link  to="/email"><img  src="assets/img/main/gmail.png"></router-link>
-                </div>
+                <li class="gmail-logo">
+                    <router-link  to="/email/"><img  src="assets/img/main/gmail.png"></router-link>
+                </li>
 
-                <div class="keep-logo" >
+                <li class="keep-logo" >
                     <router-link to="/note"><img src="https://i.pinimg.com/originals/09/96/92/099692d1d651d51b7caf3040fce0f748.png"></router-link>
-                </div>
+                </li>
 
-            </div>
+            </ul>
         </header>
     `,
     data() {
         return {
-            isHover: false
+            isDropDownMenu: false,
         }
     },
+    created() {
+    },
     methods: {
-        toggleHover() {
-            this.isHover = !this.isHover
+        toggleDropDownMenu(event) {
+            event.stopPropagation()
+            this.isDropDownMenu = !this.isDropDownMenu
+        },
+        closeDropDownMenu(){
+            this.isDropDownMenu = false
         },
         getSvg(iconName) {
             return svgService.getMailSvg(iconName)
+        },
+        // closeOutsideDropdown(event) {
+        //     if (!this.$refs.dropdown.contains(event.target)) {
+        //         this.closeDropdownMenu()
+        //     }
+        // }
+    },
+    // mounted() {
+    //     this.isDropDownMenu = false
+    // },
+    // unmounted() {
+    //     this.isDropDownMenu = true
+    // },
+    watch: {
+        '$route'() {
+            console.log(this.$route);
+            // if(this.$route.path === '/login') this.isLogin = true
         }
     },
     mounted() {
-        this.isHover = false
+        window.addEventListener('click', this.closeDropDownMenu)
     },
-    unmounted() {
-        this.isHover = true
+    beforeUnmount() {
+        window.removeEventListener('click', this.closeDropDownMenu)
     },
     components: {
-        AppFilter
+        AppFilter,
+        Logo
     }
 }

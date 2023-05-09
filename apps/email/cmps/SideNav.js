@@ -2,99 +2,96 @@ import { svgService } from "../../../services/svg.service.js"
 import { emailService } from "../services/emailService.js"
 
 export default {
-  name: 'Side Nav', 
-  props: ['emails'],
-  template: `
-  <section class="side-nav">
+        name: 'Side Nav',
+        props: ['emails', 'filterBy'],
+        emits: ['filterStatus', 'filterStarred', 'closeDetails'],
+        template: `
+<section class="side-nav">
 
-          <section @click="filterStatus('inbox')" data-title="Inbox" class="side-nav-item inbox" :class= "clickedClass('inbox')">
-                  <div @click = "loadCountUnread" class="icon" v-html="getSvg('inbox')"></div>
-    <div>
-            <span>Inbox</span>
-            <span class="unread-count">{{countUnread}}</span>
-        </div>
-</section>
+        <section @click="filterStatus('inbox')" class="side-nav-item inbox" :class="{'clicked-side-nav' : filterBy.status === 'inbox'}">
+                <div @click = "loadCountUnread" class="icon" v-html="filterBy.status ==='inbox' ? getSvg('inboxFill') : getSvg('inbox')"></div>
+                <div>
+                        <span class="nav-status">Inbox</span>
+                        <span class="unread-count">{{countUnread}}</span>
+                </div>
+        </section>
 
-<section class="side-nav-item" @click="filterStarred" @click="clickedStar"  :class= "{'clicked-side-nav': isStar}" >
-        <div class="icon" v-html="getSvg('star')"></div>
-        <span>Starred</span>
-</section>
-<section  @click="filterStatus('important')" class="side-nav-item" :class= "clickedClass('important')">
-        <div class="icon" v-html="getSvg('important')"></div>
-        <span>Important</span>
-</section>
-<section @click="filterStatus('sent')" class="side-nav-item" :class= "clickedClass('sent')">
-        <div class="icon" v-html="getSvg('sent')"></div>
-        <span>Sent</span>
-</section>
-<section  @click="filterStatus('drafts')" class="side-nav-item" :class= "clickedClass('drafts')">
-        <div class="icon" v-html="getSvg('drafts')"></div>
-        <span>Draft</span>
-</section>
-<section  @click="filterStatus('trash')" class="side-nav-item" :class= "clickedClass('trash')">
-        <div class="icon" v-html="getSvg('trash')"></div>
-        <span>Trash</span>
-</section>
+        <section class="side-nav-item" data-title="Starred"   @click="filterStarred"  :class= "{'clicked-side-nav' : status === 'starred'}" >
+                <div class="icon" v-html="filterBy.stars ? getSvg('starFill') : getSvg('star')"></div>
+                <span   class="nav-status">Starred</span>
+        </section>
+
+        <section  @click="filterStatus('important')" data-title="Important" class="side-nav-item important" :class= "{'clicked-side-nav' : filterBy.status === 'important'}">
+                <div class=" icon icon-important" v-html="filterBy.status ==='important' ? getSvg('importantFill') : getSvg('important')"></div>
+                <span class="nav-status">Important</span>
+        </section>
+
+        <section @click="filterStatus('sent')" data-title="Sent" class="side-nav-item" :class= "{'clicked-side-nav' : filterBy.status === 'sent'}">
+                <div class="icon" v-html="filterBy.status ==='sent' ? getSvg('sentFill') : getSvg('sent')"></div>
+                <span class="nav-status">Sent</span>
+        </section>
+
+        <section  @click="filterStatus('drafts')" data-title="Draft" class="side-nav-item" :class= "{'clicked-side-nav' : filterBy.status === 'drafts'}">
+                <div class="icon"v-html="filterBy.status ==='drafts' ? getSvg('draftsFill') : getSvg('drafts')"></div>
+                <span class="nav-status">Draft</span>
+        </section>
+
+        <section  @click="filterStatus('trash')" data-title="Trash" class="side-nav-item" :class= "{'clicked-side-nav' : filterBy.status === 'trash'}">
+                <div class="icon" v-html="getSvg('trash')"></div>
+                <span class="nav-status">Trash</span>
+        </section>
 
 
 </section>
 `,
-components:{},
-created() {
-        this.status = 'inbox'
-        this.loadCountUnread()
-  
-},
-data() {
-    return {
-        status: '',
-        isStar: false,
-        countUnread: 0,
-    }
-  },
-  methods: {
-loadCountUnread(){
-        setTimeout(()=> {
-                   let unreadCounter = 0
-                   this.emails.forEach(email => {
-                   if(email.isRead) unreadCounter++
-                   })
-                this.countUnread = unreadCounter
+        components: {},
+        created() {
+                this.status = 'inbox'
+                this.loadCountUnread()
 
-        },500)
-                  },
-     getSvg(iconName) {
-    return svgService.getMailSvg(iconName)
-  },
+        },
+        data() {
+                return {
+                        status: '',
+                        isStar: false,
+                        countUnread: 0,
+                }
+        },
+        methods: {
+                loadCountUnread() {
+                        setTimeout(() => {
+                                let unreadCounter = 0
+                                this.emails.forEach(email => {
+                                        if (email.isRead) unreadCounter++
+                                })
+                                this.countUnread = unreadCounter
 
-  filterStatus(status){
-        this.isStar = false
-        this.status = status
-        this.$emit('filterStatus', {keyWord: 'status', toUpdate: status})
-        this.$emit('closeDetails')
-  },
-  filterStarred(){
-        // console.log('hey');
-        this.$emit('filterStarred')
-        this.$emit('closeDetails')
+                        }, 500)
+                },
+                getSvg(iconName) {
+                        return svgService.getMailSvg(iconName)
+                },
 
-  },
-  clickedClass(status){
-        if(this.status === status){
-        return 'clicked-side-nav'
+                filterStatus(status) {
+                        this.status = status
+                        this.$emit('filterStatus', { keyWord: 'status', toUpdate: status })
+                        this.$emit('closeDetails')
+                },
+                filterStarred() {
+                        this.status = 'starred'
+                        this.$emit('filterStarred')
+                        this.$emit('closeDetails')
+                },
+        },
+        computed: {
+                clickedClass(status) {
+                        if (this.filterBy.status === status) {
+                                return 'clicked-side-nav'
+                        }
+                },
+        },
+        watch: {
+
         }
-},
-  clickedStar(){
-        this.isStar = true
-        this.status = ''
-  },
-
-},
-
-computed: {
-  },
-  watch:{
-       
-  }
 }
 

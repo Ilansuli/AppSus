@@ -9,6 +9,7 @@
     grid-template-columns: 50px 1fr;
     grid-column: 2;
     fill: #001d35;
+    height: 645px;
 }
 
 .email-details h1{
@@ -50,5 +51,9 @@ font-size: 14px;
 }
 .details-body{
     color: black;
-    height: 400px;
+    background-color: #f9f9f9;
+    padding: 32px;
+}
+.details-body p {
+    white-space: pre-line
 }
