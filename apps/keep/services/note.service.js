@@ -1,7 +1,7 @@
 'use strict'
 
 import { utilService } from '../../../services/util.service.js'
-import noteData from "./../data/note.json" assert { type: "json" };
+import noteData from "../data/note.json" assert { type: "json" };
 import { storageService } from '../../../services/async-storage.service.js'
 
 const NOTE_KEY = 'noteDB'
