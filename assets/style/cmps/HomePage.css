@@ -10,7 +10,8 @@
   position: absolute;
   top: 160px;
   left: 185px;
-  font-size: 89px;
+  font-size: 7vw;
+  transition: 100ms;
 }
 
 .title .just {
@@ -19,4 +20,15 @@
 .title .horse {
   margin-inline-start: 106px;
   margin-block-start: 10px;
+}
+@media (max-width: 1000px){
+  .home-page .title{
+    left: 120px;
+  }
+}
+@media (max-width: 800px){
+  .home-page .title{
+    left: 70px;
+  }
+  
 }
