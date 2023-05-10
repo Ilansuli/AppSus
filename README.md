@@ -11,5 +11,5 @@ The applications were built using Vue.js, a versatile and easy-to-use JavaScript
 
 <div style="display:flex"> 
 <img src="https://res.cloudinary.com/dmmsf57ko/image/upload/v1683720241/Appsus-mobile-notes_nxzrb4.jpg" style="max-width:20%;display:flex;justify-contact:center;" />
-<img src="https://res.cloudinary.com/dmmsf57ko/image/upload/v1683720241/AppSus-mobile-email_u6c6za.jpg" style="width:100%;display:flex;justify-contact:center;" />
+<img src="https://res.cloudinary.com/dmmsf57ko/image/upload/v1683720241/AppSus-mobile-email_u6c6za.jpg" style="max-width:20%;display:flex;justify-contact:center;" />
 </div>
