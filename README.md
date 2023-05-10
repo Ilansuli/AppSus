@@ -6,4 +6,6 @@ The applications were built using Vue.js, a versatile and easy-to-use JavaScript
 
 <p>You can access the deployed application at: https://ilansuli.github.io/AppSus/#/ Thanks for checking it out!</p>
 
-<img src="" width="100%"/>
+<img src="https://res.cloudinary.com/dmmsf57ko/image/upload/v1683720247/AppSus-email_yqs8bs.jpg" width="100%"/>
+<img src="https://res.cloudinary.com/dmmsf57ko/image/upload/v1683720241/AppSus-notes_hjxdvx.jpg" width="100%"/>
+
