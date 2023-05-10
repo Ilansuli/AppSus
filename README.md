@@ -10,6 +10,6 @@ The applications were built using Vue.js, a versatile and easy-to-use JavaScript
 <img src="https://res.cloudinary.com/dmmsf57ko/image/upload/v1683720241/AppSus-notes_hjxdvx.jpg" width="100%"/>
 
 <div style=""> 
-<img src="https://res.cloudinary.com/dmmsf57ko/image/upload/v1683720241/Appsus-mobile-notes_nxzrb4.jpg" align="left" style="max-width:10%;display:flex;justify-contact:center;" />
-<img src="https://res.cloudinary.com/dmmsf57ko/image/upload/v1683720241/AppSus-mobile-email_u6c6za.jpg" align="right" style="max-width:10%;display:flex;justify-contact:center;" />
+<img src="https://res.cloudinary.com/dmmsf57ko/image/upload/v1683721220/Appsus-mobile-notes-removebg-preview_wsgupq.png" align="left" style="max-width:10%;display:flex;justify-contact:center;" />
+<img src="https://res.cloudinary.com/dmmsf57ko/image/upload/v1683721218/AppSus-mobile-email-removebg-preview_nclbra.png" align="right" style="max-width:10%;display:flex;justify-contact:center;" />
 </div>
